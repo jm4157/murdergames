@@ -32,6 +32,8 @@ Traits, Statuses, and Items, collectively called Perks, are defined starting at 
 
 I'm still working on how to add events, but I'll update this when I get it down. 
 
+The events start at line 1521 (update as this changes).
+
 The rules for how event triggers are defined is written starting at line 1293 (make sure to update this as it changes), but are reproduced here for ease of access.
 
 

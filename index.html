@@ -582,7 +582,6 @@ G={
 		new G.perk({name:`inventor`,desc:`Can devise strange machines for various purposes.`});
 		new G.perk({name:`goth`,desc:`Channels the dark energies.`});
 		new G.perk({name:`lunatic`,desc:`Susceptible to gain and lose random perks regularly.`});
-		new G.perk({name:`discorder_member`,desc:`One of the worst people in the world.`});
 		
 		G.glob={type:'status'};
 			G.glob.disable=true;//mark the character as disabled; disabled characters cannot do any actions that don't specifically call for this perk
@@ -591,7 +590,7 @@ G={
 		new G.perk({name:`shell-shocked`,desc:`Has seen too much. May not be of much use for a while.`});
 		new G.perk({name:`dazed`,desc:`Not quite in full control of their faculties. May wander off unpredictably.`});
 		new G.perk({name:`heroic`,desc:`Having a moment of heroism. Resolved and unstoppable.`});
-		new G.perk({name:`terrified`,desc:`Running away from somethig horrifying.`});
+		new G.perk({name:`terrified`,desc:`Running away from something horrifying.`});
 		new G.perk({name:`has killed`,desc:`Caused someone's death.`,disable:false});
 		new G.perk({name:`set trap`,desc:`Laid down some traps that others may get caught in...`,disable:false});
 		
@@ -1521,6 +1520,7 @@ G={
 			
 			//trait-related idling
 			new G.act(1,[''],`[1] [hums a song to [1:themself]|twiddles [1:their] thumbs|thinks about what [1:they] did to end up in DiscOrder|wonders about the future|has a horrible feeling in [1:their] [chest|gut]|stares into the distance].`);
+				new G.act(1,['!nitro'],'[BLUE][1] clicks on a Nitro link! But it leads to [a rickroll | a scam website | nude photographs of Grotle].')
 			new G.act(1,['leader','+ team teamalive:>2'],`[1] [hopes to get everyone out of here|tries to keep a brave face on for everyone's sake].`);
 				new G.act(0.5,['leader','+ leader|devious'],`[1] and [2] get into an argument over who should be in charge.`);
 				new G.act(0.5,['leader !sociopath','+ team teamalive:>2 teamdeaths:0'],`[1] is proud to lead [2].`);
@@ -1563,7 +1563,6 @@ G={
 				new G.act(0.5,['inventor','+ scrappy'],`[1] asks [2] if [2:g|he's|she's|they've] found anything useful.`);
 			new G.act(1,['goth'],`[1] [mopes around uselessly|thinks of a dark, dark poem].`);
 			new G.act(1,['lunatic'],`[1] [isn't sure whether to cry, laugh, or tear [1:their] hair out|is looking particularly erratic today].`);
-			new G.act(1,['discorder_member'],`[1] [wants to check the base camp channel].`);
 			
 			new G.act(1,['survivalist|sociopath alive:1 dead:>0'],`[1] [always knew [1:they]'d be the last to survive|made it out alive, it seems].`);
 			new G.act(1,['devious alive:1 dead:>0'],`[1] is glad [1:they] made it out alive.`);
@@ -1635,11 +1634,11 @@ G={
 			new G.act(itemFindMult*0.01,['!magic_wand'],`[BLUE][1] follows some sparkles and discovers a magic wand!<br>Hopefully it still has some spells left in it...`,p=>{p[1].gain('magic wand');});
 			new G.act(itemFindMult*0.01,['!ancient_scepter'],`[BLUE][1] catches a strange glow in the corner of [1:their] eye and discovers an ancient scepter!<br>Arcane magic courses through [1:their] body as [1:their] fingers touch the carved wood.`,p=>{p[1].gain('ancient scepter');});
 			new G.act(itemFindMult*0.01,['!wish_ring'],`[BLUE][1] was lost in [1:their] thoughts... The next thing [1:g|he knows|she knows|they know], [1:g|he's|she's|they've] found a wish ring.<br>Hopefully [1:they]'ll be responsible with it.`,p=>{p[1].gain('wish ring');});
-			new G.act(itemFindMult*0.01,['!nitro'],`[BLUE][1] clicks on a free Nitro gift, which turns out to not be a scam!`,p=>{p[1].gain('nitro');});
+			new G.act(itemFindMult*0.01,['!nitro'],`[BLUE][1] clicks on a free Nitro gift, which turns out to be real!`,p=>{p[1].gain('nitro');});
 
 			//todo : scrappy, rich, inventor
 			
-			//misc
+			//lunatic shenanigans
 			new G.act(0.1,['lunatic !unstable'],`[RED][1]'s bad brain takes [1:them] to an even stranger place, turning [1:them] even more unstable than before.`,p=>{p[1].gain('unstable');});
 			new G.act(0.1,['lunatic !kind'],`[BLUE][1]'s bad brain somehow turns [1:them] a little kinder...`,p=>{p[1].gain('kind');});
 				new G.act(0.1,['lunatic kind'],`[RED]Kindness seems to leave [1]'s shifting personality.`,p=>{p[1].lose('kind');});
@@ -1651,6 +1650,8 @@ G={
 				new G.act(0.1,['lunatic annoying'],`[BLUE][1] seems to calm down, understanding that they're not that interesting.`,p=>{p[1].lose('annoying');});
 			new G.act(0.05,['lunatic'],`[BLUE][1] calms down for good, no longer subject to the whims of a changing brain.`,p=>{p[1].lose('lunatic');});
 			
+
+			//statuses
 			new G.act(0.5,['unstable !frenzied'],`[RED][[1] finally snaps!|Something inside [1] snaps!]<br>[1] is now frenzied!`,p=>{p[1].gain('frenzied');});
 				new G.act(0.8,['frenzied',''],`[RED]In a fit of frenzy, [1] creeps up on [2] and [snaps [2:their] neck|kills [2:them] dead|slaughters [2:them]|turns [2:them] inside out]!`,p=>{p[1].kill(p[2],`frenzy kill`);});
 				new G.act(1,['frenzied'],`[[1] looks around maniacally, seething.|[1] looks for [1:their] next victim...]`);
@@ -1664,6 +1665,7 @@ G={
 			new G.act(0.2,['shell-shocked|terrified|dazed any'],`[1] snaps out of it!`,p=>{p[1].lose('shell-shocked');p[1].lose('terrified');p[1].lose('dazed');});
 			new G.act(0.1,['shell-shocked !suicidal'],`[RED][1] doesn't want to carry on...<br>[1] is now suicidal.`,p=>{p[1].gain('suicidal');});
 			
+			//bare hand kills
 			var coldBloodKiller='!peaceful|kind|naive';
 			
 			new G.act(0.15,[coldBloodKiller,'- any'],`[RED][1] [ambushes [2]|attacks [2] from behind] and [murders|kills|slaughters|strangles|eviscerates|gets rid of] [2:them]!`,p=>{p[1].kill(p[2],`ambush`);});
@@ -1676,6 +1678,7 @@ G={
 			new G.act(0.15,[coldBloodKiller,'- any','+ leader|kind !survivalist|devious|sociopath'],`[RED][1] attempts to kill [2], but [3] intervenes to protect [2:them]!<br>Unfortunately, [3] dies in the attempt...`,p=>{p[1].kill(p[3],`failed retaliation`);});
 			new G.act(0.05,['!survivalist|devious|sociopath|unstable|lunatic !peaceful|kind deaths:>0','- any'],`[RED][1] really doesn't want to, but [1:g|he finds himself|she finds herself|they find themself] having to get rid of [2].`,p=>{p[1].kill(p[2],`murder`);});
 			
+			//weapon kills
 			new G.act(0.4,[coldBloodKiller+' big_stick','- any'],`[RED][1] bludgeons [2] to death with [1:their] big stick!`,p=>{p[1].kill(p[2],`big stick`);});
 			new G.act(0.4,[coldBloodKiller+' pitchfork','- any'],`[RED][1] lobs [1:their] pitchfork at [2], killing [2:them] instantly!`,p=>{p[1].kill(p[2],`pitchfork`);});
 				new G.act(0.05,[coldBloodKiller+' pitchfork','- any','+ any'],`[RED][1] skewers [2] and [3] with [1:their] pitchfork!`,p=>{p[1].kill(p[2],`pitchfork`);p[1].kill(p[3],`pitchfork`);});
@@ -1712,6 +1715,7 @@ G={
 				new G.act(0.5,[coldBloodKiller+' ancient_scepter','- ancient_scepter !peaceful'],`[RED][1] and [2] have a merciless magic duel with their ancient scepters!<br>Sparks and bolts fly every which way, until both opponents suddenly bulge out and explode in a puff of acrid smoke.`,p=>{p[1].kill(p[2],`magic duel`);p[2].kill(p[1],`magic duel`);});
 				new G.act(0.5,[coldBloodKiller+' !ancient_scepter magic_wand','- ancient_scepter !peaceful'],`[RED][1] challenges [2] to a magic duel with [1:their] magic wand!<br>Unfortunately for [1:them], [2] has an ancient scepter, and after a few colorful puffs and sparks, there's not much left of [1].`,p=>{p[2].kill(p[1],`magic duel`);});
 			
+			//Wishes
 			new G.act(0.2,[coldBloodKiller+' wish_ring','- any'],`[RED][1] wishes [2] would disappear... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...nobody seems to remember [2] ever existed at all.`,p=>{p[1].kill(p[2],`ceased to exist`);});
 			new G.act(0.1,['naive|peaceful|meek wish_ring'],`[RED][1] wishes [1:g|he wasn't|she wasn't|they weren't] here... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...nobody seems to remember [1] ever existed at all.`,p=>{p[1].kill(p[1],`ceased to exist`);});
 			new G.act(0.02,['kind|peaceful wish_ring alive:>1'],`[BLUE][1] wishes people would get along! [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it seems the world has been made a softer place.`,p=>{
@@ -1730,12 +1734,14 @@ G={
 			new G.act(0.4,[coldBloodKiller,'- combat_gear any'],`[1] tries to kill [2], but [2]'s combat gear diverts the blow!`);
 			new G.act(0.4,[coldBloodKiller,'- wizard_robe any'],`[1] tries to kill [2], but [2]'s wizard robe has already carried [2:them] away to safety!`);
 			
+			//Sheep
 			new G.act(0.4,['magic_wand','- !sheep'],`[BLUE]With a flick of [1:their] magic wand, [1] turns [2] into a sheep!`,p=>{p[2].gain('sheep');});
 				new G.act(0.4,['ancient_scepter','- !sheep'],`[BLUE]With a flick of [1:their] ancient scepter, [1] turns [2] into a sheep!`,p=>{p[2].gain('sheep');});
 				new G.act(1,['sheep'],`[1] is a sheep and [grazes peacefully|doesn't do much|baahs softly|glances away, a sad look in [1:their] eyes].`);
 				new G.act(0.1,['sheep'],`[RED][1] is a sheep and [wanders off too far, becoming food for wild beasts|accidentally falls off a cliff while grazing].`,p=>{p[1].die(`sheep accident`);});
 				new G.act(0.1,['!peaceful','sheep'],`[RED][1] decides to put [2] out of [2:their] sheep misery.`,p=>{p[1].kill(p[2],`sheep pity kill`);});
 				new G.act(0.1,['peaceful|kind','sheep'],`[1] gently pets [2], who is a sheep.`);
+				new G.act(0.025,[coldBloodKiller+'sheep','- any'],'[RED][2] underestimates a random sheep, who turns out to be [1] and headbutts [2] to death.',p=>{p[1].kill(p[2],`sheep headbutt`);});
 			
 			new G.act(0.3,['devious|sociopath|lunatic|survivalist','+ annoying'],`[RED][1] can't take it anymore and snaps [2]'s neck.`,p=>{p[1].kill(p[2],`too annoying to live`);});
 			new G.act(0.3,['suicidal'],`[RED][1] can't take it anymore...<br>[1] has taken [1:their] own life.`,p=>{p[1].kill(p[1],`suicide`);});
