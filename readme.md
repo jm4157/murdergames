@@ -36,42 +36,81 @@ The rules for how event triggers are defined is written starting at line 1293 (m
 
 
 > returns one or more people/team who fit the given conditions
+>
 > the "me" parameter specifies which person/team the first condition must match
+>
 > ie. ['shotgun lunatic','- meek'] will return a person with the "shotgun" and "lunatic" perks, and a person who is "meek" and on a different team
+>
 >   syntax :
+>
 >		'perk_name'
+>
 >		    > must have the perk
+>
 >		'!perk_name'
+>
 >			> must not have the perk
+>
 >		'perk_name|other_perk|third_perk'
+>
 >			> must have either of those perks
+>
 >		'!perk_name|other_perk|third_perk'
+>
 >			> must not have any of those perks
+>
 >		'team'
+>
 >			> must be a team (otherwise must be a person)
+>
 >		'members:3' 'members:<3' 'members:>3'
+>
 >			> team must have the specified amount of members
+>
 >		'alive:3' 'alive:<3' 'alive:>3'
+>
 >			> this many people must be alive
+>
 >		'dead:3' 'dead:<3' 'dead:>3'
+>
 >			> this many people must be dead
+>
 >	    'deaths:3' 'deaths:<3' 'deaths:>3'
+>
 >			> this many deaths must have happened
+>
 >		'teamalive:3' 'teamalive:<3' 'teamalive:>3'
+>
 >			> this many in the team must be dead
+>
 >		'teamdeaths:3' 'teamdeaths:<3' 'teamdeaths:>3'
+>
 >			> this many in the team must be dead
+>
 >		'+'
+>
 >			> must be the same team as the previous team/person selected
+>
 >		'-'
+>
 >			> must be a different team
+>
 >		'inTeam'
+>
 >			> must be in a team
+>
 >		'noTeam'
+>
 >			> must not be in a team
+>
 >		'!out'
+>
 >		    > must not have a perk marked .out (dead, sheep, comatose etc)
+>
 >		'!able'
+>
 >			> must have a perk marked .disable (trapped, shell-shocked etc)
+>
 >		'any'
+>
 >			> can be abled or disabled (still doesn't accept out)
