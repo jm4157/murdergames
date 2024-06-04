@@ -10,13 +10,19 @@ In order to use this mod, you need to go to [https://orteil.dashnet.org/murderga
 
 ### Desktop/Laptop Chrome
 
-Open Developer Tools with `Crtl + Shift + I` or from the sidebar. Switch to the "Sources" tab at the top of the window that opens up, and in "Page" subtab navigate to `top/orteil.dashnet.org/murdergames/murdergames/` (there will be two, one of which is empty. Choose the one that has text written in it). In the file viewer, right click and choose "Override Content." If you've never done this before, you'll be asked to choose a folder to store the content in; choose a place that you'll be able to get to again easily. You may want to create a new folder to store this in.
+Open Developer Tools with `Crtl + Shift + I` or from the sidebar. Switch to the "Sources" tab at the top of the window that opens up, and in "Page" subtab navigate to `top/orteil.dashnet.org/murdergames/murdergames/` (there will be two, one of which is empty. Choose the one that has text written in it). In the file viewer, right click and choose "Override Content." 
 
-Open the folder you chose or created and open folders until you find a file called `index.html`. Delete it and replace it with the `index.html` in this github. Refresh the Murder Games page, and then you should be able to play the DiscOrder version of Murder Games.
+If you've never done this before, you'll be asked to choose a folder to store the content in; choose a place that you'll be able to get to again easily. You may want to create a new folder to store this in. Open the folder you chose or created and open folders until you find a file called `index.html`. Delete it and replace it with the `index.html` in this github. Refresh the Murder Games page, and then you should be able to play the DiscOrder version of Murder Games.
+
+If you have done this before, it will automatically direct to the modified `index.html` you downloaded earlier, and you're free to play the game.
+
+### Mobile Chrome
+
+First follow the instructions above to install the mod on your desktop or laptop, then follow [this tutorial](https://developer.chrome.com/docs/devtools/remote-debugging/) to set up remote debugging on your phone. Find the page titled "Murder Games by Orteil" on your desktop/laptop and click "inspect" to open the dev tools. Once you enable "Override Content" like in the desktop/laptop example, you can unplug your phone and the game will be modded until you refresh the page.
 
 ### Others
 
-If you use this mod on a platform not listed, feel free to leave a comment on the process so that I can add it to the document for others.
+If you use this mod on a platform not listed, or find a better way to modify the game, feel free to leave a comment on the process so that I can add it to the document for others.
 
 ## Making your Own Mod
 
@@ -30,11 +36,11 @@ Traits, Statuses, and Items, collectively called Perks, are defined starting at 
 
 ### Adding Events
 
-I'm still working on how to add events, but I'll update this when I get it down. 
+I'll add this later.
 
-The events start at line 1521 (update as this changes).
+The events start at line 1523 (update as this changes).
 
-The rules for how event triggers are defined is written starting at line 1293 (make sure to update this as it changes), but are reproduced here for ease of access.
+The rules for how event triggers are defined is written starting at line 1295 (make sure to update this as it changes), but are reproduced here for ease of access.
 
 
 > returns one or more people/team who fit the given conditions
