@@ -19,6 +19,7 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Added idle events for peaceful players wielding a pitchfork or flamethrower
 - Axes can now cause an enemy to start bleeding out
 - Grenades can now accidentally kill the user
+- Modified it so you can only have one armor at a time.
 
 ### New/Reworked Statuses
 

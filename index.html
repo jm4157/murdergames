@@ -1522,7 +1522,7 @@ G={
 			
 			//trait-related idling
 			new G.act(1,[''],`[1] [hums a song to [1:themself]|twiddles [1:their] thumbs|thinks about what [1:they] did to end up in DiscOrder|wonders about the future|has a horrible feeling in [1:their] [chest|gut]|stares into the distance].`);
-				new G.act(1,['!nitro'],'[BLUE][1] clicks on a Nitro link! But it leads to [a rickroll | a scam website | nude photographs of Grotle].')
+				new G.act(0.03,['!nitro'],'[BLUE][1] clicks on a Nitro link! But it leads to [a rickroll | a scam website | nude photographs of Grotle].')
 			new G.act(1,['leader','+ team teamalive:>2'],`[1] [hopes to get everyone out of here|tries to keep a brave face on for everyone's sake].`);
 				new G.act(0.5,['leader','+ leader|manipulative'],`[1] and [2] get into an argument over who should be in charge.`);
 				new G.act(0.5,['leader !sociopath','+ team teamalive:>2 teamdeaths:0'],`[1] is proud to lead [2].`);
@@ -1621,14 +1621,16 @@ G={
 
 			//finding items
 			var itemFindMult=0.3;
-			new G.act(itemFindMult*0.1,['!leather_scraps'],`[BLUE][1] finds some leather scraps, just enough to patch together some rudimentary clothing.<br>It looks rather caveman-like.`,p=>{p[1].gain('leather scraps');});
-			new G.act(itemFindMult*0.05,['!bikini !survivalist'],`[BLUE][1] finds a lovely bikini and puts it on!<br>It's quite revealing.`,p=>{p[1].gain('bikini');});
-			new G.act(itemFindMult*0.05,['!dapper_suit !survivalist'],`[BLUE][1] finds a dapper suit and puts it on!<br>It's rather fetching.`,p=>{p[1].gain('dapper suit');});
-			new G.act(itemFindMult*0.05,['!knight_armor'],`[BLUE][1] somehow finds a full suit of medieval armor and puts it on!<br>It gleams with a dazzling shine.`,p=>{p[1].gain('knight armor');});
-			new G.act(itemFindMult*0.02,['!combat_gear'],`[BLUE][1] somehow finds a bunch of tactical combat gear and equips it!<br>It provides optimal protection for the whole body, without sacrificing flexibility.`,p=>{p[1].gain('combat gear');});
-			new G.act(itemFindMult*0.01,['!wizard_robe'],`[BLUE][1] disappears for a while and comes back with a wizard robe [1:they] just found...<br>[1:g|He slips|She slips|They slip] it on, scattering sparkles everywhere.`,p=>{p[1].gain('wizard robe');});
-			new G.act(itemFindMult*0.05,['!ornate_plate !survivalist'],`[BLUE][1] sees something gleam off in the distance and goes to check it out.<br>It's a full suit of ornate plate. What luck!`,p=>{p[1].gain('bikini');});
-			
+			var noarmor='!leather_scraps|bikini|dapper_suit|knight_armor|combat_gear|wizard_robe|ornate_plate';
+			new G.act(itemFindMult*0.1,[noarmor],`[BLUE][1] finds some leather scraps, just enough to patch together some rudimentary clothing.<br>It looks rather caveman-like.`,p=>{p[1].gain('leather scraps');});
+			new G.act(itemFindMult*0.05,[noarmor+' !survivalist'],`[BLUE][1] finds a lovely bikini and puts it on!<br>It's quite revealing.`,p=>{p[1].gain('bikini');});
+			new G.act(itemFindMult*0.05,[noarmor+' !survivalist'],`[BLUE][1] finds a dapper suit and puts it on!<br>It's rather fetching.`,p=>{p[1].gain('dapper suit');});
+			new G.act(itemFindMult*0.05,[noarmor],`[BLUE][1] somehow finds a full suit of medieval armor and puts it on!<br>It gleams with a dazzling shine.`,p=>{p[1].gain('knight armor');});
+			new G.act(itemFindMult*0.02,[noarmor],`[BLUE][1] somehow finds a bunch of tactical combat gear and equips it!<br>It provides optimal protection for the whole body, without sacrificing flexibility.`,p=>{p[1].gain('combat gear');});
+			new G.act(itemFindMult*0.01,[noarmor],`[BLUE][1] disappears for a while and comes back with a wizard robe [1:they] just found...<br>[1:g|He slips|She slips|They slip] it on, scattering sparkles everywhere.`,p=>{p[1].gain('wizard robe');});
+			new G.act(itemFindMult*0.05,[noarmor+' !survivalist'],`[BLUE][1] sees something gleam off in the distance and goes to check it out.<br>It's a full suit of ornate plate. What luck!`,p=>{p[1].gain('bikini');});
+			new G.act(itemFindMult*0.05,[noarmor+' survivalist'],`[1] finds [some leather scraps|a dapper suit|a lovely bikini|a suit of ornate plate] in their search for items.<br>Unfortunately it's just useless junk, so they toss it.`);
+
 			new G.act(itemFindMult*0.01,['!big_stick !peaceful'],`[BLUE][1] finds a big stick...<br>Probably comes in handy to bash some skulls.`,p=>{p[1].gain('big stick');});
 			new G.act(itemFindMult*0.01,['!pitchfork !peaceful'],`[BLUE][1] finds a pitchfork, which [1:g|he figures|she figures|they figure] is great for lobbing at enemies.`,p=>{p[1].gain('pitchfork');});
 			new G.act(itemFindMult*0.01,['!sword !peaceful'],`[BLUE][1] finds a sword, shiny and sharp.<br>A rather nice find!`,p=>{p[1].gain('sword');});
@@ -1799,7 +1801,7 @@ G={
 
 			//Ghost
 			new G.act(0.15,['goth','+ dead every !ghost|zombie'],`[BLUE][1] performs a dark ritual to bring [2] back from the dead. It works halfway, as [2] becomes a ghost.`,p=>{p[2].gain('ghost');});
-			new G.act(0.001,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
+			new G.act(0.01,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
 			
 			new G.act(0.5,['!trapped bleeding_out'],`[RED][1] dies from blood loss.`,p=>{p[1].die(`blood loss`);});
 			
