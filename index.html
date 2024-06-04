@@ -1563,8 +1563,8 @@ G={
 			new G.act(1,['rich'],`[1] [feels protected by [1:their] wealth|finds all this below his concern].`);
 			new G.act(1,['goth'],`[1] [mopes around uselessly|thinks of a dark, dark poem].`);
 			new G.act(1,['lunatic'],`[1] [isn't sure whether to cry, laugh, or tear [1:their] hair out|is looking particularly erratic today].`);
-				new G.act(1,['lunatic','+ teamalive:>1'],`[1] [laments [2]’s death.|gives a stirring eulogy for [2].|wishes [2] were still around.] [2] [just smiles and nods|stands there confused|tries to convince [1] [2:g|he's|she's|they're] still alive].`);
-				new G.act(1,['lunatic','+ every dead'],`[1] [engages in conversation|plays a game|makes plans] with [2]. [[2]’s corpse rots agreeably.|[2] can’t respond, as [2:g|he's|she's|they're] dead.|The flies buzzing around [2]’s dead body seem to take notice.]`);
+				new G.act(0.5,['lunatic','+ teamalive:>1'],`[1] [laments [2]'s death.|gives a stirring eulogy for [2].|wishes [2] were still around.] [2] [just smiles and nods|stands there confused|tries to convince [1] [2:g|he's|she's|they're] still alive].`);
+				new G.act(0.5,['lunatic','+ every dead'],`[1] [engages in conversation|plays a game|makes plans] with [2]. [[2]'s corpse rots agreeably.|[2] can't respond, as [2:g|he's|she's|they're] dead.|The flies buzzing around [2]'s dead body seem to take notice.]`);
 			new G.act(1,['heroic'],`[1] is hoping they can save the day.`);
 				new G.act(1,['heroic',`+ naive|peaceful|cute`],`[1] is planning how to protect [2]`);
 
@@ -1631,17 +1631,17 @@ G={
 			new G.act(itemFindMult*0.05,[noarmor+' !survivalist'],`[BLUE][1] sees something gleam off in the distance and goes to check it out.<br>It's a full suit of ornate plate. What luck!`,p=>{p[1].gain('bikini');});
 			new G.act(itemFindMult*0.05,[noarmor+' survivalist'],`[1] finds [some leather scraps|a dapper suit|a lovely bikini|a suit of ornate plate] in their search for items.<br>Unfortunately it's just useless junk, so they toss it.`);
 
-			new G.act(itemFindMult*0.01,['!big_stick !peaceful'],`[BLUE][1] finds a big stick...<br>Probably comes in handy to bash some skulls.`,p=>{p[1].gain('big stick');});
-			new G.act(itemFindMult*0.01,['!pitchfork !peaceful'],`[BLUE][1] finds a pitchfork, which [1:g|he figures|she figures|they figure] is great for lobbing at enemies.`,p=>{p[1].gain('pitchfork');});
-			new G.act(itemFindMult*0.01,['!sword !peaceful'],`[BLUE][1] finds a sword, shiny and sharp.<br>A rather nice find!`,p=>{p[1].gain('sword');});
-			new G.act(itemFindMult*0.01,['!axe !peaceful'],`[BLUE][1] finds an axe, upping [1:their] chances of survival somewhat.`,p=>{p[1].gain('axe');});
-			new G.act(itemFindMult*0.01,['!handgun !peaceful'],`[BLUE][1] finds a handgun, with just enough bullets to be useful.`,p=>{p[1].gain('handgun');});
-			new G.act(itemFindMult*0.01,['!shotgun !peaceful'],`[BLUE][1] finds a shotgun!<br>[1:g|He starts|She starts|They start] thinking about the damage [1:they] can do.`,p=>{p[1].gain('shotgun');});
-			new G.act(itemFindMult*0.01,['!grenade !peaceful'],`[BLUE][1] finds a grenade...<br>Better be careful with that.`,p=>{p[1].gain('grenade');});
-			new G.act(itemFindMult*0.01,['!rocket_launcher !peaceful'],`[BLUE][1] finds a rocket launcher!<br>That's gonna end well.`,p=>{p[1].gain('rocket launcher');});
-			new G.act(itemFindMult*0.01,['!slingshot !peaceful'],`[BLUE][1] finds a slingshot! How quaint...<br>Might be useful in a pinch.`,p=>{p[1].gain('slingshot');});
-			new G.act(itemFindMult*0.01,['!bow !peaceful'],`[BLUE][1] finds a bow and some arrows.<br>It'll take some practice but this can surely come in handy.`,p=>{p[1].gain('bow');});
-			new G.act(itemFindMult*0.01,['!flamethrower !peaceful'],`[BLUE]Are you kidding? [1] just found a flamethrower!<br>See if anyone gets in [1:their] way now!`,p=>{p[1].gain('flamethrower');});
+			new G.act(itemFindMult*0.05,['!big_stick !peaceful'],`[BLUE][1] finds a big stick...<br>Probably comes in handy to bash some skulls.`,p=>{p[1].gain('big stick');});
+			new G.act(itemFindMult*0.05,['!pitchfork !peaceful'],`[BLUE][1] finds a pitchfork, which [1:g|he figures|she figures|they figure] is great for lobbing at enemies.`,p=>{p[1].gain('pitchfork');});
+			new G.act(itemFindMult*0.05,['!sword !peaceful'],`[BLUE][1] finds a sword, shiny and sharp.<br>A rather nice find!`,p=>{p[1].gain('sword');});
+			new G.act(itemFindMult*0.05,['!axe !peaceful'],`[BLUE][1] finds an axe, upping [1:their] chances of survival somewhat.`,p=>{p[1].gain('axe');});
+			new G.act(itemFindMult*0.02,['!handgun !peaceful'],`[BLUE][1] finds a handgun, with just enough bullets to be useful.`,p=>{p[1].gain('handgun');});
+			new G.act(itemFindMult*0.02,['!shotgun !peaceful'],`[BLUE][1] finds a shotgun!<br>[1:g|He starts|She starts|They start] thinking about the damage [1:they] can do.`,p=>{p[1].gain('shotgun');});
+			new G.act(itemFindMult*0.02,['!grenade !peaceful'],`[BLUE][1] finds a grenade...<br>Better be careful with that.`,p=>{p[1].gain('grenade');});
+			new G.act(itemFindMult*0.02,['!rocket_launcher !peaceful'],`[BLUE][1] finds a rocket launcher!<br>That's gonna end well.`,p=>{p[1].gain('rocket launcher');});
+			new G.act(itemFindMult*0.1,['!slingshot !peaceful'],`[BLUE][1] finds a slingshot! How quaint...<br>Might be useful in a pinch.`,p=>{p[1].gain('slingshot');});
+			new G.act(itemFindMult*0.02,['!bow !peaceful'],`[BLUE][1] finds a bow and some arrows.<br>It'll take some practice but this can surely come in handy.`,p=>{p[1].gain('bow');});
+			new G.act(itemFindMult*0.02,['!flamethrower !peaceful'],`[BLUE]Are you kidding? [1] just found a flamethrower!<br>See if anyone gets in [1:their] way now!`,p=>{p[1].gain('flamethrower');});
 			new G.act(itemFindMult*0.01,['!lasergun !peaceful'],`[BLUE]Whoah! [1] just found a lasergun!<br>[1:g|He starts|She starts|They start] swinging it around making "pew pew" sounds, before [1:they] realize [1:they] can just pull the trigger and make those sounds for real.`,p=>{p[1].gain('lasergun');});
 			new G.act(itemFindMult*0.01,['!magic_wand'],`[BLUE][1] follows some sparkles and discovers a magic wand!<br>Hopefully it still has some spells left in it...`,p=>{p[1].gain('magic wand');});
 			new G.act(itemFindMult*0.01,['!ancient_scepter'],`[BLUE][1] catches a strange glow in the corner of [1:their] eye and discovers an ancient scepter!<br>Arcane magic courses through [1:their] body as [1:their] fingers touch the carved wood.`,p=>{p[1].gain('ancient scepter');});
@@ -1684,10 +1684,10 @@ G={
 			new G.act(0.1,['every ghost romantic',`+ every ghost romantic|cute`],`[1] and [2] [share a ghost kiss|hold ethereal hands|take a romantic float under the stars].`);
 			new G.act(0.01,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:g|He|She|They] return as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
 
-			new G.act(0.3,['every zombie'],`Zombie [1] [shambles about aimlessly|cries out for brains|stands still, slack-jawed and drooling].`);
-			new G.act(0.3,['every zombie','+ !sociopath|manipulative kind'],`[2] cries at the sight of the zombified [1].`);
+			new G.act(0.2,['every zombie'],`Zombie [1] [shambles about aimlessly|cries out for brains|stands still, slack-jawed and drooling].`);
+			new G.act(0.2,['every zombie','+ !sociopath|manipulative kind'],`[2] cries at the sight of the zombified [1].`);
 			new G.act(0.1,['every zombie alive:>0','any'],`[RED]The zombified [1] bites [2], transforming [2:them] into another zombie.`,p=>{p[2].gain('dead');p[2].gain('zombie');});
-			new G.act(0.1,['!peaceful|meek','every zombie'],`[RED][1] slays the zombified [2], ridding the world of the monster.`,p=>{p[1].lose('zombie');});
+			new G.act(0.5,['!peaceful|meek','every zombie'],`[RED][1] slays the zombified [2], ridding the world of the monster.`,p=>{p[1].lose('zombie');});
 			
 			//bare hand kills
 			var coldBloodKiller='!peaceful|kind|naive';
@@ -1804,6 +1804,8 @@ G={
 			new G.act(0.01,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
 			
 			new G.act(0.5,['!trapped bleeding_out'],`[RED][1] dies from blood loss.`,p=>{p[1].die(`blood loss`);});
+			new G.act(1,['!trapped bleeding_out'],`[RED][1] is experiencing blood loss and may not survive much longer.`);
+			new G.act(0.2,['!trapped bleeding_out'],`[BLUE][1]'s wounds clot and they are no longer suffering from blood loss.`,p=>{p[1].lose(`bleeding out`);});
 			
 			new G.act(0.5,['sociopath|survivalist|manipulative','+ sociopath|survivalist|manipulative','+'],`[1] and [2] conspire against [3]...`);
 				new G.act(0.2,['sociopath|survivalist|manipulative','+ sociopath|survivalist|manipulative','+'],`[RED]In an act of betrayal, [1] and [2] team up and [murder|eliminate|get rid of] [3]!`,p=>{p[1].kill(p[3],`betrayal`,p[2]);});

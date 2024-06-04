@@ -20,6 +20,8 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Axes can now cause an enemy to start bleeding out
 - Grenades can now accidentally kill the user
 - Modified it so you can only have one armor at a time.
+- Peaceful player's pets can act out and kill enemies
+- Revamped the item rarity system so that not all items have the same chance to appear
 
 ### New/Reworked Statuses
 
@@ -30,4 +32,5 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Ghosts can rarely turn into zombies, which have idle events
 - Zombies can infect living players, turning them into zombies
 - Living players can kill zombies
+- Players now have a chance to survive blood loss
 
