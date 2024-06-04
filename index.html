@@ -1675,12 +1675,12 @@ G={
 			new G.act(0.2,['shell-shocked|terrified|dazed any'],`[1] snaps out of it!`,p=>{p[1].lose('shell-shocked');p[1].lose('terrified');p[1].lose('dazed');});
 			new G.act(0.1,['shell-shocked !suicidal'],`[RED][1] doesn't want to carry on...<br>[1] is now suicidal.`,p=>{p[1].gain('suicidal');});
 
-			new G.act(0.1,['every ghost'],`[[1] floats around as a ghost trying to spook people.|[1] tries to figure out how to move on into the afterlife.|[1] watches the carnage going on around [1:them].]`);
+			new G.act(0.1,['every ghost'],`[[1] floats around as a ghost trying to spook people.|[1] tries to figure out how to move on into the afterlife.|[1] watches the carnage going on around [1:them] as a ghost.]`);
 			new G.act(0.1,['every ghost goth'],`[1] thinks about how cool it is to finally be a ghost.`);
 			new G.act(0.1,['every ghost suicidal'],`[1] laments that even dying wasn't enough to put [1:them] out of their misery.`);
 			new G.act(0.1,['every ghost',`+ every ghost`],`[1] and [2] [chat about how it is to be ghosts|reminisce on their life before becoming ghosts|wish that ghosts could still eat food].`);
 			new G.act(0.1,['every ghost romantic',`+ every ghost romantic|cute`],`[1] and [2] [share a ghost kiss|hold ethereal hands|take a romantic float under the stars].`);
-			new G.act(0.01,['every ghost'],`[BLUE][1] finds [1:their] old body and tries to possess it. [1:g|He|She|They] return as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
+			new G.act(0.01,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:g|He|She|They] return as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
 
 			new G.act(0.3,['every zombie'],`Zombie [1] [shambles about aimlessly|cries out for brains|stands still, slack-jawed and drooling].`);
 			new G.act(0.3,['every zombie','+ !sociopath|manipulative kind'],`[2] cries at the sight of the zombified [1].`);
@@ -1798,8 +1798,8 @@ G={
 				new G.act(0.1,['trapped'],`[BLUE][1] manages to pull [1:themself] out of the trap!`,p=>{p[1].lose('trapped');});
 
 			//Ghost
-			new G.act(0.3,['goth','+ dead every'],`[BLUE][1] performs a dark ritual to bring [2] back from the dead. It works halfway, as [2] becomes a ghost.`,p=>{p[2].gain('ghost');});
-			new G.act(0.05,[`dead every`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
+			new G.act(0.15,['goth','+ dead every !ghost|zombie'],`[BLUE][1] performs a dark ritual to bring [2] back from the dead. It works halfway, as [2] becomes a ghost.`,p=>{p[2].gain('ghost');});
+			new G.act(0.001,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
 			
 			new G.act(0.5,['!trapped bleeding_out'],`[RED][1] dies from blood loss.`,p=>{p[1].die(`blood loss`);});
 			
