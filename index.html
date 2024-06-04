@@ -1773,7 +1773,7 @@ G={
 				new G.act(0.1,['sheep'],`[RED][1] is a sheep and [wanders off too far, becoming food for wild beasts|accidentally falls off a cliff while grazing].`,p=>{p[1].die(`sheep accident`);});
 				new G.act(0.1,['!peaceful','sheep'],`[RED][1] decides to put [2] out of [2:their] sheep misery.`,p=>{p[1].kill(p[2],`sheep pity kill`);});
 				new G.act(0.1,['peaceful|kind','sheep'],`[1] gently pets [2], who is a sheep.`);
-				new G.act(0.05,[coldBloodKiller+'sheep','- any'],'[RED][2] underestimates a random sheep, who turns out to be [1] and headbutts [2] to death.',p=>{p[1].kill(p[2],`sheep headbutt`);});
+				new G.act(0.05,[coldBloodKiller+' sheep','- any'],'[RED][2] underestimates a random sheep, who turns out to be [1] and headbutts [2] to death.',p=>{p[1].kill(p[2],`sheep headbutt`);});
 			
 			//Suicide
 			new G.act(0.3,['manipulative|sociopath|lunatic|survivalist','+ annoying'],`[RED][1] can't take it anymore and snaps [2]'s neck.`,p=>{p[1].kill(p[2],`too annoying to live`);});
