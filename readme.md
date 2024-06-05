@@ -73,16 +73,23 @@ with \_\_masculine\_\_, \_\_feminine\_\_, and \_\_neutral\_\_ replaced with the 
 
 The third type of escape seqeuence is the color sequences. This is one of [RED] or [BLUE] and is placed at the start of the text to set the color of the text box. If neither is used, the text box is the default grey. Typically [RED] is used for events where a player is killed or put into danger, while [BLUE] is used for events where a character gains an item or ends a dangerous condition.
 
+The fourth type of escape sequence is the random selector. By putting multiple phrases inside of brackets separated by a pipe character ( | ), a random option will be selected each time the event appears.
+
 The final escape sequence is \<br\>, which causes everything after it to appear on a new line. You don't want to have any spaces surrounding it.
 
 Example:
 
-    [1] asks [2] if [2:g|he has|she has|they have] any extra berries.<br>It turns out [2] does, and [1:they] take [2:their] sitrus berry.
+    [1] asks [2] if [2:g|he has|she has|they have] any extra berries.<br>It turns out [2] does, and [1:they] take [2:their] [sitrus|oran] berry.
 
-with Mr. Mime (masculine) and Unown (neutral) becomes
+with Mr. Mime (masculine) and Unown (neutral) could become
 
     Mr. Mime asks Unown if they have any extra berries.
     It turns out Unown does, and he takes their sitrus berry.
+
+or 
+
+    Mr. Mime asks Unown if they have any extra berries.
+    It turns out Unown does, and he takes their oran berry.
 
 **\_\_chance\_\_**
 
