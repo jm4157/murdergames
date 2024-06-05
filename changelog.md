@@ -9,8 +9,9 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Renamed "scrappy" to "scavenger" to be more clear how the trait applies
 - Renamed "seductive" to "romantic" as part one of a trait rework
 - Added the heroic trait which has a few idle events
-- Added the prankster trait which has no functionality
+- Added the prankster trait which messes with the items of other players
 - Goths can now revive their teammates as ghosts
+- Rich players now smuggle in a rare item
 
 ### New/Reworked Items
 
@@ -22,6 +23,9 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Modified it so you can only have one armor at a time.
 - Peaceful player's pets can act out and kill enemies
 - Revamped the item rarity system so that not all items have the same chance to appear
+- Added blorb, fairy, mini-griffoth, and winged troupple pets from Shovel Knight Dig
+- Added an egg that can hatch into one of the former
+- Wish revivals can backfire and create zombies
 
 ### New/Reworked Statuses
 
