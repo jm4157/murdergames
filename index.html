@@ -1552,7 +1552,7 @@ G={
 				new G.act(0.5,['naive !leader','+ leader'],`[1] admires [2]'s [leadership|confidence|decisiveness].`);
 				new G.act(0.5,['naive !bulky','+ bulky'],`[1] admires [2]'s [muscles|strength].`);
 				new G.act(0.5,['naive alive:1'],`[1] looks around. Where did everybody go?`);
-				new G.act(0.5,['naive','prankster'],`[1] [runs into a tunnel that turns out to be painted onto a wall|slips on a banana peel]. [2] is [snickering|laughing|guffawing| from behind a [bush|tree|boulder].`);
+				new G.act(0.5,['naive','prankster'],`[1] [runs into a tunnel that turns out to be painted onto a wall|slips on a banana peel]. [2] is [snickering|laughing|guffawing] from behind a [bush|tree|boulder].`);
 			new G.act(1,['manipulative alive:>1'],`[1] [is looking for an easy out|looks for someone dumb enough to believe [1:them]].`);
 				new G.act(0.5,['!manipulative|sociopath','+ manipulative'],`[1] does [1:their] best to avoid [2].`);
 			new G.act(1,['romantic alive:>1'],`[1] [doesn't care much for this place|tries to get others to notice [1:them]].`);
@@ -1675,10 +1675,10 @@ G={
 			new G.act(itemFindMult*0.01,['!wish_ring'],`[BLUE][1] was lost in [1:their] thoughts... The next thing [1:g|he knows|she knows|they know], [1:g|he's|she's|they've] found a wish ring.<br>Hopefully [1:they]'ll be responsible with it.`,p=>{p[1].gain('wish ring');});
 			new G.act(itemFindMult*0.01,['!nitro'],`[BLUE][1] clicks on a free Nitro gift, which turns out to be real!`,p=>{p[1].gain('nitro');});
 			new G.act(itemFindMult*0.02,['!egg|pet_blorb|pet_fairy|pet_mini-griffoth|pet_winged_troupple'],`[BLUE][1] is [digging a ditch|climbing a tree|exploring a cave] when [1:they] find an egg! [1] wonders what it'll hatch into...`,p=>{p[1].gain('egg');});
-				new G.act(0.1,['egg'],`[BLUE][1] finds a goopy nest and sets [1:their] egg down. Within minutes there's a squelching noise as a baby pet blorb is born!`,p=>{p[1].lose('egg');p[1].gain('pet blorb')});
-				new G.act(0.1,['egg'],`[BLUE][1] finds a smoldering nest and sets [1:their] egg down. Within minutes there's a chirping noise as a baby pet mini-griffoth is born!`,p=>{p[1].lose('egg');p[1].gain('pet mini-griffoth')});
-				new G.act(0.1,['egg'],`[BLUE][1] finds a wooden nest and sets [1:their] egg down. Within minutes there's a gurgling noise as a baby pet winged troupple is born!`,p=>{p[1].lose('egg');p[1].gain('pet winged troupple')});
-				new G.act(0.1,['egg !survivalist'],`[BLUE][1] sits down in a grass field. There's a scratching noise, and [1:they] turn around to see [1:they] sat in a grass nest and [1:their] egg has hatched into a baby pet fairy!<br>It's already imprinted on them, so [1:g|he's|she's|they're] stuck with it now.`,p=>{p[1].lose('egg');p[1].gain('pet fairy')});
+				new G.act(0.4,['egg'],`[BLUE][1] finds a goopy nest and sets [1:their] egg down. Within minutes there's a squelching noise as a baby pet blorb is born!`,p=>{p[1].lose('egg');p[1].gain('pet blorb')});
+				new G.act(0.4,['egg'],`[BLUE][1] finds a smoldering nest and sets [1:their] egg down. Within minutes there's a chirping noise as a baby pet mini-griffoth is born!`,p=>{p[1].lose('egg');p[1].gain('pet mini-griffoth')});
+				new G.act(0.4,['egg'],`[BLUE][1] finds a wooden nest and sets [1:their] egg down. Within minutes there's a gurgling noise as a baby pet winged troupple is born!`,p=>{p[1].lose('egg');p[1].gain('pet winged troupple')});
+				new G.act(0.4,['egg !survivalist'],`[BLUE][1] sits down in a grass field. There's a scratching noise, and [1:they] turn around to see [1:they] sat in a grass nest and [1:their] egg has hatched into a baby pet fairy!<br>It's already imprinted on them, so [1:g|he's|she's|they're] stuck with it now.`,p=>{p[1].lose('egg');p[1].gain('pet fairy')});
 
 			//scavenger item looting
 			new G.act(itemFindMult*0.05,['!big_stick !peaceful scavenger','every dead !zombie big_stick'],`[BLUE][1] spots that [2] has a big stick on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('big stick');p[2].lose('big stick');});
@@ -1751,10 +1751,10 @@ G={
 			new G.act(itemFindMult*0.05,['prankster manipulative','+ any egg'],`[RED][1] [sneaks in and steals [2]'s|convinces [2] to loan [2:them] [2:their]] egg before [flushing it down a toilet|throwing it in a river|tossing it off a cliff|feeding it to  [a bear|an alligator|an ostrich|a swarm of moths]`,p=>{p[2].lose('egg');});
 
 			//rich item smuggling
-			new G.act(1,['!lasergun !peaceful !has_smuggled'],`[BLUE][1] looks around carefully before taking out the lasergun [1:they] smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('lasergun');p[1].gain('has smuggled');});
-			new G.act(1,['!magic_wand !has_smuggled'],`[1] looks around carefully before taking out the magic wand [1:they] smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('magic wand');p[1].gain('has smuggled');});
-			new G.act(1,['!ancient_scepter !has_smuggled'],`[1] looks around carefully before taking out the ancient staff [1:they] smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('ancient scepter');p[1].gain('has smuggled');});
-			new G.act(1,['!wish_ring !has_smuggled'],`[1] looks around carefully before taking out the wish ring] [1:they smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('wish ring');p[1].gain('has smuggled');});
+			new G.act(1,['rich !lasergun !peaceful !has_smuggled'],`[BLUE][1] looks around carefully before taking out the lasergun [1:they] smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('lasergun');p[1].gain('has smuggled');});
+			new G.act(1,['rich !magic_wand !has_smuggled'],`[BLUE][1] looks around carefully before taking out the magic wand [1:they] smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('magic wand');p[1].gain('has smuggled');});
+			new G.act(1,['rich !ancient_scepter !has_smuggled'],`[BLUE][1] looks around carefully before taking out the ancient staff [1:they] smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('ancient scepter');p[1].gain('has smuggled');});
+			new G.act(1,['rich !wish_ring !has_smuggled'],`[BLUE][1] looks around carefully before taking out the wish ring [1:they] smuggled [in [1:their] shoe|up [1:their] butt|in an unmarked briefcase].`,p=>{p[1].gain('wish ring');p[1].gain('has smuggled');});
 			
 			//lunatic shenanigans
 			new G.act(0.1,['lunatic !unstable'],`[RED][1]'s bad brain takes [1:them] to an even stranger place, turning [1:them] even more unstable than before.`,p=>{p[1].gain('unstable');});
@@ -1783,12 +1783,12 @@ G={
 			new G.act(0.2,['shell-shocked|terrified|dazed any'],`[1] snaps out of it!`,p=>{p[1].lose('shell-shocked');p[1].lose('terrified');p[1].lose('dazed');});
 			new G.act(0.1,['shell-shocked !suicidal'],`[RED][1] doesn't want to carry on...<br>[1] is now suicidal.`,p=>{p[1].gain('suicidal');});
 
-			new G.act(0.1,['every ghost'],`[[1] floats around as a ghost trying to spook people.|[1] tries to figure out how to move on into the afterlife.|[1] watches the carnage going on around [1:them] as a ghost.]`);
-			new G.act(0.1,['every ghost goth'],`[1] thinks about how cool it is to finally be a ghost.`);
-			new G.act(0.1,['every ghost suicidal'],`[1] laments that even dying wasn't enough to put [1:them] out of their misery.`);
-			new G.act(0.1,['every ghost',`+ every ghost`],`[1] and [2] [chat about how it is to be ghosts|reminisce on their life before becoming ghosts|wish that ghosts could still eat food].`);
-			new G.act(0.1,['every ghost romantic',`+ every ghost romantic|cute`],`[1] and [2] [share a ghost kiss|hold ethereal hands|take a romantic float under the stars].`);
-			new G.act(0.01,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:g|He|She|They] return as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
+			new G.act(0.3,['every ghost'],`[[1] floats around as a ghost trying to spook people.|[1] tries to figure out how to move on into the afterlife.|[1] watches the carnage going on around [1:them] as a ghost.]`);
+			new G.act(0.3,['every ghost goth'],`[1] thinks about how cool it is to finally be a ghost.`);
+			new G.act(0.3,['every ghost suicidal'],`[1] laments that even dying wasn't enough to put [1:them] out of their misery.`);
+			new G.act(0.3,['every ghost',`+ every ghost`],`[1] and [2] [chat about how it is to be ghosts|reminisce on their life before becoming ghosts|wish that ghosts could still eat food].`);
+			new G.act(0.3,['every ghost romantic',`+ every ghost romantic|cute`],`[1] and [2] [share a ghost kiss|hold ethereal hands|take a romantic float under the stars].`);
+			new G.act(0.05,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:g|He|She|They] returns as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
 
 			new G.act(0.2,['every zombie'],`Zombie [1] [shambles about aimlessly|cries out for brains|stands still, slack-jawed and drooling].`);
 			new G.act(0.2,['every zombie','+ !sociopath|manipulative kind'],`[2] cries at the sight of the zombified [1].`);
@@ -1912,7 +1912,7 @@ G={
 				new G.act(0.3,['!manipulative|survivalist peaceful|kind','- trapped any'],`[BLUE][1] feels sorry for [2] and frees [2:them] from the trap.`,p=>{p[2].lose('trapped');});
 				new G.act(0.1,['trapped'],`[BLUE][1] manages to pull [1:themself] out of the trap!`,p=>{p[1].lose('trapped');});
 
-			//ghost
+			//dead summoning
 			new G.act(0.15,['goth','+ dead every !ghost|zombie'],`[BLUE][1] performs a dark ritual to bring [2] back from the dead. It works halfway, as [2] becomes a ghost.`,p=>{p[2].gain('ghost');});
 			new G.act(0.01,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
 			
