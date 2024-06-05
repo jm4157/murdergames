@@ -38,3 +38,18 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Living players can kill zombies
 - Players now have a chance to survive blood loss
 
+
+## 6/5/24
+
+## New/Reworked Traits
+- Folded leader into hero
+- Removed goth and rich entirely
+
+## New/Reworked Items
+- Added a large variety of weapons
+- Removed wolf tiger and turtle pets
+
+## New/Reworked Statuses
+- Fixed ghosts to be able to haunt people
+- Added more ghost interactions
+
