@@ -42,8 +42,10 @@ Curious how this mod differs from the original? Here's a list of all the changes
 ## 6/5/24
 
 ## New/Reworked Traits
-- Folded leader into hero
+- Folded leader into heroic
 - Removed goth and rich entirely
+- Added brash and sneaky
+- Reworked cute, lunatic, heroic, romantic, and manipulative
 
 ## New/Reworked Items
 - Added a large variety of weapons
