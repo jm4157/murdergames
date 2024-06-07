@@ -69,3 +69,5 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Added trowel
 
 ## New/Reworked Statuses
+- Added a system of progressive wounds 
+
