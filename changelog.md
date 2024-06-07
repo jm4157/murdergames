@@ -55,3 +55,17 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Fixed ghosts to be able to haunt people
 - Added more ghost interactions
 
+
+## 6/6/24
+
+## New/Reworked Traits
+- Increased the number of traits that can set traps
+- Added composed
+- Heroic, peaceful, kind, and composed characters can prevent teammate's negative traits
+- Sociopath now kills teammates randomly instead of survivalist
+
+## New/Reworked Items
+- Added peaceful variants of idle weapon dialogues
+- Added trowel
+
+## New/Reworked Statuses
