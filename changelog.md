@@ -76,3 +76,4 @@ Curious how this mod differs from the original? Here's a list of all the changes
 
 ## New/Reworked Statuses
 - Decreased chance of zombies getting killed
+- Ghosts have a chance to self-revive
