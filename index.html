@@ -1560,7 +1560,7 @@ G={
 				new G.act(0.5,['kind|naive|peaceful','+ kind'],`[1] thanks [2] for being there for [1:them].`);
 				new G.act(0.5,['kind','+ cute'],`[1] [can't stop fawning over [2]...|wants to protect [2]!]`);
 				new G.act(0.5,['kind','+ shell-shocked'],`[[1] tries to cheer [2] up, but it's not really working...|[1] is really worried about [2]...|[1] doesn't know how to cheer [2] up...]`);
-			new G.act(1,['lunatic'],`[1] [isn't sure whether to cry, laugh, or tear [1:their] hair out|is looking particularly erratic today].`);
+			new G.act(1,['lunatic'],`[1] [isn't sure whether to cry, laugh, or tear [1:their] hair out|is looking particularly erratic today|is having a [friendly|heated|passionate|drawn out] conversation with Invisible Knight].`);
 				new G.act(0.5,['lunatic','+ teamalive:>1'],`[1] [laments [2]'s death.|gives a stirring eulogy for [2].|wishes [2] were still around.] [2] [just smiles and nods|stands there confused|tries to convince [1] [2:g|he's|she's|they're] still alive].`);
 				new G.act(0.5,['lunatic','+ every dead'],`[1] [engages in conversation|plays a game|makes plans] with [2]. [[2]'s corpse rots agreeably.|[2] can't respond, as [2:g|he's|she's|they're] dead.|The flies buzzing around [2]'s dead body seem to take notice.]`);
 				new G.act(FORCE,['lunatic annoying brash heroic kind manipulative naive peaceful romantic sneaky socipath suicidal unstable !wish_ring'],"[BLUE]Jackpot! [1] has obtained every mental illness and wins a wish ring!",p=>{p[1].gain('wish ring');});
@@ -1802,7 +1802,7 @@ G={
 
 			new G.act(0.01,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
 			new G.act(0.3,['every ghost'],`[[1] floats around as a ghost trying to spook people.|[1] tries to figure out how to move on into the afterlife.|[1] watches the carnage going on around [1:them] as a ghost.]`);
-			new G.act(0.3,['every ghost suicidal'],`[1] laments that even dying wasn't enough to put [1:them] out of their misery.`);
+			new G.act(0.3,['every ghost suicidal'],`[1] laments that even dying wasn't enough to put [1:them] out of [1:their] misery.`);
 			new G.act(0.3,['every ghost',`+ every ghost`],`[1] and [2] [chat about how it is to be ghosts|reminisce on their life before becoming ghosts|wish that ghosts could still eat food].`);
 			new G.act(0.3,['every ghost kind|peaceful|naive',`- every ghost kind|peaceful|naive`],`[1] and [2] [chat about how it is to be ghosts|reminisce on their life before becoming ghosts|wish that ghosts could still eat food].`);
 			new G.act(0.3,['every ghost !kind|peaceful|naive',`- every ghost !kind|peaceful|naive`],`Despite both being ghosts, [1] and [2] [argue over whose team is better|still try to duel|can't reconcile their differences].`);
