@@ -41,39 +41,44 @@ Curious how this mod differs from the original? Here's a list of all the changes
 
 ## 6/5/24
 
-## New/Reworked Traits
+### New/Reworked Traits
 - Folded leader into heroic
 - Removed goth and rich entirely
 - Added brash and sneaky
 - Reworked cute, lunatic, heroic, romantic, and manipulative
 
-## New/Reworked Items
+### New/Reworked Items
 - Added a large variety of weapons
 - Removed wolf tiger and turtle pets
 
-## New/Reworked Statuses
+### New/Reworked Statuses
 - Fixed ghosts to be able to haunt people
 - Added more ghost interactions
 
 
 ## 6/6/24
 
-## New/Reworked Traits
+### New/Reworked Traits
 - Increased the number of traits that can set traps
 - Added composed
 - Heroic, peaceful, kind, and composed characters can prevent teammate's negative traits
 - Sociopath now kills teammates randomly instead of survivalist
 
-## New/Reworked Items
+### New/Reworked Items
 - Added peaceful variants of idle weapon dialogues
 - Added trowel
 
 ## 6/8/24
 
-## New/Reworked Traits
+### New/Reworked Traits
 - Folded peaceful into kind
 - Folded meek into naive
 
-## New/Reworked Statuses
+### New/Reworked Statuses
 - Decreased chance of zombies getting killed
 - Ghosts have a chance to self-revive
+
+## 6/9/24
+
+### New/Reworked Mechanics
+- Overhauled the game to focus on wounding players before killing them.
