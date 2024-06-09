@@ -68,6 +68,12 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Added peaceful variants of idle weapon dialogues
 - Added trowel
 
-## New/Reworked Statuses
-- Added a system of progressive wounds 
+## 6/8/24
 
+## New/Reworked Traits
+- Folded peaceful into kind
+- Folded meek into naive
+
+## New/Reworked Statuses
+- Decreased chance of zombies getting killed
+- Ghosts have a chance to self-revive
