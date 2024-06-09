@@ -1780,6 +1780,9 @@ G={
 				new G.act(0.1,['lunatic unstable'],`[BLUE][1] needs some stability in their life.`,p=>{p[1].lose('unstable');});
 			new G.act(0.05,['lunatic'],`[BLUE][1] calms down for good, no longer subject to the whims of a changing brain.`,p=>{p[1].lose('lunatic');});
 
+			//final teammate beserk
+			new G.act(0.7,['kind|naive','+ team teamalive:1'],`[RED][1] [feels horrible for letting|can't believe [1:they] stood by and watched] everyone on [2] die.<br>[1] [has snapped|goes beserk|is finally prepared to kill]!`,p=>{p[1].lose('kind');p[1].lose('naive');p[1].gain('unstable');});
+
 			//statuses
 			new G.act(0.5,['unstable !frenzied'],`[RED][[1] finally snaps!|Something inside [1] snaps!]<br>[1] is now frenzied!`,p=>{p[1].gain('frenzied');});
 				new G.act(0.8,['frenzied',''],`[RED]In a fit of frenzy, [1] creeps up on [2] and [snaps [2:their] neck|kills [2:them] dead|slaughters [2:them]|turns [2:them] inside out]!`,p=>{p[1].kill(p[2],`frenzy kill`);});
