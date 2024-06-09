@@ -1534,7 +1534,8 @@ G={
 			
 			//trait-related idling
 			new G.act(1,[''],`[1] [hums a song to [1:themself]|twiddles [1:their] thumbs|thinks about what [1:they] did to end up in DiscOrder|wonders about the future|has a horrible feeling in [1:their] [chest|gut]|stares into the distance].`);
-				new G.act(0.03,['!nitro'],'[BLUE][1] clicks on a Nitro link! But it leads to [a rickroll|a scam website|nude photographs of Grotle].')
+				new G.act(0.03,['!nitro !survivalist'],'[BLUE][1] clicks on a Nitro link! But it leads to [a rickroll|a scam website|nude photographs of Grotle].')
+				new G.act(0.03,['!nitro survivalist'],`[1] sees a Nitro link but isn't stupid enough to click it.`)
 				new G.act(1,['!survivalist|sociopath|manipulative alive:1 dead:>0'],`[Dead... they're all dead...|[1] stares into the distance... Was it really worth it?|[1] survived... but at what price?]`);
 				new G.act(1,['alive:1 dead:0'],`[1] is all by [1:themself].`);
 				new G.act(1,['alive:1'],`[1] [screams at nobody in particular|hums to [1:themself]|wishes [1:they] had someone to talk to|].`);
@@ -1684,10 +1685,10 @@ G={
 			new G.act(itemFindMult*0.02,[noarmor],`[BLUE][1] somehow finds a bunch of tactical combat gear and equips it!<br>It provides optimal protection for the whole body, without sacrificing flexibility.`,p=>{p[1].gain('combat gear');});
 			new G.act(itemFindMult*0.01,[noarmor],`[BLUE][1] disappears for a while and comes back with a wizard robe [1:they] just found...<br>[1:g|He slips|She slips|They slip] it on, scattering sparkles everywhere.`,p=>{p[1].gain('wizard robe');});
 			new G.act(itemFindMult*0.05,[noarmor+' !survivalist'],`[BLUE][1] sees something gleam off in the distance and goes to check it out.<br>It's a full suit of ornate plate. What luck!`,p=>{p[1].gain('bikini');});
-			new G.act(itemFindMult*0.05,[noarmor+' survivalist'],`[1] finds [some leather scraps|a dapper suit|a lovely bikini|a suit of ornate plate] in their search for items.<br>Unfortunately it's just useless junk, so they toss it.`);
+			new G.act(itemFindMult*0.05,[noarmor+' survivalist'],`[1] finds [some leather scraps|a dapper suit|a lovely bikini|a suit of ornate plate|a slingshot|a trowel] in their search for items.<br>Unfortunately it's just useless junk, so they toss it.`);
 
-			new G.act(itemFindMult*0.1,['!slingshot'],`[BLUE][1] finds a slingshot! How quaint...<br>Might be useful in a pinch.`,p=>{p[1].gain('slingshot');});
-			new G.act(itemFindMult*0.1,['!trowel'],`[BLUE][1] enters a greenhouse and helps out the gardener for a while. In return, [1:g|he gets|she gets|they get] to keep a trowel.`,p=>{p[1].gain('trowel');});
+			new G.act(itemFindMult*0.1,['!slingshot !survivalist'],`[BLUE][1] finds a slingshot! How quaint...<br>Might be useful in a pinch.`,p=>{p[1].gain('slingshot');});
+			new G.act(itemFindMult*0.1,['!trowel !survivalist'],`[BLUE][1] enters a greenhouse and helps out the gardener for a while. In return, [1:g|he gets|she gets|they get] to keep a trowel.`,p=>{p[1].gain('trowel');});
 			new G.act(itemFindMult*0.05,['!big_stick'],`[BLUE][1] finds a big stick...<br>Probably comes in handy to bash some skulls.`,p=>{p[1].gain('big stick');});
 			new G.act(itemFindMult*0.05,['!pitchfork'],`[BLUE][1] finds a pitchfork, which [1:g|he figures|she figures|they figure] is great for lobbing at enemies.`,p=>{p[1].gain('pitchfork');});
 			new G.act(itemFindMult*0.05,['!sword'],`[BLUE][1] finds a sword, shiny and sharp.<br>A rather nice find!`,p=>{p[1].gain('sword');});
@@ -1707,15 +1708,16 @@ G={
 			new G.act(itemFindMult*0.02,['!bow'],`[BLUE][1] finds a bow and some arrows.<br>It'll take some practice but this can surely come in handy.`,p=>{p[1].gain('bow');});
 			new G.act(itemFindMult*0.02,['!flamethrower'],`[BLUE]Are you kidding? [1] just found a flamethrower!<br>See if anyone gets in [1:their] way now!`,p=>{p[1].gain('flamethrower');});
 			new G.act(itemFindMult*0.02,['!egg|pet_blorb|pet_fairy|pet_mini-griffoth|pet_winged_troupple'],`[BLUE][1] is [digging a ditch|climbing a tree|exploring a cave] when [1:they] find an egg! [1] wonders what it'll hatch into...`,p=>{p[1].gain('egg');});
-				new G.act(0.4,['egg'],`[BLUE][1] finds a goopy nest and sets [1:their] egg down. Within minutes there's a squelching noise as a baby pet blorb is born!`,p=>{p[1].lose('egg');p[1].gain('pet blorb')});
-				new G.act(0.4,['egg'],`[BLUE][1] finds a smoldering nest and sets [1:their] egg down. Within minutes there's a chirping noise as a baby pet mini-griffoth is born!`,p=>{p[1].lose('egg');p[1].gain('pet mini-griffoth')});
-				new G.act(0.4,['egg'],`[BLUE][1] finds a wooden nest and sets [1:their] egg down. Within minutes there's a gurgling noise as a baby pet winged troupple is born!`,p=>{p[1].lose('egg');p[1].gain('pet winged troupple')});
-				new G.act(0.4,['egg !survivalist'],`[BLUE][1] sits down in a grass field. There's a scratching noise, and [1:they] turn around to see [1:they] sat in a grass nest and [1:their] egg has hatched into a baby pet fairy!<br>It's already imprinted on them, so [1:g|he's|she's|they're] stuck with it now.`,p=>{p[1].lose('egg');p[1].gain('pet fairy')});
+				new G.act(0.6,['egg'],`[BLUE][1] finds a goopy nest and sets [1:their] egg down. Within minutes there's a squelching noise as a baby pet blorb is born!`,p=>{p[1].lose('egg');p[1].gain('pet blorb')});
+				new G.act(0.6,['egg'],`[BLUE][1] finds a smoldering nest and sets [1:their] egg down. Within minutes there's a chirping noise as a baby pet mini-griffoth is born!`,p=>{p[1].lose('egg');p[1].gain('pet mini-griffoth')});
+				new G.act(0.6,['egg'],`[BLUE][1] finds a wooden nest and sets [1:their] egg down. Within minutes there's a gurgling noise as a baby pet winged troupple is born!`,p=>{p[1].lose('egg');p[1].gain('pet winged troupple')});
+				new G.act(0.6,['egg !survivalist'],`[BLUE][1] sits down in a grass field. There's a scratching noise, and [1:they] turn around to see [1:they] sat in a grass nest and [1:their] egg has hatched into a baby pet fairy!<br>It's already imprinted on them, so [1:g|he's|she's|they're] stuck with it now.`,p=>{p[1].lose('egg');p[1].gain('pet fairy')});
+				new G.act(0.6,['egg survivalist'],`[1] spots a grass nest hidden in a field and hears scratching coming from [1:their] egg. Better move on quick, wouldn't want to deal with owning a fairy.`);
 			new G.act(itemFindMult*0.01,['!lasergun'],`[BLUE]Whoah! [1] just found a lasergun!<br>[1:g|He starts|She starts|They start] swinging it around making "pew pew" sounds, before [1:they] realize [1:they] can just pull the trigger and make those sounds for real.`,p=>{p[1].gain('lasergun');});
 			new G.act(itemFindMult*0.01,['!magic_wand'],`[BLUE][1] follows some sparkles and discovers a magic wand!<br>Hopefully it still has some spells left in it...`,p=>{p[1].gain('magic wand');});
 			new G.act(itemFindMult*0.01,['!ancient_scepter'],`[BLUE][1] catches a strange glow in the corner of [1:their] eye and discovers an ancient scepter!<br>Arcane magic courses through [1:their] body as [1:their] fingers touch the carved wood.`,p=>{p[1].gain('ancient scepter');});
 			new G.act(itemFindMult*0.01,['!wish_ring'],`[BLUE][1] was lost in [1:their] thoughts... The next thing [1:g|he knows|she knows|they know], [1:g|he's|she's|they've] found a wish ring.<br>Hopefully [1:they]'ll be responsible with it.`,p=>{p[1].gain('wish ring');});
-			new G.act(itemFindMult*0.01,['!nitro'],`[BLUE][1] clicks on a free Nitro gift, which turns out to be real!`,p=>{p[1].gain('nitro');});
+			new G.act(itemFindMult*0.01,['!nitro !survivalist'],`[BLUE][1] clicks on a free Nitro gift, which turns out to be real!`,p=>{p[1].gain('nitro');});
 
 			//scavenger item looting
 			new G.act(itemFindMult*0.1,['!big_stick scavenger','every dead !zombie big_stick'],`[BLUE][1] spots that [2] has a big stick on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('big stick');p[2].lose('big stick');});
@@ -1750,10 +1752,12 @@ G={
 				p[2].lose('big_stick');p[2].lose('pitchfork');p[2].lose('sword');p[2].lose('axe');p[2].lose('handgun');p[2].lose('shotgun');p[2].lose('grenade');p[2].lose('rocket launcher');p[2].lose('slingshot');p[2].lose('bow');p[2].lose('flamethrower');p[2].lose('lasergun');p[2].lose('magic wand');p[2].lose('ancient scepter');p[2].lose('wish ring');p[2].lose('nitro');
 				p[2].lose('egg');p[2].lose('spear');p[2].lose('knives');p[2].lose('brass knuckles');p[2].lose('shield');p[2].lose('mallet');p[2].lose('crossbow');p[2].lose('shears');p[2].lose('black belt');p[2].lose('trowel');
 			});
+			new G.act(0.1,['sneaky','- survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [camp|encampment|base] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight: Shovel of Hope]] in an effort to steal [2:their] stuff, but [2] has it [locked away|under guard|booby trapped].`);
 			new G.act(0.1,['sneaky annoying','+ any !survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [cabin|quarters|room] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight: Shovel of Hope]] and steals all of [2:their] stuff before [throwing it in the river|tossing it into an active volcano|hiding it in a chasm|feeding it to [a bear|an ostrich|an alligator]]'. [1] finds this hilarious, but [2] does not...`,p=>{
 				p[2].lose('big_stick');p[2].lose('pitchfork');p[2].lose('sword');p[2].lose('axe');p[2].lose('handgun');p[2].lose('shotgun');p[2].lose('grenade');p[2].lose('rocket launcher');p[2].lose('slingshot');p[2].lose('bow');p[2].lose('flamethrower');p[2].lose('lasergun');p[2].lose('magic wand');p[2].lose('ancient scepter');p[2].lose('wish ring');p[2].lose('nitro');
 				p[2].lose('egg');p[2].lose('spear');p[2].lose('knives');p[2].lose('brass knuckles');p[2].lose('shield');p[2].lose('mallet');p[2].lose('crossbow');p[2].lose('shears');p[2].lose('black belt');p[2].lose('trowel');
 			});
+			new G.act(0.1,['sneaky','- survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [camp|encampment|base] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight: Shovel of Hope]] in an effort to prank [2], but [2:g|he has|she has|they have] all their stuff [locked away|under guard|booby trapped].`);
 
 			//lunatic shenanigans
 			new G.act(0.1,['lunatic !annoying'],`[RED][1]'s bad brain turns [1:them] into an absolute pain to deal with.`,p=>{p[1].gain('annoying');});
@@ -1906,7 +1910,7 @@ G={
 			new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring','+ dead'],`[RED][1] wishes [1:they] could see [2] one last time... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it's a nightmare! [2] was transformed into a zombie!`,p=>{p[2].gain('zombie');});
 			new G.act(0.2,['wish_ring'],`[1] wishes for [a cheeseburger|a nice hunk of cheese|a garden salad|some grilled fish|a delicious steak|a tall glass of milk|some cookies|a birthday cake|some trail mix|a popsicle|some pizza|a chicken dinner|some fried chicken|some yogurt|a really cool shirt|a new hat|a bag of chips|some candy|some marshmallows|some comic books|a rubber ducky]...<br>[1:g|His|Her|Their] wish ring shimmers for a second, and [1:their] wish materializes in front of [1:them].`);
 			new G.act(0.1,['wish_ring'],`[1] wishes for [a longer nose|a shorter nose|bigger ears|really cool facial hair|really nice eyebrows|an interesting accent]...<br>[1:g|His|Her|Their] wish ring shimmers for a second before answering [1:their] wish.`);
-			new G.act(0.1,['!survivalist wish_ring','+'],`[1] wishes for [2] to have [a longer nose|a shorter nose|bigger ears|really cool facial hair|really nice eyebrows|an interesting accent]...<br>Much to [2]'s surprise, [1]'s wish ring seems happy to comply.`);
+			new G.act(0.1,['wish_ring','+'],`[1] wishes for [2] to have [a longer nose|a shorter nose|bigger ears|really cool facial hair|really nice eyebrows|an interesting accent]...<br>Much to [2]'s surprise, [1]'s wish ring seems happy to comply.`);
 			new G.act(0.1,['wish_ring'],`[1] tries to make a wish... [1:g|His|Her|Their] wish ring starts emitting a rancid smoke!<br>[1:g|He throws|She throws|They throw] it to the ground, where it fizzles and burns away in a crackling of angry sparkles.`,p=>{p[1].lose('wish ring');});
 			
 			//armor protections
