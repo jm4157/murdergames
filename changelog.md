@@ -78,7 +78,14 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Decreased chance of zombies getting killed
 - Ghosts have a chance to self-revive
 
+## 6/9/24
+
+### New/Reworked Traits
+- Kind and naive players have a chance to go beserk when all team members are dead.
+
 ## 6/10/24
 
 ### New/Reworked Mechanics
 - Overhauled the game to focus on wounding players before killing them.
+
+
