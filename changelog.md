@@ -78,7 +78,7 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Decreased chance of zombies getting killed
 - Ghosts have a chance to self-revive
 
-## 6/9/24
+## 6/10/24
 
 ### New/Reworked Mechanics
 - Overhauled the game to focus on wounding players before killing them.
