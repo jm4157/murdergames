@@ -30,13 +30,13 @@ If you want to make your own version of the Murder Games, it's remarkably easy. 
 
 ### Adding Traits, Statuses, and Items
 
-Traits, Statuses, and Items, collectively called Perks, are listed starting at line 567. Find the block of commands that type you want to add, and paste the following code at the end, with \_\_your_name\_\_ and \_\_your_description\_\_ replaced with the name and description of the Perk you want to add.
+Traits, Statuses, and Items, collectively called Perks, are listed starting at line 565. Find the block of commands that type you want to add, and paste the following code at the end, with \_\_your_name\_\_ and \_\_your_description\_\_ replaced with the name and description of the Perk you want to add.
 
     new G.perk({name:`__your_name__`,desc:`__your_description__`});`
 
 ### Adding Events
 
-Events are listed starting at line 1537 (update as this changes). I've attempted to comment on each block of events to label what kind of events they are, and for ease of access I recommend you try to add new events into a suitable spot or create a new spot if you have a lot of related events.
+Events are listed starting at line 1531. I've attempted to comment on each block of events to label what kind of events they are, and for ease of access I recommend you try to add new events into a suitable spot or create a new spot if you have a lot of related events.
 
 Idle events (events that do not change the state of the world) are added with the following code:
 
@@ -115,7 +115,7 @@ Each item has its own chance that is multiplied by the item find multiplier to m
 
 **\_\_triggers\_\_**
 
-\_\_triggers\_\_ has the most complexity to understand. The core idea is that the event only happens if there is a player (or players) that fit the trigger criteria. You keep the criteria inside a pair of brackets ( [ ] )and if there are multiple criteria it checks that a player exists that fulfills all of them. The criteria are defined starting at line 1295 (make sure to update this as it changes), but are reproduced here for ease of access.
+\_\_triggers\_\_ has the most complexity to understand. The core idea is that the event only happens if there is a player (or players) that fit the trigger criteria. You keep the criteria inside a pair of brackets ( [ ] )and if there are multiple criteria it checks that a player exists that fulfills all of them. The criteria are defined starting at line 1303 (make sure to update this as it changes), but are reproduced here for ease of access.
 
 >   'perk_name'
 >

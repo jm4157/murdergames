@@ -78,8 +78,33 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Decreased chance of zombies getting killed
 - Ghosts have a chance to self-revive
 
-
 ## 6/9/24
 
 ### New/Reworked Traits
 - Kind and naive players have a chance to go beserk when all team members are dead.
+
+## 6/10/24
+
+### New/Reworked Mechanics
+- Overhauled the game to focus on wounding players before killing them.
+
+### New/Reworked Traits
+- Sociopaths are now extremely cruel.
+- Suicidal can now kill themself while wounded
+
+
+## 6/16/24
+
+### General Fixes/Improvements
+- Typo fixes
+- Accidents fit into the wound system
+- Revived players lose their zombified, ghost, or wounded status
+- Game displays zombies and ghosts separately from dead
+- Game displayed healthy and wounded players separately
+- Added special icons for wounded, zombie, and ghost players
+
+### New/Reworked Traits
+- Sneaky players are better at coup de gras kills
+- Manipulative and composed players fit into the wound system
+- Added more interactions for romantic players
+
