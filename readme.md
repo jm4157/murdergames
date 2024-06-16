@@ -30,7 +30,7 @@ If you want to make your own version of the Murder Games, it's remarkably easy. 
 
 ### Adding Traits, Statuses, and Items
 
-Traits, Statuses, and Items, collectively called Perks, are listed starting at line 567. Find the block of commands that type you want to add, and paste the following code at the end, with \_\_your_name\_\_ and \_\_your_description\_\_ replaced with the name and description of the Perk you want to add.
+Traits, Statuses, and Items, collectively called Perks, are listed starting at line 568. Find the block of commands that type you want to add, and paste the following code at the end, with \_\_your_name\_\_ and \_\_your_description\_\_ replaced with the name and description of the Perk you want to add.
 
     new G.perk({name:`__your_name__`,desc:`__your_description__`});`
 

@@ -88,4 +88,21 @@ Curious how this mod differs from the original? Here's a list of all the changes
 ### New/Reworked Mechanics
 - Overhauled the game to focus on wounding players before killing them.
 
+### New/Reworked Traits
+- Sociopaths are now extremely cruel.
+- Suicidal can now kill themself while wounded
+
+
+## 6/16/24
+
+### General Fixes/Improvements
+- Typo fixes
+- Accidents fit into the wound system
+- Revived players lose their zombified, ghost, or wounded status
+- Game displays zombies and ghosts separately from dead
+
+### New/Reworked Traits
+- Sneaky players are better at coup de gras kills
+- Manipulative and composed players fit into the wound system
+- Added more interactions for romantic players
 
