@@ -101,6 +101,7 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Revived players lose their zombified, ghost, or wounded status
 - Game displays zombies and ghosts separately from dead
 - Game displayed healthy and wounded players separately
+- Added special icons for wounded, zombie, and ghost players
 
 ### New/Reworked Traits
 - Sneaky players are better at coup de gras kills

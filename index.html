@@ -296,6 +296,69 @@
 			left:-18px;top:-18px;
 		}
 		
+		.picWound
+		{
+			display:inline-block;
+			position:relative;
+			width:0px;
+			height:0px;
+			z-index:10;
+			filter:drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+			pointer-events:none;
+		}
+		.picWound:before
+		{
+			content:'';
+			display:block;
+			width:18px;
+			height:20px;
+			background:url(status/wounded.png);
+			position:absolute;
+			left:-18px;top:-18px;
+		}
+
+		.picGhost
+		{
+			display:inline-block;
+			position:relative;
+			width:0px;
+			height:0px;
+			z-index:10;
+			filter:drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+			pointer-events:none;
+		}
+		.picGhost:before
+		{
+			content:'';
+			display:block;
+			width:18px;
+			height:20px;
+			background:url(status/ghost.png);
+			position:absolute;
+			left:-18px;top:-18px;
+		}
+
+		.picZombie
+		{
+			display:inline-block;
+			position:relative;
+			width:0px;
+			height:0px;
+			z-index:10;
+			filter:drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+			pointer-events:none;
+		}
+		.picZombie:before
+		{
+			content:'';
+			display:block;
+			width:18px;
+			height:20px;
+			background:url(status/zombie.png);
+			position:absolute;
+			left:-18px;top:-18px;
+		}
+
 		.bit
 		{
 			border-radius:4px;
@@ -1075,6 +1138,14 @@ G={
 			var teamless={chars:[],name:'NOTEAM'};
 			for (var i=0;i<G.chars.length;i++){if (!G.chars[i].team){teamless.chars.push(G.chars[i]);}}
 			if (teamless.chars.length>0) teams.unshift(teamless);
+
+			var icon = function(me){
+				if (me.has('ghost')) return`<div class="picGhost"></div>`;
+				else if (chars[ii].has('zombie')) return `<div class="picZombie"></div>`;
+				else if (chars[ii].has('dead')) return `<div class="picSkull"></div>`;
+				else if (chars[ii].has('bleeding out')||chars[ii].has('concussed')||chars[ii].has('burnt')) return`<div class="picWound"></div>`;
+				else return '';
+			}
 			
 			for (var i=0;i<teams.length;i++)
 			{
@@ -1086,7 +1157,7 @@ G={
 					var me=team.chars[ii];
 					str+=`
 					<div class="char" style="font-size:12px;">
-						<div class="picBox"><img src="${me.pic}" class="pic" title="${me.name}"/>${me.has('dead')?'<div class="picSkull"></div>':''}</div>
+						<div class="picBox"><img src="${me.pic}" class="pic" title="${me.name}"/>${icon(me)}</div>
 						<div style="text-align:center;">
 							<e style="float:left;margin-right:8px;">${me.name}</e>
 							<div style="min-width:32%;display:inline-block;"><cap>Perks :</cap> ${me.perks.map(perk=>(perk.type=='trait' && perk.name!='no perk')?('<div class="bit" title="'+perk.desc+'">'+perk.name+'</div>'):'').join(' ')}</div>
@@ -1942,11 +2013,11 @@ G={
 				new G.act(0.7,[coldBloodKiller+' black_belt !bruised','- black_belt !bruised'],`[1] and [2] get into combat using their martial arts prowess.<br>Finding each other worthy, they part ways as equals.`);
 				new G.act(0.7,[coldBloodKiller+' black_belt !bruised','- black_belt bruised'],`[RED][1] and [2] get into combat using their martial arts prowess.<Br>In [2]'s weakened state, [2:they] can't keep up and [2:g|is|is|are] slain!`,p=>{p[1].kill(p[2],`black belt`);});
 				new G.act(0.7,[coldBloodKiller+' black_belt bruised','- black_belt bruised'],`Despite their battered state, [1] and [2] get into combat using their martial arts prowess.<br>Finding each other worthy, they part ways as equals.`);
-			new G.act(0.7,[coldBloodKiller+' bow','- !scarred|bleeding_out'],`[RED][[1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [side|shoulder].<br>[2] is badly scarred but manages to get behind cover.`,p=>{p[2].gain('scarred');});
-				new G.act(0.2,[coldBloodKiller+' bow','- !scarred|bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [stomach|arm|leg].<br>[2] manages to duck behind cover before collapsing from blood loss!`,p=>{p[2].gain('bleeding out');});
-				new G.act(0.05,[coldBloodKiller+' bow','- !scarred|bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [heart|head|chest].<br>[2] is killed instantly!`,p=>{p[1].kill(p[2],`arrow`);});
-				new G.act(0.7,[coldBloodKiller+' bow','- scarred !bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [stomach|arm|leg].<br>[2] manages to duck behind cover before [2:their] wounds develop into blood loss!`,p=>{p[2].gain('bleeding out');});
-				new G.act(0.2,[coldBloodKiller+' bow','- scarred !bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [heart|head|chest].<br>[2] is killed instantly!`,p=>{p[1].kill(p[2],`arrow`);});
+			new G.act(0.7,[coldBloodKiller+' bow','- !scarred|bleeding_out'],`[RED][[1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and [pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [side|shoulder].<br>[2] is badly scarred but manages to get behind cover.`,p=>{p[2].gain('scarred');});
+				new G.act(0.2,[coldBloodKiller+' bow','- !scarred|bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and [pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [stomach|arm|leg].<br>[2] manages to duck behind cover before collapsing from blood loss!`,p=>{p[2].gain('bleeding out');});
+				new G.act(0.05,[coldBloodKiller+' bow','- !scarred|bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and [pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [heart|head|chest].<br>[2] is killed instantly!`,p=>{p[1].kill(p[2],`arrow`);});
+				new G.act(0.7,[coldBloodKiller+' bow','- scarred !bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and [pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [stomach|arm|leg].<br>[2] manages to duck behind cover before [2:their] wounds develop into blood loss!`,p=>{p[2].gain('bleeding out');});
+				new G.act(0.2,[coldBloodKiller+' bow','- scarred !bleeding_out'],`[RED][1] spots [2] in the distance, and draws [1:their] bow. [1:g|His|Her|Their] arrow flies off, and [pierces [2]'s|[1]'s arrow flies straight and true, piercing [2]'s] [heart|head|chest].<br>[2] is killed instantly!`,p=>{p[1].kill(p[2],`arrow`);});
 				new G.act(0.2,[coldBloodKiller+' bow','-'],`[1] fires an arrow at [2], but misses...`);
 			new G.act(0.7,[coldBloodKiller+' crossbow','- !scarred|bleeding_out'],`[RED][1] fires a crossbow bolt [from a distance|with trained precision|hurridly], scarring [2] badly.<br>[2] escapes as [1] reloads.`,p=>{p[2].gain('scarred');});
 				new G.act(0.2,[coldBloodKiller+' crossbow','- !scarred|bleeding_out'],`[RED][1] fires a crossbow bolt [from a distance|with trained precision|hurridly], hitting [2] and causing [2:them] to start bleeding out!<br>[2] escapes as [1] reloads.`,p=>{p[2].gain('bleeding out');});
@@ -2377,7 +2448,10 @@ G={
 							for (var ii in chars)
 							{
 								pics+=`<img src="${chars[ii].pic}" class="pic" title="${chars[ii].name}"/>`;
-								if (chars[ii].has('dead')) pics+=`<div class="picSkull"></div>`;
+								if (chars[ii].has('ghost')) pics+=`<div class="picGhost"></div>`;
+								else if (chars[ii].has('zombie')) pics+=`<div class="picZombie"></div>`;
+								else if (chars[ii].has('dead')) pics+=`<div class="picSkull"></div>`;
+								else if (chars[ii].has('bleeding out')||chars[ii].has('concussed')||chars[ii].has('burnt')) pics+=`<div class="picWound"></div>`;
 							}
 							str+=`<div class="box action${action.classes?(' '+action.classes):''}"><div>${pics}</div><div>${action.text}</div></div>`;
 						}
