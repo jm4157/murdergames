@@ -108,3 +108,12 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Manipulative and composed players fit into the wound system
 - Added more interactions for romantic players
 
+
+## 6/23/24
+
+## General Fixes/Improvements
+- Reduced likelihood of accidents
+- Increased likelihood of dying while wounded
+
+## New/Reworked Traits
+- Romantics have more meaninful interactions
