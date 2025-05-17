@@ -1,6 +1,121 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+
+## 5/17/25
+
+### General Fixes/Improvements
+- Increased flavor text variety for most item finds and item-based idling
+
+### New/Reworked Traits
+- Converted Suicidal into a status
+
+### New/Reworked Statuses
+- Lunatics can now enter Frenzy randomly
+- Anyone who has killed can now enter Frenzy, unless they're Kind or Heroic
+- Brash and Sociopath players are more likely to enter Frenzy after killing
+
+
+## 5/16/25
+
+## New/Reworked Mechanics
+- Players without a team now have a chance to join teams, heavily influenced by traits
+- Players have a low chance to randomly leave their team
+- Some traits have a chance to force teammates to leave the team
+- Manipulative players have a chance to convince opponents to leave their team
+- Players can sometimes defect and change teams
+- Players that are the only suriving member of their team will abandon their empty team
+
+### New/Reworked Traits 
+- Folded Unstable into Lunatic
+- Made Lunatic more likely to proc
+- Made it clearer what trait was being gained/lost by Lunatic
+- Annoying characters now have way more ways to annoy people
+
+
+## 6/23/24
+
+### General Fixes/Improvements
+- Reduced likelihood of accidents
+- Increased likelihood of dying while wounded
+
+### New/Reworked Traits
+- Romantics have more meaninful interactions
+
+
+## 6/16/24
+
+### General Fixes/Improvements
+- Typo fixes
+- Accidents fit into the wound system
+- Revived players lose their zombified, ghost, or wounded status
+- Game displays zombies and ghosts separately from dead
+- Game displayed healthy and wounded players separately
+- Added special icons for wounded, zombie, and ghost players
+
+### New/Reworked Traits
+- Sneaky players are better at coup de gras kills
+- Manipulative and composed players fit into the wound system
+- Added more interactions for romantic players
+
+
+## 6/10/24
+
+### New/Reworked Mechanics
+- Overhauled the game to focus on wounding players before killing them.
+
+### New/Reworked Traits
+- Sociopaths are now extremely cruel.
+- Suicidal can now kill themself while wounded
+
+
+## 6/9/24
+
+### New/Reworked Traits
+- Kind and naive players have a chance to go beserk when all team members are dead.
+
+
+## 6/8/24
+
+### New/Reworked Traits
+- Folded peaceful into kind
+- Folded meek into naive
+
+### New/Reworked Statuses
+- Decreased chance of zombies getting killed
+- Ghosts have a chance to self-revive
+
+
+## 6/6/24
+
+### New/Reworked Traits
+- Increased the number of traits that can set traps
+- Added composed
+- Heroic, peaceful, kind, and composed characters can prevent teammate's negative traits
+- Sociopath now kills teammates randomly instead of survivalist
+
+### New/Reworked Items
+- Added peaceful variants of idle weapon dialogues
+- Added trowel
+
+
+## 6/5/24
+
+### New/Reworked Traits
+- Folded leader into heroic
+- Removed goth and rich entirely
+- Added brash and sneaky
+- Reworked cute, lunatic, heroic, romantic, and manipulative
+
+### New/Reworked Items
+- Added a large variety of weapons
+- Removed wolf tiger and turtle pets
+
+### New/Reworked Statuses
+- Fixed ghosts to be able to haunt people
+- Added more ghost interactions
+
+
 ## 6/4/24
 
 ### New/Reworked Traits
@@ -37,83 +152,3 @@ Curious how this mod differs from the original? Here's a list of all the changes
 - Zombies can infect living players, turning them into zombies
 - Living players can kill zombies
 - Players now have a chance to survive blood loss
-
-
-## 6/5/24
-
-### New/Reworked Traits
-- Folded leader into heroic
-- Removed goth and rich entirely
-- Added brash and sneaky
-- Reworked cute, lunatic, heroic, romantic, and manipulative
-
-### New/Reworked Items
-- Added a large variety of weapons
-- Removed wolf tiger and turtle pets
-
-### New/Reworked Statuses
-- Fixed ghosts to be able to haunt people
-- Added more ghost interactions
-
-
-## 6/6/24
-
-### New/Reworked Traits
-- Increased the number of traits that can set traps
-- Added composed
-- Heroic, peaceful, kind, and composed characters can prevent teammate's negative traits
-- Sociopath now kills teammates randomly instead of survivalist
-
-### New/Reworked Items
-- Added peaceful variants of idle weapon dialogues
-- Added trowel
-
-## 6/8/24
-
-### New/Reworked Traits
-- Folded peaceful into kind
-- Folded meek into naive
-
-### New/Reworked Statuses
-- Decreased chance of zombies getting killed
-- Ghosts have a chance to self-revive
-
-## 6/9/24
-
-### New/Reworked Traits
-- Kind and naive players have a chance to go beserk when all team members are dead.
-
-## 6/10/24
-
-### New/Reworked Mechanics
-- Overhauled the game to focus on wounding players before killing them.
-
-### New/Reworked Traits
-- Sociopaths are now extremely cruel.
-- Suicidal can now kill themself while wounded
-
-
-## 6/16/24
-
-### General Fixes/Improvements
-- Typo fixes
-- Accidents fit into the wound system
-- Revived players lose their zombified, ghost, or wounded status
-- Game displays zombies and ghosts separately from dead
-- Game displayed healthy and wounded players separately
-- Added special icons for wounded, zombie, and ghost players
-
-### New/Reworked Traits
-- Sneaky players are better at coup de gras kills
-- Manipulative and composed players fit into the wound system
-- Added more interactions for romantic players
-
-
-## 6/23/24
-
-## General Fixes/Improvements
-- Reduced likelihood of accidents
-- Increased likelihood of dying while wounded
-
-## New/Reworked Traits
-- Romantics have more meaninful interactions

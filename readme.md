@@ -6,27 +6,22 @@ A Google Drive exists with a [list](https://docs.google.com/document/d/1lU5NvP_y
 
 ## Using this Mod
 
-In order to use this mod, you need to go to [https://orteil.dashnet.org/murdergames/](https://orteil.dashnet.org/murdergames/).
+This mod overrides the code of [https://orteil.dashnet.org/murdergames/](https://orteil.dashnet.org/murdergames/) in order to function. Follow these steps to replicate this.
 
-### Desktop/Laptop Chrome
+### Google Chrome on Windows
 
-Open Developer Tools with `Crtl + Shift + I` or from the sidebar. Switch to the "Sources" tab at the top of the window that opens up, and in "Page" subtab navigate to `top/orteil.dashnet.org/murdergames/murdergames/` (there will be two, one of which is empty. Choose the one that has text written in it). In the file viewer, right click and choose "Override Content." 
+1. From the button that says `<> Code` select "Download ZIP"
+2. Go to your computer's Downloads folder and right click "murdergames-Better-instructions.zip" that you downloaded in step 1. Select "Extract All" and choose somewhere easily accessible and safe, such as your computer's Documents folder, to save it
+3. Go to [https://orteil.dashnet.org/murdergames/](https://orteil.dashnet.org/murdergames/)
+4. Open Developer Tools with `Crtl + Shift + I` or from the sidebar
+5. Switch to the "Sources" tab at the top of the window that opens up. Next to `Page` and `Workspace` there will be a button labelled `>>`. Click it and select `Overrides`
+6. Click "Select folder for overrides." Choose the "murdergames-Better-instructions" folder created in step 2. A popup will appear asking for access to that folder. Press "Allow"
+7. Refresh the page. This will allow you to use the modified version of the game.
 
-If you've never done this before, you'll be asked to choose a folder to store the content in; choose a place that you'll be able to get to again easily. You may want to create a new folder to store this in. Open the folder you chose or created and open folders until you find a file called `index.html`. Delete it and replace it with the `index.html` in this github. Refresh the Murder Games page, and then you should be able to play the DiscOrder version of Murder Games.
-
-If you have done this before, it will automatically direct to the modified `index.html` you downloaded earlier, and you're free to play the game.
-
-### Mobile Chrome
-
-First follow the instructions above to install the mod on your desktop or laptop, then follow [this tutorial](https://developer.chrome.com/docs/devtools/remote-debugging/) to set up remote debugging on your phone. Find the page titled "Murder Games by Orteil" on your desktop/laptop and click "inspect" to open the dev tools. Once you enable "Override Content" like in the desktop/laptop example, you can unplug your phone and the game will be modded until you refresh the page.
-
-### Others
-
-If you use this mod on a platform not listed, or find a better way to modify the game, feel free to leave a comment on the process so that I can add it to the document for others.
 
 ## Making your Own Mod
 
-If you want to make your own version of the Murder Games, it's remarkably easy. Download a copy of index.html to modify the code and follow these simple instructions, then when you're done follow the steps in the section above but with the copy you changed.
+If you want to make your own version of the Murder Games, it's remarkably easy. In the code you downloaded above, navigate to the index.html file and follow these instructions, then save the file and refresh the page when you're done.
 
 ### Adding Traits, Statuses, and Items
 
@@ -155,7 +150,7 @@ Each item has its own chance that is multiplied by the item find multiplier to m
 >
 >	'teamalive:3' 'teamalive:<3' 'teamalive:>3'
 >
->		> this many in the team must be dead
+>		> this many in the team must be alive
 >
 >	'teamdeaths:3' 'teamdeaths:<3' 'teamdeaths:>3'
 >
