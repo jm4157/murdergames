@@ -6,11 +6,9 @@ A Google Drive exists with a [list](https://docs.google.com/document/d/1lU5NvP_y
 
 ## Using this Mod
 
-## Using this Mod
-
 This mod overrides the code of [https://orteil.dashnet.org/murdergames/](https://orteil.dashnet.org/murdergames/) in order to function. Follow these steps to replicate this.
 
-### Desktop/Laptop Google Chrome on Windows
+### Google Chrome on Windows
 
 1. From the button that says `<> Code` select "Download ZIP"
 2. Go to your computer's Downloads folder and right click "murdergames-Better-instructions.zip" that you downloaded in step 1. Select "Extract All" and choose somewhere easily accessible and safe, such as your computer's Documents folder, to save it
@@ -152,7 +150,7 @@ Each item has its own chance that is multiplied by the item find multiplier to m
 >
 >	'teamalive:3' 'teamalive:<3' 'teamalive:>3'
 >
->		> this many in the team must be dead
+>		> this many in the team must be alive
 >
 >	'teamdeaths:3' 'teamdeaths:<3' 'teamdeaths:>3'
 >
