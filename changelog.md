@@ -2,6 +2,20 @@
 Curious how this mod differs from the original? Here's a list of all the changes made
 
 
+## 5/17/25
+
+### General Fixes/Improvements
+- Increased flavor text variety for most item finds and item-based idling
+
+### New/Reworked Traits
+- Converted Suicidal into a status
+
+### New/Reworked Statuses
+- Lunatics can now enter Frenzy randomly
+- Anyone who has killed can now enter Frenzy, unless they're Kind or Heroic
+- Brash and Sociopath players are more likely to enter Frenzy after killing
+
+
 ## 5/16/25
 
 ## New/Reworked Mechanics
