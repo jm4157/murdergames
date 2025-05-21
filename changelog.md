@@ -2,6 +2,27 @@
 Curious how this mod differs from the original? Here's a list of all the changes made
 
 
+## 5/21/25
+
+### General Fixes/Improvements
+- Added a lot more wishes and made wishing more commmon
+- Gave Lunatic trait additions more flavor text variety
+- Players can now have multiple pets
+- Added idling for multiple pets or teammates with pets
+
+### New/Reworked Traits
+- Lunatics are now slightly more likely to gain traits than lose them
+- Removed the last remnants of Unstable from Lunatic
+- Romantics can now kill people in a jealous rage
+
+### New/Reworked Statuses
+- Made it more common to enter Terrified and Shell-Shocked
+
+### New/Reworked Items
+- Eggs are more commonly found
+- Ranged weapons can now miss
+
+
 ## 5/17/25
 
 ### General Fixes/Improvements

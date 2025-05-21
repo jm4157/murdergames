@@ -1742,16 +1742,42 @@ G={
 			new G.act(1,['pet_blorb'],`[1] [plays with|pets] [1:their] blorb, [squishing it|listening to it squelch|forming it into funny shapes].`);
 				new G.act(0.05,['dead pet_blorb'],`[1]'s pet blorb starts dissolving its owner's remains.`);
 				new G.act(0.2,['pet_blorb alive:1'],`[1]'s pet blorb is all [1:g|he has|she has|they have] left in the world.`);
+				new G.act(0.5,['pet_blorb egg'],`[1]'s pet blorb acts a soft cushion for [1:their] egg.`);
+				new G.act(0.7,['pet_blorb pet_fairy'],`[1]'s pet fairy is lying in wait to ambush [1:their] pet blorb.`);
+					new G.act(0.1,['pet_blorb pet_fairy'],`[RED][1]'s pet fairy is lying in wait to ambush [1:their] pet blorb.<br>It leaps out and catches the blorb, tearing it to shreds!`,p=>{p[1].lose('pet blorb')});
+				new G.act(0.7,['pet_blorb pet_griffoth'],`[1]'s pet mini-griffoth is soaring in circles as [1:their] pet blorb hops along after it.`);
+				new G.act(0.7,['pet_blorb pet_winged_troupple'],`[1]'s pet winged troupple flies in to give [1:their] pet blorb a smooch.`);
+				new G.act(0.7,['pet_blorb','+ pet_blorb'],`[1]'s pet blorb and [2]'s pet blorb merge into a jumbolorb. They [have a hard time|spend the rest of the day] getting them back apart.`);
+				new G.act(0.7,['pet_blorb','+ pet_griffoth'],`[2]'s pet mini-griffoth is soaring in circles as [1]'s pet blorb hops along after it.`);
+				new G.act(0.7,['pet_blorb','+ pet_winged_troupple'],`[2]'s pet winged troupple flies in to give [1]'s pet blorb a smooch.`);
 			new G.act(1,['pet_fairy'],`[1]'s pet fairy [ruffles its feathers|nips at [1]'s fingers|devours a dead rat [1] found].`);
 				new G.act(0.05,['dead pet_fairy'],`[1]'s pet fairy is vigorously consuming its owner's remains.`);
 				new G.act(0.2,['pet_fairy alive:1'],`[1] is all alone in the world with [1:their] pet fairy. Is that a good thing?`);
+				new G.act(0.5,['pet_fairy egg'],`[1] has to hide [1:their] egg to keep [1:their] pet fairy from eating it.`);
+				new G.act(0.7,['pet_fairy pet_griffoth'],`[1]'s pet mini-griffoth is being chased by [1:their] pet fairy.`);
+				new G.act(0.7,['pet_fairy pet_winged_troupple'],`[1]'s pet winged troupple is healing the wounds [1:their] pet fairy gave [1:them].`);
+				new G.act(0.7,['pet_fairy','+ pet_blorb'],`[1]'s pet fairy is chasing [2]'s pet blorb maniacally. [1] is trying to get it to stop.`);
+					new G.act(0.1,['pet_fairy','+ pet_blorb'],`[RED][1]'s pet fairy is chasing [2]'s pet blorb maniacally. It catches up and tears the poor blorb to shreds, despite [1]'s commands.`,p=>{p[2].lose('pet blorb')});
+				new G.act(0.7,['pet_fairy','+ pet_fairy'],`[[1] and [2] are lamenting how hard it is to raise pet fairies|[1]'s pet fairy and [2]'s pet fairy are chasing each other through the skies, snapping at each other violently].`);
+					new G.act(0.1,['pet_fairy','+ pet_fairy'],`[RED][1] and [2]'s pet fairies get into a horrible fight! Before either can intervene, there's nothing left but a pile of feathers and viscera.`,p=>{p[1].lose('pet fairy');p[2].lose('pet fairy')});
+				new G.act(0.7,['pet_fairy','+ pet_griffoth'],`[2]'s pet mini-griffoth is warily protecting [2:them] from [1]'s pet fairy.`);
+					new G.act(0.1,['pet_fairy','+ pet_griffoth'],`[RED]As [1]'s pet fairy swoops in to bite [2], [2:their] pet mini-griffoth intervenes, killing the monser.<br>[1] is[ relieved to be rid of the thing| saddened to lose a pet|n't sure how to feel about this turn of events].`,p=>{p[1].lose('pet fairy')});
+				new G.act(0.7,['pet_fairy','+ pet_winged_troupple'],`[1]'s pet fairy is viciously chasing [2]'s winged troupple around the skies!`);
+					new G.act(0.1,['pet_fairy','+ pet_winged_troupple'],`[RED][2]'s pet winged troupple settles down for a rest when [1]'s pet fairy comes out of nowhere and makes fish filet out of it!`,p=>{p[2].lose('pet winged troupple')});
 			new G.act(1,['pet_griffoth'],`As [1] strokes [1:their] pet mini-griffoth it [purrs contentedly|restlessly flaps its wings|eyes up some bugs on the ground|preens its feathers].`);
 				new G.act(0.05,['dead pet_griffoth'],`[1]'s pet mini-griffoth never gives up its vigil of its owner's remains.`);
 				new G.act(0.2,['pet_griffoth alive:1'],`[1]'s pet mini-griffoth is all [1:g|he has|she has|they have] left in the world.`);
+				new G.act(0.5,['pet_griffoth egg'],`[1]'s pet mini-griffoth is [building a nest for|sitting atop|guarding] [1:their] egg.`);
+				new G.act(0.7,['pet_griffoth pet_winged_troupple'],`[1]'s pet winged troupple and [1:their] pet mini-griffoth fly through the air together.`);
+				new G.act(0.7,['pet_griffoth','+ pet_griffoth'],`[1] and [2]'s pet mini-griffoths playfully battle in the [air|grass].`);
+				new G.act(0.7,['pet_griffoth','+ pet_winged_troupple'],`[1]'s pet mini-griffoth sniffs [2]'s pet winged troupple curiously.`);
 			new G.act(1,['pet_winged_troupple'],`[1] [watches [1:their] pet winged troupple do loop-de-loops|bathes [1:their] pet winged troupple|gives [1:their] pet winged troupple a kiss|dances with [1:their] pet winged troupple].`);
 				new G.act(0.05,['dead pet_winged_troupple'],`[1]'s pet winged troupple is desperately trying to bring its owner back.`);
 				new G.act(0.2,['pet_winged_troupple alive:1'],`[1]'s pet winged troupple is all [1:g|he has|she has|they have] left in the world.`);
+				new G.act(0.7,['pet_winged_troupple','+ pet_winged_troupple'],`[1] and [2]'s pet winged troupples [rehearse|perform] a choreographed dance.`);
 
+
+			//wish-related idling
 			new G.act(1,['wish_ring !naive'],`[1] ponders about how best to use [1:their] wish ring. Perhaps [a [million|billion|trillion|morbillion] dollars|eternal life|Plague of Shadows standalone release|the power of [flight|invisibility|laser vision|super strength]]?`);
 				new G.act(1,['wish_ring !kind|naive'],`[1] ponders about how best to use [1:their] wish ring. Perhaps [for all their enemies to drop dead|a powerful weapon]?`);
 				new G.act(1,['wish_ring kind'],`[1] ponders about how best to use [1:their] wish ring. Perhaps [world peace|for this battle to be over]?`);
@@ -1771,7 +1797,7 @@ G={
 			new G.act(0.5,['bikini'],`[1] [is very proud of|flaunts|looks really good in] [1:their] bikini.`);
 				new G.act(0.5,['romantic','+ bikini'],`[1] looks at [2] in [2:their] bikini and [blushes|gets a nosebleed|[1:their] eyes pop out of [1:their] head].`);
 			new G.act(0.5,['dapper_suit'],`[1] [is very proud of|acts cool in|looks amazing in] [1:their] dapper suit.`);
-				new G.act(0.5,['romantic','+ dapper suit'],`[1] is [impressed|enthralled|entranced] by how [fancy|suave|sophisticated] [2] looks in [2:their] dapper suit.`);
+				new G.act(0.5,['romantic','+ dapper_suit'],`[1] is [impressed|enthralled|entranced] by how [fancy|suave|sophisticated] [2] looks in [2:their] dapper suit.`);
 			new G.act(0.5,['knight_armor'],`[1] [looks glorious in|stands proudly in|is ready to cleave some invaders in] [1:their] knight armor.`);
 			new G.act(0.5,['combat_gear'],`[1] [looks menacing in|is looking downright tactical in|practices some strategic moves in] [1:their] combat gear.`);
 			new G.act(0.5,['wizard_robe'],`[1] [shakes [1:their] wizard sleeves, and [a handful of|a dozen|a hundred|a thousand|an endless stream of] tiny animals fall out|sneezes from all the sparkles coming out of [1:their] wizard robe, making [1:them] levitate for a few seconds|is looking magical today].`);
@@ -1811,7 +1837,7 @@ G={
 			new G.act(itemFindMult*0.02,['!black_belt'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a dojo in the middle of nowhere and gets to training. Soon [1:g|he has|she has|they have] earned a black belt!`,p=>{p[1].gain('black belt');});
 			new G.act(itemFindMult*0.02,['!bow'],`[BLUE][1] [BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a[ discarded| lost|n old|] bow[ lying around| left unattended| on the ground|]. Searching around, [1:g|he finds|she finds|they find] some arrows nearby.<br>It'll take some practice but this can surely come in handy.`,p=>{p[1].gain('bow');});
 			new G.act(itemFindMult*0.02,['!flamethrower'],`[BLUE]Are you kidding? [1] just [found|discovered|[stumbled|happened|chanced] upon|noticed|encountered|ran across|tripped over] a flamethrower!<br>See if anyone gets in [1:their] way now!`,p=>{p[1].gain('flamethrower');});
-			new G.act(itemFindMult*0.02,['!egg|pet_blorb|pet_fairy|pet_griffoth|pet_winged_troupple'],`[BLUE][1] is [digging a ditch|climbing a tree|exploring a cave] when [1:they] [find|discover|notice|encounter][1:g|s|s|] an egg! [1] wonders what it'll hatch into...`,p=>{p[1].gain('egg');});
+			new G.act(itemFindMult*0.05,['!egg'],`[BLUE][1] is [digging a ditch|climbing a tree|exploring a cave] when [1:they] [find|discover|notice|encounter][1:g|s|s|] an egg! [1] wonders what it'll hatch into...`,p=>{p[1].gain('egg');});
 				new G.act(0.6,['egg'],`[BLUE][1] finds a goopy nest and sets [1:their] egg down. Within minutes there's a squelching noise as a baby pet blorb is born!`,p=>{p[1].lose('egg');p[1].gain('pet blorb')});
 				new G.act(0.6,['egg'],`[BLUE][1] finds a smoldering nest and sets [1:their] egg down. Within minutes there's a chirping noise as a baby pet mini-griffoth is born!`,p=>{p[1].lose('egg');p[1].gain('pet griffoth')});
 				new G.act(0.6,['egg'],`[BLUE][1] finds a wooden nest and sets [1:their] egg down. Within minutes there's a gurgling noise as a baby pet winged troupple is born!`,p=>{p[1].lose('egg');p[1].gain('pet winged troupple')});
@@ -1840,7 +1866,7 @@ G={
 			new G.act(itemFindMult*0.1,['!ancient_scepter scavenger','every dead !zombie ancient_scepter'],`[BLUE][1] spots that [2] has an ancient scepter on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('ancient scepter');p[2].lose('ancient scepter');});
 			new G.act(itemFindMult*0.1,['!wish_ring scavenger','every dead !zombie wish_ring'],`[BLUE][1] spots that [2] has a wish ring on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('wish ring');p[2].lose('wish ring');});
 			new G.act(itemFindMult*0.1,['!nitro scavenger','every dead !zombie nitro'],`[BLUE][1] spots that [2] has Nitro...<br>Somehow, [1:g|he steals|she steals|they steal] it?`,p=>{p[1].gain('nitro');p[2].lose('nitro');});
-			new G.act(itemFindMult*0.1,['!egg|pet_blorb|pet_fairy|pet_griffoth|pet_winged_troupple scavenger','every dead !zombie egg'],`[BLUE][1] spots that [2] has an egg on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('egg');p[2].lose('egg');});
+			new G.act(itemFindMult*0.1,['!egg scavenger','every dead !zombie egg'],`[BLUE][1] spots that [2] has an egg on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('egg');p[2].lose('egg');});
 			new G.act(itemFindMult*0.1,['!spear scavenger','every dead !zombie spear'],`[BLUE][1] spots that [2] has a spear on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('spear');p[2].lose('spear');});
 			new G.act(itemFindMult*0.1,['!knives scavenger','every dead !zombie knives'],`[BLUE][1] spots that [2] has some knives on [2:their] corpse...<br>That'll come in handy!.`,p=>{p[1].gain('knives');p[2].lose('knives');});
 			new G.act(itemFindMult*0.1,['!brass_knuckles scavenger','every dead !zombie brass_knuckles'],`[BLUE][1] spots that [2] has brass knuckles on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('brass knuckles');p[2].lose('brass knuckles');});
@@ -1849,39 +1875,39 @@ G={
 			new G.act(itemFindMult*0.1,['!crossbow scavenger','every dead !zombie crossbow'],`[BLUE][1] spots that [2] has a crossbow on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('crossbow');p[2].lose('crossbow');});
 			new G.act(itemFindMult*0.1,['!shears scavenger','every dead !zombie shears'],`[BLUE][1] spots that [2] has shears on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('shears');p[2].lose('shears');});
 			new G.act(itemFindMult*0.1,['!black_belt scavenger','every dead !zombie black_belt'],`[BLUE][1] spots that [2] has a black belt on [2:their] corpse...<br>[1:g|He picks|She picks|They pick] it up and instantly master martial arts!`,p=>{p[1].gain('black_belt');p[2].lose('black_belt');});			
+			
 			//sneaky item removal
 			new G.act(0.5,['sneaky','- any !survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [camp|encampment|base] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight]] and steals all of [2:their] stuff before [throwing it in the river|tossing it into an active volcano|hiding it in a chasm|feeding it to [a bear|an ostrich|an alligator]].`,p=>{
 				p[2].lose('big_stick');p[2].lose('pitchfork');p[2].lose('sword');p[2].lose('axe');p[2].lose('handgun');p[2].lose('shotgun');p[2].lose('grenade');p[2].lose('rocket launcher');p[2].lose('slingshot');p[2].lose('bow');p[2].lose('flamethrower');p[2].lose('lasergun');p[2].lose('magic wand');p[2].lose('ancient scepter');p[2].lose('wish ring');p[2].lose('nitro');
 				p[2].lose('egg');p[2].lose('spear');p[2].lose('knives');p[2].lose('brass knuckles');p[2].lose('shield');p[2].lose('mallet');p[2].lose('crossbow');p[2].lose('shears');p[2].lose('black_belt');p[2].lose('trowel');
 			});
 			new G.act(0.5,['sneaky','- survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [camp|encampment|base] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight]] in an effort to steal [2:their] stuff, but [2] has it [locked away|under guard|booby trapped].`);
-			new G.act(0.1,['sneaky annoying','+ any !survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [cabin|quarters|room] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight]] and steals all of [2:their] stuff before [throwing it in the river|tossing it into an active volcano|hiding it in a chasm|feeding it to [a bear|an ostrich|an alligator]]. [1] finds this hilarious, but [2] does not...`,p=>{
+			new G.act(0.2,['sneaky annoying','+ any !survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [cabin|quarters|room] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight]] and steals all of [2:their] stuff before [throwing it in the river|tossing it into an active volcano|hiding it in a chasm|feeding it to [a bear|an ostrich|an alligator]]. [1] finds this hilarious, but [2] does not...`,p=>{
 				p[2].lose('big_stick');p[2].lose('pitchfork');p[2].lose('sword');p[2].lose('axe');p[2].lose('handgun');p[2].lose('shotgun');p[2].lose('grenade');p[2].lose('rocket launcher');p[2].lose('slingshot');p[2].lose('bow');p[2].lose('flamethrower');p[2].lose('lasergun');p[2].lose('magic wand');p[2].lose('ancient scepter');p[2].lose('wish ring');p[2].lose('nitro');
 				p[2].lose('egg');p[2].lose('spear');p[2].lose('knives');p[2].lose('brass knuckles');p[2].lose('shield');p[2].lose('mallet');p[2].lose('crossbow');p[2].lose('shears');p[2].lose('black_belt');p[2].lose('trowel');
 			});
-			new G.act(0.1,['sneaky','- survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [camp|encampment|base] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight]] in an effort to prank [2], but [2:g|he has|she has|they have] all [1:their] stuff [locked away|under guard|booby trapped].`);
+			new G.act(0.2,['sneaky annoying','+ survivalist|scavenger'],`[1] [sneaks|creeps|tiptoes|slinks] into [2]'s [camp|encampment|base] while [2:g|he is|she is|they are] [using the bathroom|bathing|asleep|playing [solitaire|jacks|Shovel Knight]] in an effort to prank [2], but [2:g|he has|she has|they have] it [1]-proofed.`);
 
 			//lunatic shenanigans
-			new G.act(1,['lunatic !annoying'],`[RED][1]'s bad brain turns [1:them] into an absolute pain to deal with.<br>[1] is now Annoying!`,p=>{p[1].gain('annoying');});
-				new G.act(1,['lunatic annoying'],`[BLUE][1] seems to calm down, understanding that [1:g|he's|she's|they're] not that interesting.<br>[1] is no longer Annoying.`,p=>{p[1].lose('annoying');});
-			new G.act(1,['lunatic !brash'],`[RED][1]'s bad brain makes [1:them] feel invincible. Watch out world!<br>[1] is now Brash!`,p=>{p[1].gain('brash');});
-				new G.act(1,['lunatic brash'],`[BLUE][1] gets a papercut and realizes just how fragile [1:g|he really is|she really is|they really are].<br>[1] is no longer Brash.`,p=>{p[1].lose('brash');});
-			new G.act(1,['lunatic !heroic','+ team'],`[RED][1]'s bad brain whispers to [1:them] that only [1:they] can save [2].<br>[1] is now Heroic!`,p=>{p[1].gain('heroic');});
-				new G.act(1,['lunatic heroic', '+ team'],`[BLUE][1] decides [2] will be fine if [1:they] calm down a little.<br>[1] is no longer Heroic.`,p=>{p[1].lose('heroic');});
-			new G.act(1,['lunatic !kind'],`[BLUE][1]'s bad brain somehow turns [1:them] a little kinder...<br>[1] is now Kind!`,p=>{p[1].gain('kind');});
-				new G.act(1,['lunatic kind'],`[RED]Kindness seems to leave [1]'s shifting personality.<br>[1] is no longer Kind.`,p=>{p[1].lose('kind');});
-			new G.act(1,['lunatic !manipulative'],`[RED][1]'s bad brain turns [1:them] into a horrible person...<br>[1] is now Manipulative!`,p=>{p[1].gain('manipulative');});
-				new G.act(1,['lunatic manipulative'],`[BLUE][1] seems to assume a slightly less cynical worldview.<br>[1] is no longer Manipulative.`,p=>{p[1].lose('manipulative');});
-			new G.act(1,['lunatic !naive'],`[RED][1]'s bad brain tells [1:them] that [1:they] need to be more trusting.<br>[1] is now Naive!`,p=>{p[1].gain('naive');});
-				new G.act(1,['lunatic naive'],`[BLUE][1] realizes that everyone is out to get [1:them]. Trust no one.<br>[1] is no longer Naive.`,p=>{p[1].lose('naive');});
-			new G.act(1,['lunatic !romantic'],`[RED][1]'s bad brain yearns for love.<br>[1] is now Romantic!`,p=>{p[1].gain('romantic');});
-				new G.act(1,['lunatic romantic'],`[BLUE]Scorned! [1] will never love again.<br>[1] is no longer Romantic.`,p=>{p[1].lose('romantic');});
-			new G.act(1,['lunatic !sneaky'],`[RED][1]'s bad brain reveals that [1:g|he has|she has|they have] had the power to turn invisible all this time.<br>[1] is now Sneaky!`,p=>{p[1].gain('sneaky');});
-				new G.act(1,['lunatic sneaky'],`[BLUE][1] is tired of not being noticed.<br>[1] is no longer Sneaky.`,p=>{p[1].lose('sneaky');});
-			new G.act(1,['lunatic !sociopath'],`[RED][1]'s bad brain convinces [1:them] that [1:g|he is|she is|they are] the main character.<br>[1] is now a Sociopath!`,p=>{p[1].gain('sociopath');});
-				new G.act(1,['lunatic sociopath'],`[BLUE][1] appears to have developed some empathy.<br>[1] is no longer a Sociopath.`,p=>{p[1].lose('sociopath');});
+			new G.act(1,['lunatic !annoying'],`[RED][1]'s bad brain [turns [1:them] into an absolute pain to deal with|[whispers to|tells|convinces] [1:them] that everyone else is too comfortable, and [1] is the person to fix that|[whispers to|tells|convinces] [1:them] to become everyone's problem].<br>[1] is now Annoying!`,p=>{p[1].gain('annoying');});
+				new G.act(0.7,['lunatic annoying'],`[BLUE][1] seems to calm down, understanding that maybe [1:they] should try to be more likable.<br>[1] is no longer Annoying.`,p=>{p[1].lose('annoying');});
+			new G.act(1,['lunatic !brash'],`[RED][1]'s bad brain [makes [1:them] feel invincible|[whispers to|tells|convinces] [1:them] to rush into danger|imbues [1:him] with a sense of fearlessness]. Watch out world!<br>[1] is now Brash!`,p=>{p[1].gain('brash');});
+				new G.act(0.7,['lunatic brash'],`[BLUE][1] [gets a [papercut|boo-boo]|scrapes [1:their] knee] and realizes just how fragile [1:g|he really is|she really is|they really are].<br>[1] is no longer Brash.`,p=>{p[1].lose('brash');});
+			new G.act(1,['lunatic !heroic'],`[BLUE][1]'s bad brain [whispers to|tells|convinces] [1:them] [that [1:they] are the hero of this story|[1:they] need to protect everyone].<br>[1] is now Heroic!`,p=>{p[1].gain('heroic');});
+				new G.act(0.7,['lunatic heroic'],`[RED][1] decides [2] will be fine if [1:they] let everyone else take care of themselves.<br>[1] is no longer Heroic.`,p=>{p[1].lose('heroic');});
+			new G.act(1,['lunatic !kind'],`[BLUE][1]'s bad brain [somehow turns [1:them] a little kinder..|[whispers to|tells|convinces] [1:them] that [1:g|he was|she was|they were] secretly sent here on a mission of mercy|[whispers to|tells|convinces] to be more compassionate].<br>[1] is now Kind!`,p=>{p[1].gain('kind');});
+				new G.act(0.7,['lunatic kind'],`[RED]Kindness seems to leave [1]'s shifting personality.<br>[1] is no longer Kind.`,p=>{p[1].lose('kind');});
+			new G.act(1,['lunatic !manipulative'],`[RED][1]'s bad brain reveals [how easy it is to trick other people|that [1:g|he is|she is|they are] the mastermind behind this whole occurrence|the secrets of coercion].<br>[1] is now Manipulative!`,p=>{p[1].gain('manipulative');});
+				new G.act(0.7,['lunatic manipulative'],`[BLUE][1] seems to assume a slightly less cynical worldview.<br>[1] is no longer Manipulative.`,p=>{p[1].lose('manipulative');});
+			new G.act(1,['lunatic !naive'],`[RED][1]'s bad brain [whispers to|tells|convinces] [1:them] that [[1:they] need to be more trusting|everyone is [1:their] friend|no one is really here to hurt anyone else].<br>[1] is now Naive!`,p=>{p[1].gain('naive');});
+				new G.act(0.7,['lunatic naive'],`[BLUE][1] realizes that everyone is out to get [1:them]. Trust no one.<br>[1] is no longer Naive.`,p=>{p[1].lose('naive');});
+			new G.act(1,['lunatic !romantic'],`[RED][1]'s bad brain yearns for [love|intimacy|connection].<br>[1] is now Romantic!`,p=>{p[1].gain('romantic');});
+				new G.act(0.7,['lunatic romantic'],`[BLUE]Scorned! [1] will never love again.<br>[1] is no longer Romantic.`,p=>{p[1].lose('romantic');});
+			new G.act(1,['lunatic !sneaky'],`[BLUE][1]'s bad brain [reveals that [1:g|he has|she has|they have] had the power to turn invisible all this time|[whispers to|tells|convinces] [1:them] it's time to disappear|[whispers to|tells|convinces] [1:them] to play the rest of the game from the shadows].<br>[1] is now Sneaky!`,p=>{p[1].gain('sneaky');});
+				new G.act(0.7,['lunatic sneaky'],`[RED][1] is tired of not being noticed.<br>[1] is no longer Sneaky.`,p=>{p[1].lose('sneaky');});
+			new G.act(1,['lunatic !sociopath'],`[RED][1]'s bad brain [[whispers to|tells|convinces] [1:them] that [1:g|he is|she is|they are] the main character|turns them into a horrible person..|[whispers to|tells|convinces] [1:them] that no one else's lives are important].<br>[1] is now a Sociopath!`,p=>{p[1].gain('sociopath');});
+				new G.act(0.7,['lunatic sociopath'],`[BLUE][1] appears to have developed some empathy.[That's [unexpected|surprising].|]<br>[1] is no longer a Sociopath.`,p=>{p[1].lose('sociopath');});
 			new G.act(0.05,['lunatic'],`[BLUE][1] calms down for good, no longer subject to the whims of a changing brain.<br>[1] is no longer a Lunatic.`,p=>{p[1].lose('lunatic');});
-			new G.act(0.2,['lunatic !frenzied'],`[RED][1]'s bad brain whips [1:them] into a killing frenzy!`,p=>{p[1].gain('frenzied');});
 
 			//statuses
 			new G.act(0.8,['frenzied',''],`[RED]In a fit of frenzy, [1] creeps up on [2] and [snaps [2:their] neck|kills [2:them] dead|slaughters [2:them]|turns [2:them] inside out]!`,p=>{p[1].kill(p[2],`frenzy kill`);});
@@ -1890,7 +1916,7 @@ G={
 			new G.act(0.1,['frenzied'],`[1]'s frenzy finally dies down.`,p=>{p[1].lose('frenzied');});
 			
 			new G.act(0.1,['!sociopath|manipulative|heroic deaths:0'],`[1] [doesn't know yet how bad things are gonna get.|knows not of the horrors yet to come.|is pretty optimistic about all of this.]`);
-			new G.act(0.1,['!sociopath|manipulative|heroic deaths:>0'],`[1] [sobs quietly...|starts sobbing uncontrollably.|just wants it to end already...]`);
+			new G.act(0.1,['!sociopath|manipulative|heroic|brash|composed deaths:>0'],`[1] [sobs quietly...|starts sobbing uncontrollably.|just wants it to end already...]`);
 			
 			new G.act(1,['shell-shocked'],`[1] [sits there with a blank stare.|has a blank expression and seems unresponsive to what's going on...|sobs quietly...|starts sobbing uncontrollably.|just wants it to end already...|is on the verge of a nervous breakdown...]`);
 			new G.act(0.2,['shell-shocked|terrified any'],`[1] snaps out of it!`,p=>{p[1].lose('shell-shocked');p[1].lose('terrified');});
@@ -1905,7 +1931,7 @@ G={
 			new G.act(0.3,['every ghost heroic',`+ team teamalive:>0`],`[1]'s spirit is watching over [2].`);
 			new G.act(0.3,['every ghost manipulative',`+`],`[1]'s ghost' is trying to tell [2] how to win, but [2] doesn't seem to hear [1:them].`);
 			new G.act(0.3,['every ghost romantic',`+ every ghost romantic|cute`],`[1] and [2] [share a ghost kiss|hold ethereal hands|take a romantic float under the stars].`);
-			new G.act(0.05,['every ghost',`+ !sociopath any`],`[RED][1] haunts [2] for letting [1:them] down, driving [2:them] to the brink!`,p=>{p[2].gain('suicidal')});
+			new G.act(0.05,['every ghost',`+ !sociopath|composed any`],`[RED][1] haunts [2] for letting [1:them] down, driving [2:them] to the brink!`,p=>{p[2].gain('suicidal')});
 			new G.act(0.1,['every ghost teamalive:>0','+ team',`- !sociopath`],`[RED][1] decides to help [2] by haunting [3]. [3] becomes terrified!`,p=>{p[2].gain('terrified')});
 			new G.act(0.01,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:g|He returns|She returns|They return] to life!`,p=>{p[1].lose('ghost');p[1].lose('dead');});
 
@@ -1930,7 +1956,6 @@ G={
 			new G.act(0.15,[coldBloodKiller,'-'],`[RED][1] tries to attack [2], but [2] retaliates and [beats|batters|pummels|strikes] [1:them] instead. [1] limps away, bruised.`,p=>{p[1].gain('bruised');});
 				new G.act(0.05,[coldBloodKiller,'-'],`[RED][1] tries to attack [2], but [2] retaliates and [beats|batters|pummels|strikes] [1:them] instead. [1] winds up with a concussion!`,p=>{p[1].gain('concussed');});
 				new G.act(0.15,[coldBloodKiller+' bruised','-'],`[RED][1] tries to attack [2], but [2] retaliates and [beats|batters|pummels|strikes] [1:them] instead. Being bruised already, [1] winds up with a concussion!`,p=>{p[1].gain('concussed');});
-			new G.act(0.05,[coldBloodKiller,'- any','+ !sociopath'],`[RED][1] [kills|murders|attacks and kills] [2] [in front of [3]|before [3] can react]!<br>[There is nothing [3] can do...|[3] rushes to help, but [[2] dies in [3:their] arms|it's already too late]...]`,p=>{p[1].kill(p[2],`ambush`);p[3].gain('shell-shocked');});
 			new G.act(0.15,[coldBloodKiller+' !bruised','-','+ heroic|kind|bulky !survivalist|manipulative|sociopath'],`[RED][1] attempts to kill [2], but [3] intervenes just in time!<br>[1] gets away from the failed attempt with only minor bruises.`,p=>{p[1].gain('bruised');});
 				new G.act(0.05,[coldBloodKiller+' !bruised','-','+ heroic|kind|bulky !survivalist|manipulative|sociopath'],`[RED][1] attempts to kill [2], but [3] intervenes just in time!<br>[3] gives [1] a concussion before going to check if [2] is alright...`,p=>{p[1].gain('concussed');});
 				new G.act(0.01,[coldBloodKiller+' !bruised','-','+ heroic|kind|bulky !survivalist|manipulative|sociopath'],`[RED][1] attempts to kill [2], but [3] intervenes just in time!<br>[3] had to kill [1] to protect [2]'s life...`,p=>{p[3].kill(p[1],`retaliation`);});
@@ -1955,9 +1980,9 @@ G={
 				new G.act(0.7,[coldBloodKiller+' manipulative','- brash bruised'],`[RED][1] [lures|tricks|baits] [2] into [a fight|a duel|a standoff] and then springs a trap!<br>Already bruised, [2] gets a concussion in the aftermath!`,p=>{p[2].gain('concussed');});
 				new G.act(0.2,[coldBloodKiller+' manipulative','- brash bruised'],`[RED][1] [lures|tricks|baits] [2] into [a fight|a duel|a standoff] and then springs a trap!<br>[2] never stood a chance...`,p=>{p[1].kill(p[2],`manipulation`);});
 				new G.act(0.2,[coldBloodKiller+' manipulative','- any suicidal'],`[RED][1] convinces [2] to kill [1:themself].`,p=>{p[1].kill(p[2],`manipulation`);});
-			new G.act(0.1,[coldBloodKiller+' brash','-'],`[RED][1] [rushes in|makes a risky play against [2]|chooses violence] and [murders|kills|slaughters|strangles|eviscerates|gets rid of] [2]!`,p=>{p[1].kill(p[2],`brash attack`);});
+			new G.act(0.1,[coldBloodKiller+' brash','-'],`[RED][1] [rushes in|makes a risky play against [2]|goes in hot] and [murders|kills|slaughters|strangles|eviscerates|gets rid of] [2]!`,p=>{p[1].kill(p[2],`brash attack`);});
 				new G.act(0.1,[coldBloodKiller+' brash','- brash '+coldBloodKiller],`[RED][1] and [2] see each other and immediately [turn to violence|prepare for battle|get into a fight]. Both end up [dying|getting killed in the process|dismembering each other].`,p=>{p[1].kill(p[2],`brash duel`);p[2].kill(p[1],`brash duel`);});
-				new G.act(0.1,[coldBloodKiller+' brash','-'],`[RED][1] [rushes in|makes a risky play against [2]|chooses violence] but [2] is ready and turns [1]'s aggression against [1:them], killing [1:them]!`,p=>{p[2].kill(p[1],`retaliation`);});
+				new G.act(0.1,[coldBloodKiller+' brash','-'],`[RED][1] [rushes in|makes a risky play against [2]|goes in hot] but [2] is ready and turns [1]'s aggression against [1:them], killing [1:them]!`,p=>{p[2].kill(p[1],`retaliation`);});
 				new G.act(0.7,[coldBloodKiller+' brash|frenzied axe','- !scarred','+'],`[RED][1] goes axe-crazy, flailing [1:their] axe at [2] and [3]. [1:g|He misses|She misses|They miss] a lot, but [2] and [3] wind up getting scarred before they can disengage.`,p=>{p[2].gain('scarred');p[3].gain('scarred');});
 				new G.act(0.2,[coldBloodKiller+' brash|frenzied axe','- !scarred','+'],`[RED][1] goes axe-crazy, flailing [1:their] axe at [2] and [3]. They survive, but are badly wounded as they run away and start bleeding out!`,p=>{p[2].gain('bleed');p[3].gain('bleed');});
 				new G.act(0.05,[coldBloodKiller+' brash|frenzied axe','- !scarred','+ !scarred'],`[RED][1] goes axe-crazy, chopping [2] and [3] to bits!`,p=>{p[1].kill(p[2],`axe`);p[1].kill(p[3],`axe`);});
@@ -1983,6 +2008,8 @@ G={
 				new G.act(0.05,[coldBloodKiller+' composed crossbow','- !scarred'],`[RED][1] [takes a deep breath|eyes up the target|keeps careful concentration] and draws [1:their] crossbow. [[1:g|His|Her|Their] bolt flies off, and pierces [2]'s|[1]'s bolt flies straight and true, piercing [2]'s] [heart|head|chest].<br>[2] is killed instantly!`,p=>{p[1].kill(p[2],`crossbow bolt`);});
 				new G.act(0.7,[coldBloodKiller+' composed crossbow','- scarred'],`[RED][1] [takes a deep breath|eyes up the target|keeps careful concentration] and draws [1:their] crossbow. [[1:g|His|Her|Their] bolt flies off, and pierces [2]'s|[1]'s bolt flies straight and true, piercing [2]'s] [stomach|arm|leg].<br>Already scarred, [2] can't dodge and is bleeding out!`,p=>{p[2].gain('bleed');});
 				new G.act(0.2,[coldBloodKiller+' composed crossbow','- scarred'],`[RED][1] [takes a deep breath|eyes up the target|keeps careful concentration] and draws [1:their] crossbow. [[1:g|His|Her|Their] bolt flies off, and pierces [2]'s|[1]'s bolt flies straight and true, piercing [2]'s] [heart|head|chest].<br>[2] is killed instantly!`,p=>{p[1].kill(p[2],`crossbow bolt`);});
+			new G.act(0.1,['romantic','+ romantic','- romantic|cute'], `[RED][1] catches [2] [having an affair|sharing a tender moment|in a passionate embrace] with [3] and [becomes [furious|enraged]|gets [angry|upset|mad]]! In a fit of rage, [1:g|he kills|she kills] [1]!<br>[2] is traumatized by the experience.`,p=>{p[1].kill(p[2],'jealous rage');p[2].gain('shell-shocked')})
+				new G.act(0.05,['romantic','+ romantic','- romantic|cute'], `[RED][1] catches [2] [having an affair|sharing a tender moment|in a passionate embrace] with [3] and [becomes [furious|enraged]|gets [angry|upset|mad]]! In a fit of rage, [1:g|he kills|she kills] them both!<br>[1]'s [fury|rage|anger] isn't sated yet...`,p=>{p[1].kill(p[2],'jealous rage');p[1].kill(p[3],'jealous rage');p[1].gain('frenzied')})
 
 			//weapon kills
 			new G.act(0.7,[coldBloodKiller+' slingshot','-'],`[RED][1] uses [1:their] slingshot to [fling pebbles at [2]|rain gravel on [2]'s head|pelt [2] with rocks], which is more annoying than anything, really.`);
@@ -2077,7 +2104,6 @@ G={
 				new G.act(0.05,[coldBloodKiller+' rocket_launcher','- !burnt','+ any !burnt'],`[RED][1] [fires|launches|aims] a rocket at a group of enemies.<br>[2] and [3] are caught in the explosion and are absolutely blown to bits!`,p=>{p[1].kill(p[2],`rocket launcher`);p[1].kill(p[3],`rocket launcher`);});
 				new G.act(0.05,[coldBloodKiller+' rocket_launcher','- !burnt','+ any !burnt','+ any !burnt'],`[RED][1] [fires|launches|aims] a rocket at a group of enemies.<br>[2], [3] and [4] are caught on the edges of the explosion and are badly burnt!`,p=>{p[2].gain(`burnt`);p[3].gain(`burnt`);p[4].gain(`burnt`);});
 				new G.act(0.05,[coldBloodKiller+' rocket_launcher','- !burnt','+ any !burnt','+ any !burnt'],`[RED][1] [fires|launches|aims] a rocket at a group of enemies.<br>[2], [3] and [4] are caught in the explosion and are absolutely blown to bits.`,p=>{p[1].kill(p[2],`rocket launcher`);p[1].kill(p[3],`rocket launcher`);p[1].kill(p[4],`rocket launcher`);});
-				new G.act(0.2,[coldBloodKiller+' rocket_launcher','-'],`[1] fires [1:their] rocket launcher at [2], but it goes wide and hits [an orphanage|a puppy shelter|a soup kitchen|a community college|a hospital.<br>Wait, there's been a hospital nearby this whole time? Well, not anymore].`);
 			new G.act(0.7,[coldBloodKiller+' shears','- !scarred|bleed'],`[RED][1] [has to fend off|gets into a scrap with|battles] [2] and uses [1:their] shears as a weapon! It doesn't do much.`);
 				new G.act(0.2,[coldBloodKiller+' shears','- !scarred|bleed'],`[RED][1] [has to fend off|gets into a scrap with|battles] [2] and uses [1:their] shears as a weapon! [2] gets some light scars.`,p=>{p[2].gain('scarred');});
 				new G.act(0.2,[coldBloodKiller+' shears','- scarred !bleed'],`[RED][1] [has to fend off|gets into a scrap with|battles] [2] and uses [1:their] shears as a weapon! With [2] already scarred, [1] lops off [a finger|[2:their] nose|a chunk of skin] and [2] starts bleeding out!`,p=>{p[2].gain('bleed');});
@@ -2095,32 +2121,79 @@ G={
 				new G.act(0.1,[coldBloodKiller+' magic_wand','-','+ any'],`[RED][1] gestures angrily towards [2] and [3] with [1:their] magic wand.<br>It seems this switched some of their major organs, [2] inheriting [3]'s [spleen|kidneys|lungs|intestines|brain stem|uvula|eyelids|pancreas|bladder] and vice-versa. They both topple over, dead.`,p=>{p[1].kill(p[2],`magic wand`);p[1].kill(p[3],`magic wand`);});
 				new G.act(0.1,['magic_wand'],`[RED][1] shakes [1:their] magic wand, but it seems it's used up the last of its magic.<br>The star at the tip has grown dull and useless; [1] tosses it aside.`,p=>{p[1].lose('magic wand');});
 
+			//missing shots
+			new G.act(0.2,[coldBloodKiller+' knives','-'],`[1] [throws|hurls|tosses] a knife at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>[2] manages to escape before [1] has time to draw another knife.`);
+			new G.act(0.2,[coldBloodKiller+' crossbow','-'],`[1] [fires|shoots|aims] a crossbow bolt at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>[2] escapes as [1] reloads.`);
+			new G.act(0.05,[coldBloodKiller+' grenade','- teamalive:>1',],`[RED][1] [tosses|hurls|lobs] a live grenade at a group of enemies, but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Out of grenades, [1] is forced to flee!`,p=>{;p[1].lose('grenade');});
+			new G.act(0.2,[coldBloodKiller+' handgun','-'],`[1] [fires|shoots|aims] [1:their] handgun at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>[2] escapes as [1] reloads.`);
+			new G.act(0.2,[coldBloodKiller+' rocket_launcher','-'],`[1] [fires|shoots|aims] [1:their] rocket launcher at [2], but it goes wide and hits [an orphanage|a puppy shelter|a soup kitchen|a community college|a hospital.<br>Wait, there's been a hospital nearby this whole time? Well, not anymore].`);
+			new G.act(0.2,[coldBloodKiller+' shotgun','-'],`[1] [fires|shoots|aims] [1:their] handgun at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>[2] escapes as [1] reloads.`);
+			new G.act(0.2,[coldBloodKiller+' lasergun','-'],`[1] [fires|shoots|aims] [1:their] handgun at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>[2] escapes as [1] reloads.`);
+
 			//wishes
-			new G.act(0.2,[coldBloodKiller+' wish_ring','- any'],`[RED][1] wishes [2] would disappear... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...nobody seems to remember [2] ever existed at all.`,p=>{p[1].kill(p[2],`ceased to exist`);});
-			new G.act(0.1,['naive wish_ring'],`[RED][1] wishes [1:g|he wasn't|she wasn't|they weren't] here... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...nobody seems to remember [1] ever existed at all.`,p=>{p[1].kill(p[1],`ceased to exist`);});
-			new G.act(0.02,['kind|naive wish_ring alive:>1'],`[BLUE][1] wishes people would get along! [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it seems the world has been made a softer place.`,p=>{
+			new G.act(0.5,[coldBloodKiller+' wish_ring','- any'],`[RED][1] wishes [2] would disappear... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...nobody seems to remember [2] ever existed at all.`,p=>{p[1].kill(p[2],`ceased to exist`);});
+				new G.act(0.1,['naive wish_ring'],`[RED][1] wishes [1:g|he wasn't|she wasn't|they weren't] here... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...nobody seems to remember [1] ever existed at all.`,p=>{p[1].kill(p[1],`ceased to exist`);});
+			new G.act(0.5,['kind|naive wish_ring alive:>1'],`[BLUE][1] wishes people would get along! [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it seems the world has been made a softer place.`,p=>{
 				for (var i in G.chars){G.chars[i].gain('kind');}
 			});
+			new G.act(1,['wish_ring !combat_gear'],`[BLUE][1] wishes for some [loot|goodies|gear]. With a shimmer, a bunch of powerful weapons and armor apppear in front on [1:them].`,p=>{p[1].gain(`combat gear`);p[1].gain(`shield`);p[1].gain(`axe`);p[1].gain(`flamethrower`);p[1].gain(`shotgun`);p[1].gain(`rocket launcher`);});
+			new G.act(0.5,['annoying wish_ring', '+ team teamalive:>1'],`[BLUE][1] wishes that everyone on [2] saw the world the way [1:g|he does|she does|they do]. Everyone on the team becomes a little more annoying...`,p=>{
+				for (var i in p[2].members){p[2].members[i].gain(`annoying`);}
+			});
+			new G.act(0.5,['brash wish_ring alive:>1'],`[RED][1] wishes that everyone would just get on with it already!<br>Everyone goes into a killing frenzy!`,p=>{
+				for (var i in G.chars){G.chars[i].gain('frenzied');}
+			});
+			new G.act(1,['!bulky wish_ring'],`[BLUE][1] wishes to [become stronger|get ripped].<br>[1]'s muscles swell with magical power!`,p=>{p[1].gain(`bulky`);});
+			new G.act(1,['lunatic wish_ring alive:>1'],`[RED][1] wishes for maximum chaos! The wishing ring starts duplicating itself until there's enough for everyone to have their own!`,p=>{
+				for (var i in G.chars){G.chars[i].gain('wish ring');}
+			});
+			new G.act(0.5,['romantic wish_ring alive:>1'],`[BLUE][1] wishes that it were easier to find love.<br>Everyone suddenly finds themselves a hopeless romantic!`,p=>{
+				for (var i in G.chars){G.chars[i].gain('romantic');}
+			});
+			new G.act(0.01,['sociopath wish_ring', '- team teamalive:>0'],`[RED][1] wishes that everyone on [2] would [die|have a heart attack|kill themselves].<br>[2] never stood a chance...`,p=>{
+				for (var i in p[2].members){p[1].kill(G.chars[i],'cruel wish');}
+			});
+			new G.act(0.25,['!sociopath wish_ring !pet_blorb'],`[BLUE][1] wishes [to make a new friend|[1:g|he was|she was|they were] less lonely|for a companion]. A puddle of goo materializes on the ground, out of which pops a friendly blorb!`,p=>{p[1].gain(`pet blorb`);});
+				new G.act(0.25,['!sociopath wish_ring !pet_griffoth'],`[BLUE][1] wishes [to make a new friend|[1:g|he was|she was|they were] less lonely|for a companion]. A shrill scream pierces the air as a fierce mini-griffoth swoops onto [1:their] shoulder!`,p=>{p[1].gain(`pet griffoth`);});
+				new G.act(0.25,['!sociopath wish_ring !pet_winged_troupple'],`[BLUE][1] wishes [to make a new friend|[1:g|he was|she was|they were] less lonely|for a companion]. A sweet winged troupple emerges from a nearby pool of water!`,p=>{p[1].gain(`pet winged troupple`);});
+				new G.act(0.25,['!sociopath wish_ring !pet_fairy'],`[RED][1] wishes [to make a new friend|[1:g|he was|she was|they were] less lonely|for a companion]. A crazed fairy hurtles out of nowhere, smashing into [1:them]!<br>Uh oh...`,p=>{p[1].gain(`pet fairy`);});
+				new G.act(0.05,['!sociopath wish_ring','+ team','-'],`[BLUE][1] wishes [to make a new friend|[1:g|he was|she was|they were] less lonely|for a companion]. [3] stumbles out of the foliage, having just decided to join [2].`,p=>{
+					p[3].leave();
+					p[3].join(p[2])
+				});
 			new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring alive:1 dead:>0'],`[BLUE][1] wishes [1:g|he wasn't|she wasn't|they weren't] alone anymore... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it's a miracle! Everybody's been brought back to life!`,p=>{
 				for (var i in G.chars){G.chars[i].lose('dead');G.chars[i].lose('zombie');G.chars[i].lose('ghost');G.chars[i].lose('bleeding out');G.chars[i].lose('concussed');G.chars[i].lose('burnt');G.chars[i].gain('revived');}
 			});
-			new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!`,p=>{p[2].lose('dead');p[2].lose('zombie');p[2].lose('ghost');p[2].lose('bleeding out');p[2].lose('concussed');p[2].lose('burnt');p[2].gain('revived');});
-			new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring alive:1 dead:>0'],`[RED][1] wishes [1:g|he wasn't|she wasn't|they weren't] alone anymore... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it all went horribly wrong! Everybody's been turned to zombies!`,p=>{
-				for (var i in G.chars){G.chars[i].gain('zombie');}
-			});
-			new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring','+ dead'],`[RED][1] wishes [1:they] could see [2] one last time... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it's a nightmare! [2] was transformed into a zombie!`,p=>{p[2].gain('zombie');});
+				new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!`,p=>{p[2].lose('dead');p[2].lose('zombie');p[2].lose('ghost');p[2].lose('bleeding out');p[2].lose('concussed');p[2].lose('burnt');p[2].gain('revived');});
+				new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring alive:1 dead:>0'],`[RED][1] wishes [1:g|he wasn't|she wasn't|they weren't] alone anymore... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it all went horribly wrong! Everybody's been turned to zombies!`,p=>{
+					for (var i in G.chars){G.chars[i].gain('zombie');}
+				});
+				new G.act(0.05,['!manipulative|sociopath|survivalist wish_ring','+ dead'],`[RED][1] wishes [1:they] could see [2] one last time... [1:g|His|Her|Their] wish ring shimmers for a second, and then -<br>...it's a nightmare! [2] was transformed into a zombie!`,p=>{p[2].gain('zombie');});
 			new G.act(0.2,['wish_ring'],`[1] wishes for [a cheeseburger|a nice hunk of cheese|a garden salad|some grilled fish|a delicious steak|a tall glass of milk|some cookies|a birthday cake|some trail mix|a popsicle|some pizza|a chicken dinner|some fried chicken|some yogurt|a really cool shirt|a new hat|a bag of chips|some candy|some marshmallows|some comic books|a rubber ducky]...<br>[1:g|His|Her|Their] wish ring shimmers for a second, and [1:their] wish materializes in front of [1:them].`);
-			new G.act(0.1,['wish_ring'],`[1] wishes for [a longer nose|a shorter nose|bigger ears|really cool facial hair|really nice eyebrows|an interesting accent]...<br>[1:g|His|Her|Their] wish ring shimmers for a second before answering [1:their] wish.`);
-			new G.act(0.1,['wish_ring','+'],`[1] wishes for [2] to have [a longer nose|a shorter nose|bigger ears|really cool facial hair|really nice eyebrows|an interesting accent]...<br>Much to [2]'s surprise, [1]'s wish ring seems happy to comply.`);
-			new G.act(0.01,['wish_ring'],`[1] tries to make a wish... [1:g|His|Her|Their] wish ring starts emitting a rancid smoke!<br>[1:g|He throws|She throws|They throw] it to the ground, where it fizzles and burns away in a crackling of angry sparkles.`,p=>{p[1].lose('wish ring');});
+				new G.act(0.1,['wish_ring'],`[1] wishes for [a longer nose|a shorter nose|bigger ears|really cool facial hair|really nice eyebrows|an interesting accent]...<br>[1:g|His|Her|Their] wish ring shimmers for a second before answering [1:their] wish.`);
+				new G.act(0.1,['wish_ring','+'],`[1] wishes for [2] to have [a longer nose|a shorter nose|bigger ears|really cool facial hair|really nice eyebrows|an interesting accent]...<br>Much to [2]'s surprise, [1]'s wish ring seems happy to comply.`);
+			new G.act(0.5,['bleed|concussed|burnt wish_ring any'],`[BLUE][1] makes a feeble wish for healing.<br>Miraculously, [1:g|he is|she is|they are] healed!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
+			new G.act(0.5,['bleed|concussed|burnt any','+ kind|heroic !sociopath wish_ring'],`[BLUE][2] is watching over [1] as [1:g|he struggles|she struggles|they struggle] for survival. [2] fingers [2:their] wish ring and wishes for [1] to be healed.<br>With a start, [1] stands up perfectly healthy!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
+			new G.act(0.1,['bleed|concussed|burnt any','- kind naive !sociopath wish_ring'],`[BLUE][2] finds [1] struggling on [1:their] deathbed. Despite being an enemy, [2] can't stand to see [1:them] suffer and wishes for [1:their] health.<br>[1] gets up, confused to [1:their] quick recovery, as [2] fled before [2:they] could be caught.`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
+			new G.act(0.05,['manipulative|survivalist wish_ring', '+ team teamalive:>1', '+ annoying|lunatic|naive|romantic|sociopath'],`[RED][1] wishes that everyone on [2] was a bit [more helpful|less frustrating to deal with].<br>Everyone becomes a better team player! At the cost of some personality...`,p=>{
+				for (var i in p[2].members){p[2].members[i].lose(`annoying`);p[2].members[i].lose(`lunatic`);p[2].members[i].lose(`naive`);p[2].members[i].lose(`romantic`);p[2].members[i].lose(`sociopath`);}
+			});
+			new G.act(0.5,['manipulative|survivalist wish_ring', '+ terrifed|shell-shocked|suicidal'],`[BLUE][1] notices that [2] is[ freaking out|n't doing so well]. [1:g|He wishes|She wishes|They wish] for [2:them] to snap out of it!`,p=>{
+				p[2].lose(`terrified`);p[2].lose(`shell-shocked`);p[2].lose(`suicidal`);
+			});
+			new G.act(0.05,['manipulative|survivalist wish_ring', '- !suicidal'],`[RED][1] wishes that [2] would take [2:themself] out of the equation. A dark fog clouds [2:their] mind. Now we wait.`,p=>{p[2].gain(`suicidal`);});
+			new G.act(1,['trapped'],`[BLUE][1] wishes [1:g|he was|she was|they were] free of the trap. With a puff of smoke, the trap dissolves around [1:them], leaving [1:them] safely on the ground.`,p=>{p[1].lose('trapped');});
+			new G.act(0.05,['wish_ring'],`[1] tries to make a wish... [1:g|His|Her|Their] wish ring starts emitting a rancid smoke!<br>[1:g|He throws|She throws|They throw] it to the ground, where it fizzles and burns away in a crackling of angry sparkles.`,p=>{p[1].lose('wish ring');});
+			new G.act(0.003,['naive !wish_ring'],`[1] wishes [1:they] had a wish ring...<br>A mysterious glow wraps around [1:their] finger. Could it really be?`,p=>{p[1].gain('wish ring');});			
 			
+
 			//armor protections
 			new G.act(0.6,[coldBloodKiller,'- knight_armor any'],`[1] tries to kill [2], but [2]'s knight armor diverts the blow!`);
 			new G.act(0.6,[coldBloodKiller,'- combat_gear any'],`[1] tries to kill [2], but [2]'s combat gear diverts the blow!`);
 			new G.act(0.6,[coldBloodKiller,'- wizard_robe any'],`[1] tries to kill [2], but [2]'s wizard robe has already carried [2:them] away to safety!`);
 			new G.act(0.2,[coldBloodKiller,'- ornate_plate any'],`[RED][2] relies on [2:their] ornate plate to save [2:them] from [1]'s attack, but it [does nothing|is worthless|offers no protection]!`,p=>{p[1].kill(p[2],`armor failure`);});
-			new G.act(0.6,[coldBloodKiller,'- shield any'],`[1] tries to kill [2], but [2]'s shield diverts the blow!`);
-				new G.act(0.2,[coldBloodKiller,'- shield any'],`[RED][1] tries to kill [2], but [2]'s shield diverts the blow!<br>Unfortunately the shield shatters in the process...`,p=>{p[2].lose('shield')});
+			new G.act(0.5,[coldBloodKiller,'- shield any'],`[1] tries to kill [2], but [2]'s shield diverts the blow!`);
+				new G.act(0.1,[coldBloodKiller,'- shield any'],`[RED][1] tries to kill [2], but [2]'s shield diverts the blow!<br>Unfortunately the shield shatters in the process...`,p=>{p[2].lose('shield')});
 			
 			//trait protections
 			new G.act(0.4,[coldBloodKiller+' !sociopath|composed','- cute any'],`[1] tries to kill [2], but [2]['s puppy dog eyes convince [1:them] otherwise.| is just too cute to touch!]`);
@@ -2129,6 +2202,9 @@ G={
 			//sheep
 			new G.act(0.4,['magic_wand','- !sheep'],`[BLUE]With a flick of [1:their] magic wand, [1] turns [2] into a sheep!`,p=>{p[2].gain('sheep');});
 				new G.act(0.4,['ancient_scepter','- !sheep'],`[BLUE]With a flick of [1:their] ancient scepter, [1] turns [2] into a sheep!`,p=>{p[2].gain('sheep');});
+				new G.act(0.1,['wish_ring sociopath', '- team teamalive:>0'],`[RED][1] wishes to render everyone on [2] harmless.<br>With a puff of smokes, where [2] once was stands a herd of sheep.`,p=>{
+					for (var i in p[2].members){G.chars[i].gain('sheep');}
+				});
 				new G.act(0.4,['!sociopath magic_wand','+ sheep'],`[BLUE][1] uses [1:their] magic wand to turn [1:their] ally [2] back from being a sheep!`,p=>{p[2].lose('sheep');});
 				new G.act(0.2,['!sociopath kind magic_wand','- sheep'],`[BLUE][1] takes pity and uses [1:their] magic wand to turn [2] back from being a sheep!`,p=>{p[2].lose('sheep');});
 				new G.act(0.4,['!sociopath ancient_scepter','+ sheep'],`[BLUE][1] uses [1:their] ancient scepter to turn [1:their] ally [2] back from being a sheep!`,p=>{p[2].lose('sheep');});
@@ -2153,7 +2229,7 @@ G={
 				new G.act(0.5,['naive','+ '+lifecoach],`[2] is telling [1] that [[1:they] need to be more aware of [1:their] surroundings|the team would benefit if [1:they] were more careful|[1:they] can't remain oblivious forever].<br>[1] appears to be [ignoring|disagreeing with|not listening to|blocking out] [2]...`);
 				new G.act(0.05,[lifecoach,'+ naive'],`[BLUE][1] is telling [2] that [[2:they] need to be more aware of [2:their] surroundings|the team would benefit if [2:they] were more careful|[2:they] can't remain oblivious forever].<br>[2] [understands|is really receptive|agrees]! [2] is no longer naive!`,p=>{p[2].lose('naive');});
 				new G.act(0.5,['suicidal','+ '+lifecoach],`[2] is telling [1] that [[1:their] life matters|the team cares about [1:them]|the world is a beautiful place].<br>[1] appears to be [ignoring|disagreeing with|not listening to|blocking out] [2]...`);
-				new G.act(0.05,[lifecoach,'+ suicidal'],`[BLUE][1] is telling [2] that [[2:their] life matters|the team cares about [2:them]|the world is a beautiful place].<br>[2] [understands|is really receptive|agrees]! [2] is no longer suicidal!`,p=>{p[2].lose('suicidal');});
+				new G.act(0.25,[lifecoach,'+ suicidal'],`[BLUE][1] is telling [2] that [[2:their] life matters|the team cares about [2:them]|the world is a beautiful place].<br>[2] [understands|is really receptive|agrees]! [2] is no longer suicidal!`,p=>{p[2].lose('suicidal');});
 
 			//suicide
 			new G.act(0.05,['suicidal any'],`[RED][1] can't take it anymore...<br>[1] has taken [1:their] own life.`,p=>{p[1].kill(p[1],`suicide`);});
@@ -2223,14 +2299,31 @@ G={
 			new G.act(0.3,['has_killed sociopath|manipulative|lunatic !kind'],`[1] can't wait to kill again...`);
 			new G.act(0.01,['has_killed !kind|heroic'],`[RED][1] likes the feel of blood on [1:their] hands... [1:g|He enters|She enters|They enter] a killing frenzy!`,p=>{p[1].gain('frenzied');});
 			new G.act(0.1,['has_killed brash|sociopath !kind|heroic'],`[RED][1] is so excited by [1:their] kill that [1:g|he enters|she enters|they enter] a killing frenzy!`,p=>{p[1].gain('frenzied');});
-			new G.act(0.3,['has_killed kind'],`[1] [feels horrible for what [1:they] did...|wishes [1:they] didn't have to kill anyone...|never wants to kill anyone ever again.]`);
 			new G.act(0.3,['!has_killed kind','+ has_killed'],`[1] still can't believe [2] killed someone...`);
 			new G.act(0.3,['!manipulative|sociopath|survivalist','+ dead'],`[1] [reminisces about|thinks about|remembers|recalls something about|remembers how much [1:g|he misses|she misses|they miss]] [2] and sobs quietly.`);
 			new G.act(0.3,['!manipulative|sociopath|survivalist alive:1'],`[1] [reminisces about|thinks about|remembers|remembers how much [1:g|he misses|she misses|they miss]] everybody and sobs quietly.`);
 			new G.act(0.7,['kind|naive','+ team teamalive:1'],`[RED][1] [feels horrible for letting|can't believe [1:they] stood by and watched] everyone on [2] die.<br>[1] [has snapped|goes beserk|is finally prepared to kill]!`,p=>{p[1].lose('kind');p[1].lose('naive');p[1].gain('frenzied');});
 			new G.act(0.3,['romantic','+ romantic dead'],`[RED][1] [feels so empty since losing [2]|can't stand living in a world without [2]|misses [2] too much to keep on going].<br>[1] is now Suicidal.`,p=>{p[1].gain('suicidal');});
 
-			
+			//trauma
+			new G.act(0.3,['has_killed kind'],`[1] [feels horrible for what [1:they] did...|wishes [1:they] didn't have to kill anyone...|never wants to kill anyone ever again.]`,p=>{p[1].gain('shell-shocked')});
+				new G.act(0.01,['has_killed'],`[1] [feels horrible for what [1:they] did...|wishes [1:they] didn't have to kill anyone...|never wants to kill anyone ever again.]`,p=>{p[1].gain('shell-shocked')});
+			new G.act(0.02,[coldBloodKiller+' knives','- !composed'],`[RED][1] [throws|hurls|tosses] a knife at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] runs off terrified!`,p=>{p[2].gain('terrified')});
+				new G.act(0.02,[coldBloodKiller+' crossbow','- !composed'],`[RED][1] [fires|shoots|aims] a crossbow bolt at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] runs off terrified!`,p=>{p[2].gain('terrified')});
+				new G.act(0.1,[coldBloodKiller+' handgun','- !composed'],`[RED][1] [fires|shoots|aims] [1:their] handgun at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] runs off terrified!`,p=>{p[2].gain('terrified')});
+				new G.act(0.1,[coldBloodKiller+' shotgun','- !composed'],`[RED][1] [fires|shoots|aims] [1:their] handgun at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] runs off terrified!`,p=>{p[2].gain('terrified')});
+				new G.act(0.1,[coldBloodKiller+' lasergun','- !composed'],`[RED][1] [fires|shoots|aims] [1:their] handgun at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] runs off terrified!`,p=>{p[2].gain('terrified')});
+				new G.act(0.25,[coldBloodKiller+' rocket_launcher','- !composed'],`[RED][1] [fires|shoots|aims] [1:their] rocket launcher at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] runs off terrified!`,p=>{p[2].gain('terrified')});
+				new G.act(0.25,[coldBloodKiller+' grenade','- !composed','+ !composed'],`[RED][1] [tosses|hurls|lobs] a live grenade at a group of enemies, but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] and [3] run off terrified!`,p=>{;p[1].lose('grenade');},p=>{p[2].gain('terrified')},p=>{p[3].gain('terrified')});
+			new G.act(0.05,[coldBloodKiller+' !composed','-'],`[RED][1] tries to attack [2], but [2] retaliates and gains the upper hand.<br>[1] is forced to flee in terror!`,p=>{p[1].gain('terrified');});
+				new G.act(0.05,[coldBloodKiller+' manipulative','- naive|romantic  !composed'],`[RED][1] convinces [2] [[1:g|he's|she's|they're] [2:their] friend|[1:they] can be trusted|[1:g|he has|she has|they have] a way to help [2:them]] and then [attacks|betrays|assaults] [2:them].<br>[2] is forced to flee in terror!`,p=>{p[2].gain('terrified');});
+				new G.act(0.05,[coldBloodKiller+' brash','- naive !heroic|composed'],`[RED][1] [[runs|comes] [at|after]|[runs|charges] towards] [2] [so [erratically|rashly]|in such a [volatile|unstable] [manner|way]] that [2] is forced to flee in terror!`,p=>{p[2].gain('terrified');});
+				new G.act(0.05,[coldBloodKiller+' sneaky','- naive !survivalist|composed'],`[RED][1] [sneaks up to|lies in wait for|hides next to] [2] and [attacks|assaults|jumps out at] [2:them]!<br>[2] is forced to flee in terror!`,p=>{p[2].gain('terrified');});
+			new G.act(0.01,[coldBloodKiller,'- any','+ !sociopath|composed'],`[RED][1] [kills|murders|attacks and kills] [2] [in front of [3]|before [3] can react]!<br>[There is nothing [3] can do...|[3] rushes to help, but [[2] dies in [3:their] arms|it's already too late]...]`,p=>{p[1].kill(p[2],`ambush`);p[3].gain('shell-shocked');});
+				new G.act(0.01,[coldBloodKiller,'- !sociopath|composed','+ heroic|kind !survivalist|manipulative|sociopath bruised'],`[RED][1] attempts to kill [2], but [3] intervenes to protect [2:them]!<br>Unfortunately, [3] dies in the attempt, and [2] is horrified by the experience...`,p=>{p[1].kill(p[3],`failed retaliation`);p[2].gain('shell-shocked');});
+				new G.act(0.01,[coldBloodKiller+' grenade','- ','+ !sociopath|composed'],`[RED][1] [tosses|hurls|lobs] a live grenade at a group of enemies.<br>[2] is blown to smithereens! [3] is left horrified by the experience...`,p=>{p[1].kill(p[2],`grenade`);p[3].gain('shell-shocked');;p[1].lose('grenade');});
+				new G.act(0.01,[coldBloodKiller+' rocket_launcher','- ','+ !sociopath|composed'],`[RED][1] [fires|launches|aims] a rocket at a group of enemies.<br>[2] is blown to smithereens! [3] is left horrified by the experience...`,p=>{p[1].kill(p[2],`rocket launcher`);p[3].gain('shell-shocked');});
+
 			//armor cleaning
 			new G.act(0.2,['has_killed dapper_suit'],`[1] washes the blood off of [1:their] dapper suit.`);
 			new G.act(0.2,['has_killed knight_armor'],`[1] washes the blood off of [1:their] knight armor.`);
@@ -2293,14 +2386,11 @@ G={
 			
 			//death stuff
 			new G.act(0.05,['dead'],`[The [pile of flesh that used to be|dead husk of] [1]|[1]'s [corpse|lifeless body]] [[rots|festers|desiccates|decays|putrefies|decomposes] [peacefully|silently|loudly]|writhes with maggots].`);
-			
 			new G.act(0.01,['dead alive:0 dead:>1 any'],`[BLUE]A god comes upon this mess and revives everyone out of boredom.<br>How nice! Everybody's back.`,p=>{
 				for (var i in G.chars){G.chars[i].lose('dead');G.chars[i].lose('zombie');G.chars[i].lose('ghost');G.chars[i].lose('bleed');G.chars[i].lose('concussed');G.chars[i].lose('burnt');G.chars[i].gain('revived');}
 			});
 			new G.act(0.03,['dead alive:0 dead:1 any'],`[BLUE]A god comes upon this mess and revives [1] out of boredom.<br>How nice!`,p=>{p[1].lose('dead');p[1].lose('zombie');p[1].lose('ghost');p[1].lose('bleed');p[1].lose('concussed');p[1].lose('burnt');p[1].gain('revived');});
-			
 			new G.act(FORCE,['revived dead any'],`[1] was about to live again, but is, sadly, still dead.`,p=>{p[1].lose('revived');});
-			
 			new G.act(FORCE,['revived !suicidal !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:g|he's|she's|they're] alive again.`,p=>{p[1].lose('sheep');p[1].lose('revived');});
 			new G.act(FORCE,['revived suicidal !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:g|he's|she's|they're] alive again.<br>Goddammit.`,p=>{p[1].lose('sheep');p[1].lose('revived');});
 			
@@ -2329,23 +2419,19 @@ G={
 			new G.act(0.025,['annoying','+ !composed','+ team'], `[RED][[2] is sick of [1] and leaves|[1] just won\'t stop bothering [2] so [1:g|he leaves|she leaves|they leave]] [3]!`,p=>{p[2].leave();});
 				new G.act(0.05,['manipulative','+ !composed annoying|naive|romantic|suicidal', '+ team'], `[RED][1] sees [2] as a liability and [tricks [2:them] into leaving [3]|turns [3] against [2:them], forcing [2:them] to leave].`,p=>{p[2].leave();});
 			new G.act(0.05,['manipulative','- !composed','+ team'], `[RED][1] [gets into [2]\'s head|feeds [2] lies] and [gets [2:them] to [leave|abandon]|tricks [2:them] into [leaving|abandoning]] [3].`,p=>{p[2].leave();});
-			new G.act(0.05,['manipulative','+ team','- !composed'], `[RED][1] [gets into [3]\'s head|tells [3] [3:g|he\'s|she\'s|they\'re] underappreciated] and [gets [3:them] to join|tricks [2:them] into joining] [2].`,p=>
-			{
+			new G.act(0.05,['manipulative','+ team','- !composed'], `[RED][1] [gets into [3]\'s head|tells [3] [3:g|he\'s|she\'s|they\'re] underappreciated] and [gets [3:them] to join|tricks [2:them] into joining] [2].`,p=>{
 				p[3].leave();
 				p[3].join(p[2])
 			});
-				new G.act(0.1,['manipulative','+ team','- naive',], `[RED][1] finds [3] easy prey and [gets [3:them] to join|tricks [3:them] into joining] [2].`,p=>
-				{
+				new G.act(0.1,['manipulative','+ team','- naive',], `[RED][1] finds [3] easy prey and [gets [3:them] to join|tricks [3:them] into joining] [2].`,p=>{
 					p[3].leave();
 					p[3].join(p[2])
 				});
-				new G.act(0.025,['lunatic','+ team','- team'], `[RED][1] [randomly decides|thinks it would be fun|wakes up wanting] to [leave|ditch] [2] and join [3].`,p=>
-				{
+				new G.act(0.025,['lunatic','+ team','- team'], `[RED][1] [randomly decides|thinks it would be fun|wakes up wanting] to [leave|ditch] [2] and join [3].`,p=>{
 					p[1].leave();
 					p[1].join(p[3])
 				});
-				new G.act(0.05,['romantic','+ team','- cute|romantic','+ team'], `[RED][1] [is obsessed with|yearns for|just wants to be with] [3], leading [1:them] to leave [2] and join [4].`,p=>
-				{
+				new G.act(0.05,['romantic','+ team','- cute|romantic','+ team'], `[RED][1] [is obsessed with|yearns for|just wants to be with] [3], leading [1:them] to leave [2] and join [4].`,p=>{
 					p[1].leave();
 					p[1].join(p[4])
 				});
