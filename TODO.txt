@@ -1,0 +1,28 @@
+Conditions
+- Terrified
+	- Run around
+	- Run into someone and die
+	- Get into an accident
+	- Spring a trap
+
+Traits
+- Annoying can distract and prevent team kills
+- Bulky is hard to miss
+- Brash more likely to get trapped/have accidents
+- Kind can take people from teams with manipulative/sociopath?
+
+General
+- If you have a blorb, you can ponder it
+- Make it clearer what condition is ending
+- Death more likely than healing
+- More likely to flat out kill
+- Give ghosts more interactions
+- Zombification less likely than killing zombies maybe?
+- People team up when there are zombies around
+
+Bugs
+- No perk named "freeze"
+- No perk named "fishing"
+- Find bow double name
+- 1432 undefined 
+- Can you concuss someone already concussed?

@@ -2,6 +2,23 @@
 Curious how this mod differs from the original? Here's a list of all the changes made
 
 
+## 5/28/25
+
+### General Fixes/Improvements
+- Accidents are now half as likely
+- Fixed a bug where players without a team would not prevent the game from ending
+
+### New/Reworked Traits
+- Scavengers are now more likely to loot corpses
+
+### New/Reworked Items
+- Added Pipe, Freeze Ray, Taser, Whip, Net, Anchor, Fishing Rod, and Scepter
+
+### New/Reworked Statuses
+- Added Stunned and Frozen
+- Frenzied players can now be killed
+
+
 ## 5/21/25
 
 ### General Fixes/Improvements
