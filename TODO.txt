@@ -12,17 +12,7 @@ Traits
 - Brash more likely to get trapped/have accidents
 - Kind can take people from teams with manipulative/sociopath?
 - Composed immune to shell-shocked and terrified
-- Non-Sapient
-	- No romance
-	- Can't find items
-	- Unique pet dialogue (pets as partners?)
-	- Can be pet
-	- Can't be a life coach
-	- Can calm down allies
-	- Unique sheep dialogue
-	- Can't set traps
-	- Can't heal wounds
-	- Super low chance to gain intelligence
+
 
 General
 - Give ghosts more interactions
@@ -44,3 +34,4 @@ General
 	- Kind, Wounded gets troupple
 	- Sociopath gets fairy
 	- Survivalist kills fairy
+	

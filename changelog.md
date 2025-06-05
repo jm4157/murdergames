@@ -4,6 +4,12 @@ Curious how this mod differs from the original? Here's a list of all the changes
 
 ## 6/4/25
 
+### New/Reworked Traits
+- Added a Non-Sapient trait for players such as animals
+
+
+## 6/4/25
+
 ### New/Reworked Mechanics
 - Removed light wounds
 - Made serious wounds and death more common
