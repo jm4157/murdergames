@@ -2,7 +2,38 @@
 Curious how this mod differs from the original? Here's a list of all the changes made
 
 
-## 5/28/25
+## 6/4/25
+
+### New/Reworked Mechanics
+- Removed light wounds
+- Made serious wounds and death more common
+
+### New/Reworked Traits
+- Kind and Naive players can now kill as long as they have a dead teammate
+
+
+## 5/31/25
+
+### General Fixes/Improvements
+- Players with a pet blorb can now ponder their blorb
+- Improved icons for wounded, ghost, and zombie
+- Added icons for suffering from a status condition, being a sheep, and being trapped
+
+### New/Reworked Mechanics
+- Simplified the wound system
+- Characters are now more likely to die of their wounds than recover from them
+- Replaced the kill count at the end of the game with a points system
+
+### New/Reworked Traits
+- Kind and Naive characters can now kill if they have a dead team member
+- Kind and Naive characters can kill to defend themselves
+- Removed Composed character's aiming abilities
+
+### New/Reworked Statuses
+- Gave Terrified actual events to take place
+
+
+## 5/30/25
 
 ### General Fixes/Improvements
 - Accidents are now half as likely

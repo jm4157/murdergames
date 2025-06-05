@@ -1,28 +1,46 @@
-Conditions
-- Terrified
-	- Run around
-	- Run into someone and die
-	- Get into an accident
-	- Spring a trap
+Weapons
+- Naive death taking bath with taser
+
+Pets 
+- Fairy more negative
+	- Kills bleeding owner
+	- If owner is watching over someone bleeding, kills them
 
 Traits
 - Annoying can distract and prevent team kills
 - Bulky is hard to miss
 - Brash more likely to get trapped/have accidents
 - Kind can take people from teams with manipulative/sociopath?
+- Composed immune to shell-shocked and terrified
+- Non-Sapient
+	- No romance
+	- Can't find items
+	- Unique pet dialogue (pets as partners?)
+	- Can be pet
+	- Can't be a life coach
+	- Can calm down allies
+	- Unique sheep dialogue
+	- Can't set traps
+	- Can't heal wounds
+	- Super low chance to gain intelligence
 
 General
-- If you have a blorb, you can ponder it
-- Make it clearer what condition is ending
-- Death more likely than healing
-- More likely to flat out kill
 - Give ghosts more interactions
-- Zombification less likely than killing zombies maybe?
-- People team up when there are zombies around
-
-Bugs
-- No perk named "freeze"
-- No perk named "fishing"
-- Find bow double name
-- 1432 undefined 
-- Can you concuss someone already concussed?
+	- Steal stuff
+	- Break traps
+	- Set traps
+	- Death by heart attack
+	- Drive people insane
+	- Posess certain tools and make them misfire
+- Zombies
+	- Lower chance of zombies
+	- Zombification less likely than killing zombies maybe?
+	- People team up when there are zombies around
+	- Game doesn't end if there are zombies around
+	- Kill many zombies at once
+	- Trowel plants a peashooter to kill zombies
+- Adopting pets 
+	- Scepter, Heroic gets griffoth
+	- Kind, Wounded gets troupple
+	- Sociopath gets fairy
+	- Survivalist kills fairy
