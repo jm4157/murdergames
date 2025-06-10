@@ -2,6 +2,28 @@
 Curious how this mod differs from the original? Here's a list of all the changes made
 
 
+## 6/8/25
+
+### New/Reworked Mechanics
+- Accidents can now only happen to Brash or Naive players
+- Added gambling
+- Fairies are now likely to murder bleeding out allies
+
+### New/Reworked Statuses
+- Shell-shocked players may now become Frenzied
+
+### New/Reworked Traits
+- Kind players can now take people from teams with Manipulative or Sociopath allies
+- Bulky players are now impossible to miss with ranged attacks
+- Bulky players are now far more resistant to being killed in melee
+- Naive players can now go on side quests. This has no effect on gameplay
+- Annoying players sometimes inadvertantly warn enemies of sneak attacks
+- Non-Sapient Scavenger players will find items to give to their allies
+
+### New/Reworked Items
+- Grenades are now very likely to multi-kill to offset their single-use downside
+
+
 ## 6/4/25
 
 ### New/Reworked Traits

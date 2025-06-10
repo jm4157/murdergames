@@ -1,18 +1,23 @@
-Weapons
-- Naive death taking bath with taser
-
-Pets 
-- Fairy more negative
-	- Kills bleeding owner
-	- If owner is watching over someone bleeding, kills them
-
 Traits
-- Annoying can distract and prevent team kills
-- Bulky is hard to miss
-- Brash more likely to get trapped/have accidents
-- Kind can take people from teams with manipulative/sociopath?
-- Composed immune to shell-shocked and terrified
-
+- Mystical
+	- Can attempt to resurrect teammates (success, ghost, zombie)
+	- Force ghosts into the afterlife
+	- Better at finding magic items
+	- Enchant scepter into ancient scepter
+	- Can't run out of magic with the wand
+	- Distract naive characters with tricks
+	- Ponder their blorb
+	- Healing spell
+	- Summon pet as familiar
+	- Sociopath give other people fairies
+- Annoying
+	- Annoying players with items make enemies stop using theirs 
+		- Uncool
+		- Insist it's copyrighted
+	- Annoying players distract enemies
+		- Save allies inadvertantly
+		- Accidentally point out a trap to be disarmed
+	- Prevent teammates from getting into a fight/getting kicked off the team by being more annoying
 
 General
 - Give ghosts more interactions
@@ -20,8 +25,13 @@ General
 	- Break traps
 	- Set traps
 	- Death by heart attack
+	- Death by heart attack into new ghost
 	- Drive people insane
 	- Posess certain tools and make them misfire
+	- Move on (afterlife trait: can't become a ghost again)
+	- Therapists help ghosts move on
+	- Magic items/taser can kill ghosts
+	- Help by haunting helps person rather than full team
 - Zombies
 	- Lower chance of zombies
 	- Zombification less likely than killing zombies maybe?
@@ -34,4 +44,3 @@ General
 	- Kind, Wounded gets troupple
 	- Sociopath gets fairy
 	- Survivalist kills fairy
-	
