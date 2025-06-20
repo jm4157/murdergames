@@ -2,6 +2,19 @@
 Curious how this mod differs from the original? Here's a list of all the changes made
 
 
+## 6/19/25
+
+### New/Reworked Traits
+- Added the Mystical trait
+- Annoying players can now point out traps, force opponents to drop weapons, and distract Manipulative or Sociopath allies
+
+### New/Reworked Mechanics
+- Gambling can now grant items or instant death
+- Players can become brash from gambling
+- Brash players are more likely to gamble
+- Most pets can now protect their owner's corpses from looting
+- Pets can now be adopted after their owner dies
+
 ## 6/8/25
 
 ### New/Reworked Mechanics

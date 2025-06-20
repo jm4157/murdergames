@@ -1,24 +1,3 @@
-Traits
-- Mystical
-	- Can attempt to resurrect teammates (success, ghost, zombie)
-	- Force ghosts into the afterlife
-	- Better at finding magic items
-	- Enchant scepter into ancient scepter
-	- Can't run out of magic with the wand
-	- Distract naive characters with tricks
-	- Ponder their blorb
-	- Healing spell
-	- Summon pet as familiar
-	- Sociopath give other people fairies
-- Annoying
-	- Annoying players with items make enemies stop using theirs 
-		- Uncool
-		- Insist it's copyrighted
-	- Annoying players distract enemies
-		- Save allies inadvertantly
-		- Accidentally point out a trap to be disarmed
-	- Prevent teammates from getting into a fight/getting kicked off the team by being more annoying
-
 General
 - Give ghosts more interactions
 	- Steal stuff
@@ -31,7 +10,9 @@ General
 	- Move on (afterlife trait: can't become a ghost again)
 	- Therapists help ghosts move on
 	- Magic items/taser can kill ghosts
-	- Help by haunting helps person rather than full team
+	- Mystical forces ghosts into the afterlife
+	- Less likely to haunt own team
+	- Ghost gambling?
 - Zombies
 	- Lower chance of zombies
 	- Zombification less likely than killing zombies maybe?
@@ -39,8 +20,3 @@ General
 	- Game doesn't end if there are zombies around
 	- Kill many zombies at once
 	- Trowel plants a peashooter to kill zombies
-- Adopting pets 
-	- Scepter, Heroic gets griffoth
-	- Kind, Wounded gets troupple
-	- Sociopath gets fairy
-	- Survivalist kills fairy
