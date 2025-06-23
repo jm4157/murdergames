@@ -20,3 +20,17 @@ General
 	- Game doesn't end if there are zombies around
 	- Kill many zombies at once
 	- Trowel plants a peashooter to kill zombies
+- Increase wish rate
+- Fires handgun should be shotgun
+- Gambling flavor text
+- Nerf mult-hit
+- Getting fairy is blue
+- Kind take teammate blue
+- no perk found named pet_fairy
+- no perk found named pet_troupple
+- If no traits, become a lunatic
+- Special interaction for cute who has killed
+- Zombies interact with frenzied?
+- Rocket and grenade multi-kills don't have to be the same team
+- Add more built-in gender tags 2876
+- Brand new teams
