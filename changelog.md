@@ -2,6 +2,38 @@
 Curious how this mod differs from the original? Here's a list of all the changes made
 
 
+## 11/27/25
+
+### New/Reworked Traits
+- Allowed Naive players to dodge attacks by being oblivious
+- Players with no traits may spontaneously become lunatics
+- Socipaths can now fire rockets and grenades at their teammates in order to kill foes
+- Cute players may be protected from a coup de gras
+- Opponents may be compelled to free cute players from traps
+
+### New/Reworked Statuses
+- Suicidal players can now wish themselves out of existence
+- Reduced the chances of ghosts becoming zombies
+- Increased the number of zombie interactions
+
+### New/Reworked Items
+- Wishing is now more common across the board
+- Rocket launchers and grenades can kill groups of enemies from differing teams
+- Trowel users can now use plants to kill zombies
+
+### New/Reworked Mechanics
+- It is now less common to kill multiple foes at once
+- Gambling can now give a purely flavor text outcome
+- Lone players are likely to join teams when there are zombies around
+
+
+## 6/23/25
+
+### New/Reworked Traits
+- Added special dialogue for cute players that have killed
+- Annoying players now goad enemies into traps rather than pointing them out
+
+
 ## 6/19/25
 
 ### New/Reworked Traits

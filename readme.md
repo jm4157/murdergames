@@ -2,8 +2,6 @@
 
 This is a mod to [Orteil's Murder Games](https://orteil.dashnet.org/murdergames/) that aims to improve the experience by adding Traits, Statuses, Items, and events linked to all of those, as well as adding new events for the existing content. This mod is made by and **for** the [DiscOrder of No Quarter](https://discord.gg/TRDrRdv) community, and will include a more specific injokes as well as generic updates.
 
-A Google Drive exists with a [list](https://docs.google.com/document/d/1lU5NvP_yMKFLUt4bB2rJFOGVZc2SBDWSGu4Fvhl__Pc/edit?usp=sharing) of all the events in the game, which you can use for reference or comment improvements you think could be made.
-
 ## Using this Mod
 
 This mod overrides the code of [https://orteil.dashnet.org/murdergames/](https://orteil.dashnet.org/murdergames/) in order to function. Follow these steps to replicate this.
@@ -162,7 +160,11 @@ Each item has its own chance that is multiplied by the item find multiplier to m
 >
 >	'-'
 >
->		> must be a different team
+>		> must be a different team from the previous team/person selected
+>
+>	'#'
+>
+>		> must be a different team from the FIRST team/person in the event
 >
 >	'inTeam'
 >

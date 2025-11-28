@@ -1,4 +1,3 @@
-General
 - Give ghosts more interactions
 	- Steal stuff
 	- Break traps
@@ -13,24 +12,21 @@ General
 	- Mystical forces ghosts into the afterlife
 	- Less likely to haunt own team
 	- Ghost gambling?
-- Zombies
-	- Lower chance of zombies
-	- Zombification less likely than killing zombies maybe?
-	- People team up when there are zombies around
-	- Game doesn't end if there are zombies around
-	- Kill many zombies at once
-	- Trowel plants a peashooter to kill zombies
-- Increase wish rate
-- Fires handgun should be shotgun
-- Gambling flavor text
-- Nerf mult-hit
-- Getting fairy is blue
-- Kind take teammate blue
-- no perk found named pet_fairy
-- no perk found named pet_troupple
-- If no traits, become a lunatic
-- Special interaction for cute who has killed
-- Zombies interact with frenzied?
-- Rocket and grenade multi-kills don't have to be the same team
+	- Naive doesn't realize they're dead, comes back as ghost
+
+- Prankster trait
+	- Maybe an evolution of annoying?
+	- Removes items from people
+	- Tricks them into traps
+	- Drop an anchor, which misses
+	- Use fingers to plug shotgun 
+	- "Let him have it" "You heard him. Let me have it."
+	- Puts pin back in grenade and throws it away 
+	- U-turn sign for rocket
+	- Steal metal items with a big magnet
+
 - Add more built-in gender tags 2876
 - Brand new teams
+- Composed visibility
+	- Maybe some sort of interaction with brash?
+- Boomerang
