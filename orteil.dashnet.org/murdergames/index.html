@@ -713,22 +713,11 @@ G={
 			G.glob.disable=true;//mark the character as disabled; disabled characters cannot do any actions that don't specifically call for this perk
 			G.glob.out=false;//mark the character as out; out characters cannot do any actions that don't specifically call for this perk
 		//condition statuses
-		new G.perk({name:`frenzied`,desc:`Experiencing a fit of violent rage.`});
-		new G.perk({name:`terrified`,desc:`Running away from something horrifying.`});
-		new G.perk({name:`stunned`,desc:`Dazed and reeling, unable to do much.`});
-		new G.perk({name:`shell-shocked`,desc:`Has seen too much. May not be of much use for a while.`});
+		new G.perk({name:`engaged`,desc:`Engaged to be married.`,disable:false});
+		new G.perk({name:`married`,desc:`the win condition for the game.`,disable:false});
 		new G.perk({name:`trapped`,desc:`Stuck in a trap, and waiting to be freed, if something doesn't kill them first.`});
 		new G.perk({name:`suicidal`,desc:`Probably won't survive very long.`,disable:false});
 		new G.perk({name:`dead`,desc:`Dead and gone. Sorry!`,out:true});
-		new G.perk({name:`ghost`,desc:`Brought back from the dead in a mischievous incorporeal form.`,out:true});
-		new G.perk({name:`zombie`,desc:`Brought back from the dead in a smelly, mindless form.`,out:true});
-		new G.perk({name:`sheep`,desc:`Has been turned into a sheep through some magical mean.`,out:true});
-		new G.perk({name:`revived`,desc:`Was just resurrected through some miracle or other.`,out:true});
-		//wound statuses
-		new G.perk({name:`bleed`,desc:`Losing blood at an alarming rate. Needs immediate treatment.`});
-		new G.perk({name:`concussed`,desc:`Been pounded badly.`});
-		new G.perk({name:`burnt`,desc:`Singed quite a lot. Everything hurts.`});
-		new G.perk({name:`frozen`,desc:`Frozen solid. What happens when you use a spell you don't know.`});
 		//action statuses
 		new G.perk({name:`has killed`,desc:`Caused someone's death.`,disable:false});
 		new G.perk({name:`set trap`,desc:`Laid down some traps that others may get caught in...`,disable:false});
@@ -1212,11 +1201,7 @@ G={
 			if (teamless.chars.length>0) teams.unshift(teamless);
 
 			var icon = function(me){
-				if (me.has('ghost')) return`<div class="picGhost"></div>`;
-				else if (chars[ii].has('zombie')) return `<div class="picZombie"></div>`;
-				else if (chars[ii].has('dead')) return `<div class="picSkull"></div>`;
-				else if (chars[ii].has('bleed')||chars[ii].has('concussed')||chars[ii].has('burnt')) return`<div class="picWound"></div>`;
-				else if (chars[ii].has('terrified')||chars[ii].has('shell-shocked')||chars[ii].has('frenzied')||chars[ii].has('stunned')||chars[ii].has('trapped')) return`<div class="picStatus"></div>`;
+				if (chars[ii].has('dead')) return `<div class="picSkull"></div>`;
 				else return '';
 			}
 			
@@ -1714,16 +1699,24 @@ G={
 			new G.act(1,['','+'],`[1] and [2] go on a date!`);
 				
 			//confession
-			new G.act(1,['noTeam', 'noTeam'], `[BLUE][1] asks [2] out on a data and [2:they] accept[2:s]!`,p=>{
+			new G.act(1,['noTeam', 'noTeam'], `[BLUE][1] asks [2] out on a date and [2:they] accept[2:s]!`,p=>{
 				var team = new G.team({name:p[1].name+' and '+p[2].name,chars:[]})
 				p[1].join(team);
+				p[1].score(1);
 				p[2].join(team);
 			});
 
 			//proposal
-			new G.act(1,['','+'], )
+			new G.act(1,['!engaged','+'], `[BLUE][1] asks [2] to marry [1:them]. [2] accepts!<br>[1] and [2] are now engaged!`,p=>{
+				p[1].gain('engaged');
+				p[1].inflict(p[2],'engaged')
+			})
 
 			//marriage
+			new G.act(1,['engaged','+'], `[BLUE][1] and [2] finally get married!<br>[Yippie|Woo hoo|Hooray]!`,p=>{
+				p[1].gain('married');
+				p[2].gain('married')
+			})
 
 			/*
 			//just a test
@@ -1799,9 +1792,12 @@ G={
 									else if (prop=='Them') {out+=['Him','Her','Them'][actor.gender];}
 									else if (prop=='their') {out+=['his','her','their'][actor.gender];}
 									else if (prop=='Their') {out+=['His','Her','Their'][actor.gender];}
+									else if (prop==`they're`) {out +=[`he's`,`she's`,`they're`][actor.gender];}
+									else if (prop==`They're`) {out +=[`He's`,`She's`,`They're`][actor.gender];}
 									else if (prop=='themself' || prop=='themselves') {out+=['himself','herself','themself'][actor.gender];}
 									else if (prop=='Themself' || prop=='Themselves') {out+=['Himself','Herself','Themself'][actor.gender];}
 									else if (prop=='s') {out+=['s','s',''][actor.gender]}
+									else if (prop=='es') {out+=['es','es',''][actor.gender]}
 									else out+='<e>'+actor.name+'</e>';
 								}
 								else out+='<e>[invalid actor : '+bits[0]+']</e>';
@@ -1909,13 +1905,8 @@ G={
 							for (var ii in chars)
 							{
 								pics+=`<img src="${chars[ii].pic}" class="pic" title="${chars[ii].name}"/>`;
-								if (chars[ii].has('ghost')) pics+=`<div class="picGhost"></div>`;
-								else if (chars[ii].has('zombie')) pics+=`<div class="picZombie"></div>`;
-								else if (chars[ii].has('dead')) pics+=`<div class="picSkull"></div>`;
-								else if (chars[ii].has('bleed')||chars[ii].has('concussed')||chars[ii].has('burnt')) pics+=`<div class="picWound"></div>`;
-								else if (chars[ii].has('sheep')) pics+=`<div class="picSheep"></div>`;
+								if (chars[ii].has('dead')) pics+=`<div class="picSkull"></div>`;
 								else if (chars[ii].has('trapped')) pics+=`<div class="picTrapped"></div>`;
-								else if (chars[ii].has('terrified')||chars[ii].has('shell-shocked')||chars[ii].has('frenzied')||chars[ii].has('stunned')) pics+=`<div class="picStatus"></div>`;
 							}
 							str+=`<div class="box action${action.classes?(' '+action.classes):''}"><div>${pics}</div><div>${action.text}</div></div>`;
 						}
@@ -1949,27 +1940,20 @@ G={
 					for (var i=nodes.length-1;i>=0;i--){animAdd(nodes[i]);}
 				}
 				var str='';
-				var dead=0,healthy=0,wounded=0;zombie=0;ghost=0;
+				var dead=0,healthy=0,wounded=0;married=0;
 				for (var i in G.chars)
 				{
 					var me=G.chars[i];
-					if (me.has('zombie')) zombie++
-					else if (me.has('ghost')) {ghost++; dead++;}
-					else if (me.has('dead')) dead++;
-					else if (me.has('bleed') ||  me.has('concussed') || me.has('burnt')) wounded++
+					if (me.has('dead')) dead++;
 					else healthy++;
 				}
 				str+=`Healthy : ${healthy} | Wounded : ${wounded} | Dead : ${dead}`;
-				if (ghost>0) str+=` | Ghosts : ${ghost}`;
-				if (zombie>0) str+=` | Zombified : ${zombie}`;
 				l('roundStats').innerHTML=str;
 				l('roundN').innerHTML='Round '+G.round;
 				var alive=healthy+wounded;
 				if (alive==0)
 				{
 					if (G.chars.length==0) l('everyoneDeadDetails').innerHTML=`There's literally nobody here, dead or alive.`;
-					else if (zombie>0) l('everyoneDeadDetails').innerHTML=`Everyone is dead. It's a zombie apocalypse!`;
-					else if (ghost>0) l('everyoneDeadDetails').innerHTML=`Everyone is dead. It's quite literally a ghost town.`;
 					else l('everyoneDeadDetails').innerHTML=`Everyone is dead.`;
 					l('everyoneDead').style.display='block';
 				}
@@ -2000,12 +1984,12 @@ G={
 					var teamsAlive=[];
 					var soleSurvivor=0;
 					var soloCount = 0;
-					var zombieCount = 0;
+					var teamsMarried = [];
 					for (var i in G.chars)
 					{
 						var me=G.chars[i];
-						if (me.has('zombie')) {zombieCount++;}
-						else if (me.has('dead') || me.has('ghost')) {}
+						if (me.has('married')) {teamsMarried.push(me.team)}
+						else if (me.has('dead')) {}
 						else
 						{
 							soleSurvivor=me;
@@ -2013,28 +1997,22 @@ G={
 							if (!me.team) soloCount++;
 						}
 					}
-					if (G.chars.length>1 && alive==1)
+					if (teamsMarried.length > 0){
+						l('soleSurvivor').style.display='block';
+						l('soleSurvivorDetails').innerHTML=`<div><e>${teamsMarried[0].name}</e> got married which means they win I guess.</div>`;
+						end=true;
+					}
+					else if (G.chars.length>1 && alive==1)
 					{
-						if (zombieCount==0){
-							l('soleSurvivor').style.display='block';
-							l('soleSurvivorDetails').innerHTML=`<div>Everyone is dead except <e>${soleSurvivor.name}</e>${soleSurvivor.team?(' from <e>'+soleSurvivor.team.name+'</e>'):''}, who stands as the sole survivor.</div>`;
-							end=true;
-						} else {
-							l('zombieEnding').style.display='block';
-							l('zombieEndingDetails').innerHTML=`<div><e>${soleSurvivor.name}</e>${soleSurvivor.team?(' from <e>'+soleSurvivor.team.name+'</e>'):''} is the only remaining survivor, but they won't be safe until no zombies remain.</div>`;
-						}
+						l('soleSurvivor').style.display='block';
+						l('soleSurvivorDetails').innerHTML=`<div>Everyone is dead except <e>${soleSurvivor.name}</e>${soleSurvivor.team?(' from <e>'+soleSurvivor.team.name+'</e>'):''}, who stands as the sole survivor.</div>`;
+						end=true;
 					}
 					else if (soloCount == 0 && G.teams.length>=1 && teamsAlive.length==1)
 					{
-						if (zombieCount==0){
-							l('soleSurvivor').style.display='block';
-							l('soleSurvivorDetails').innerHTML=`<div><e>${teamsAlive[0].name}</e> emerges as the victorious team. Everyone else is dead.</div>`;
-							end=true;
-						} else {
-							l('zombieEnding').style.display='block';
-							l('zombieEndingDetails').innerHTML=`<div><e>${teamsAlive[0].name}</e> emerges as the victorious team, but it won't be a proper victory until no zombies remain.</div>`;
-						}
-	
+						l('soleSurvivor').style.display='block';
+						l('soleSurvivorDetails').innerHTML=`<div><e>${teamsAlive[0].name}</e> emerges as the victorious team. Everyone else is dead.</div>`;
+						end=true;
 					}
 					else l('soleSurvivor').style.display='none';
 				}

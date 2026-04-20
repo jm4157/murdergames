@@ -1,1 +1,2 @@
 - Rework traits
+- What happens if multiple people get married in the same round?
