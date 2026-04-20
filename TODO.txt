@@ -19,6 +19,7 @@
 	- Romantics run away together
 	- Heroics become voluntary protectors
 	- Manipulatives enlist people to help them
+	- Two final characters reach a truce
 
 - Infighting
 	- Brash characters fight and wound/kill each other
@@ -36,7 +37,6 @@
 	- Annoying causes Frenzy
 	- Generic attack and Frenzy at low probability
 
-- Add more built-in gender tags 2876
 - Boomerang
 - Give flamethrower friendly fire potential
 - Grenade and rocket launcher don't act because of nearby allies
