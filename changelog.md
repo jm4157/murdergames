@@ -1,6 +1,16 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 4/19/26
+
+### New/Reworked Mechanics
+- New teams can now be created mid-fight
+
+## 12/1/25
+
+### New/Reworked Items
+- Players with a black belt may now dodge bullets
+- Players with a black belt and a sword may now reflect bullets
 
 ## 11/27/25
 

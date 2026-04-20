@@ -690,21 +690,21 @@ G={
 		
 		G.glob={type:'trait',def:true};
 		new G.perk({name:`no perk`,desc:`No perk selected.`});
-		new G.perk({name:`non-sapient`,desc:`Incapable of human-level intelligence and emotions`});
+		new G.perk({name:`non-sapient`,desc:`Incapable of human-level intelligence and emotions.`});
 		
 		new G.perk({name:`annoying`,desc:`Horrible to be around. Tends to get killed off first.`});
 		new G.perk({name:`brash`,desc:`Charges headfirst into situations.`});
-		new G.perk({name:`bulky`,desc:`Capable of resisting stronger attacks.`});
+		new G.perk({name:`bulky`,desc:`Strong, tough, or just very large.`});
 		new G.perk({name:`composed`,desc:`Keeps a level head in all situations.`});
 		new G.perk({name:`cute`,desc:`Everybody likes them! Others may go out of their way to protect them.`});
 		new G.perk({name:`heroic`,desc:`Tries to protect others, even to their own detriment.`});
 		new G.perk({name:`kind`,desc:`Will act selflessly and generously to help others.`});
-		new G.perk({name:`lunatic`,desc:`Susceptible to gain and lose random perks regularly.`});
+		new G.perk({name:`lunatic`,desc:`Susceptible to gain and lose random traits regularly.`});
 		new G.perk({name:`manipulative`,desc:`Will manipulate and betray others if given the chance.`});
 		new G.perk({name:`mystical`,desc:`Experienced in magical arts.`});
 		new G.perk({name:`naive`,desc:`Gullible and easy to mislead.`});
 		new G.perk({name:`romantic`,desc:`Often more interested in looking for love than making war.`});
-		new G.perk({name:`scavenger`,desc:`Finds more resources than most.`});
+		new G.perk({name:`scavenger`,desc:`Able to loot resources off of dead players.`});
 		new G.perk({name:`sneaky`,desc:`Tries to win from the shadows.`});
 		new G.perk({name:`sociopath`,desc:`Simply doesn't care about others.`});
 		new G.perk({name:`survivalist`,desc:`Has a breadth of survival knowledge, unlikely to make mistakes.`});
@@ -745,7 +745,7 @@ G={
 		new G.perk({name:`axe`,desc:`Makes quick, if messy work of anyone who'd stand in your way.`});
 		new G.perk({name:`big stick`,desc:`Rather crude, but can bash an unsuspecting enemy just fine.`});
 		new G.perk({name:`black belt`, desc:`Certifies you know martial arts.`});
-		new G.perk({name:`bow`,desc:`Its arrows can easily chop a head clean off from a distance if skillfully wielded.`});
+		new G.perk({name:`bow`,desc:`Its arrows can easily kill from a distance if skillfully wielded.`});
 		new G.perk({name:`brass knuckles`, desc:`Aids in fisticuffs.`});
 		new G.perk({name:`crossbow`, desc:`Fires bolts from afar.`});
 		new G.perk({name:`egg`,desc:`What could be inside?`});
@@ -760,7 +760,7 @@ G={
 		new G.perk({name:`mallet`, desc:`Useful in hitting giant moles, and maybe other things.`});
 		new G.perk({name:`net`,desc:`A tool used to capture opponents.`});
 		new G.perk({name:`nitro`, desc:`Lets you boost DiscOrder, and doesn't do much else.`});
-		new G.perk({name:`pipe`,desc:`The smoking kind, not the fluid-transport kind.`});
+		new G.perk({name:`pipe`,desc:`The smoking kind, not the beating people over the head kind.`});
 		new G.perk({name:`pitchfork`,desc:`Used to stack hay and stab your friends.`});
 		new G.perk({name:`rocket launcher`,desc:`A dangerous weapon; excels at blowing stuff up.`});
 		new G.perk({name:`scepter`, desc:`Like a big stick, but more regal.`});
@@ -769,7 +769,7 @@ G={
 		new G.perk({name:`shears`, desc:`Used to tend to plants, and occasionally attack.`});
 		new G.perk({name:`shield`, desc:`Can protect from many attacks.`});
 		new G.perk({name:`shotgun`,desc:`Delivers a powerful, low-accuracy blow.`});
-		new G.perk({name:`spear`, desc:`A long weapon that can keep enemies at bay.`});
+		new G.perk({name:`spear`, desc:`Considered by some to be the king of weapons.`});
 		new G.perk({name:`sword`,desc:`A classic bladed weapon popular since medieval times.`});
 		new G.perk({name:`taser`,desc:`A defensive weapon meant to incapacitate a foe without killing them.`});
 		new G.perk({name:`trowel`,desc:`A gardening tool. Why would you fight with this?`});
@@ -1269,6 +1269,7 @@ G={
 				for (var i in o){this[i]=o[i];}
 				for (var i in this.chars){this.chars[i].team=this;}
 				G.teams.push(this);
+				return this
 			}
 				G.team.prototype.pick=function(n)
 				{
@@ -1773,7 +1774,7 @@ G={
 			new G.act(1,['sociopath deaths:>0'],`[1] [seems unshaken by any of this|is only looking out for [1:themself]].`);
 				new G.act(0.5,['manipulative|sociopath','+ team teamalive:>1'],`[1] sees [2] as a bunch of chumps to be milked.`);
 			new G.act(1,['suicidal'],`[1] [wishes [1:g|he was|she was|they were] dead|longs for death].`);
-				new G.act(1,['survivalist deaths:0'],`[1] [came prepared|could get used to this place].`);
+			new G.act(1,['survivalist deaths:0'],`[1] [came prepared|could get used to this place].`);
 				new G.act(1,['survivalist deaths:>0'],`[1] [is determined to survive this|won't die like the others|won't give up so easily].`);
 				new G.act(1,['survivalist|sociopath alive:1 dead:>0'],`[1] [always knew [1:they]'d be the last to survive|made it out alive, it seems].`);
 			new G.act(1,['!sociopath|non-sapient','+ non-sapient'],`[1] takes some time to [pet|play with|feed] [2].`);
@@ -2547,13 +2548,15 @@ G={
 			new G.act(0.01,['wish_ring !non-sapient'],`[1] tries to make a wish... [1:g|His|Her|Their] wish ring starts emitting a rancid smoke!<br>[1:g|He throws|She throws|They throw] it to the ground, where it fizzles and burns away in a crackling of angry sparkles.`,p=>{p[1].lose('wish ring');});
 			new G.act(0.003,['naive !wish_ring !non-sapient'],`[1] wishes [1:they] had a wish ring...<br>A mysterious glow wraps around [1:their] finger. Could it really be?`,p=>{p[1].gain('wish ring');});			
 
-			//armor protections
+			//item protections
 			new G.act(woundRate,[coldBloodKiller,'- knight_armor any'],`[1] tries to kill [2], but [2]'s knight armor diverts the blow!`);
 			new G.act(woundRate,[coldBloodKiller,'- combat_gear any'],`[1] tries to kill [2], but [2]'s combat gear diverts the blow!`);
 			new G.act(woundRate,[coldBloodKiller,'- wizard_robe any'],`[1] tries to kill [2], but [2]'s wizard robe has already carried [2:them] away to safety!`);
 			new G.act(killRate*rareEventMult,[coldBloodKiller,'- ornate_plate any'],`[RED][2] relies on [2:their] ornate plate to save [2:them] from [1]'s attack, but it[ does nothing|'s worthless| offers no protection|'s flashy but useless]!`,p=>{p[1].kill(p[2],`armor failure`);});
 			new G.act(woundRate,[coldBloodKiller,'- shield any'],`[1] tries to kill [2], but [2]'s shield diverts the blow!`);
 				new G.act(killRate*rareEventMult,[coldBloodKiller,'- shield any'],`[RED][1] tries to kill [2], but [2]'s shield diverts the blow!<br>Unfortunately the shield shatters in the process...`,p=>{p[1].cure(p[2],'shield')});
+			new G.act(woundRate,[coldBloodKiller+' crossbow|handgun|lasergun|shotgun','- black_belt'], `[1] tries shooting at [2], but [2:their] martial arts prowess allows [2:them] to dodge the shot!<br>[1] [thinks that's a stupid rule|doesn't understand what just happened|is actually pretty [upset|impressed] by this turn of events].`)
+				new G.act(woundRate,[coldBloodKiller+' black_belt sword','- handgun|shotgun'], `[RED][2] tries shooting at [1], but [1:their] martial arts prowess allows [1:them] to reflect the bullet with [1:their] sword!<br>[2] [starts|starts|starts|[grumbles|complains|argues] that reflecting bullets with a sword is dumb before [2:they] start] bleeding out!`,p=>{p[1].inflict(p[2],'bleed');})
 			
 			//trait protections
 			new G.act(woundRate,[coldBloodKiller+' !sociopath|composed','- cute'],`[1] tries to [kill|murder|attack] [2], but [2]['s puppy dog eyes convince [1:them] otherwise.| is just too cute to touch!]`);
@@ -2808,12 +2811,11 @@ G={
 			new G.act(FORCE,['revived suicidal !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:g|he's|she's|they're] alive again.<br>Goddammit.`,p=>{p[1].lose('sheep');p[1].lose('revived');});
 			
 			//dynamic teams
-			/*new G.act(FORCE,['noTeam', 'noTeam'], '[1] and [2] join forces, creating a new team!.',p=>{
-				var teamname = "New Team";
-				var team = G.teams.push({name:teamname});
+			new G.act(1,['noTeam', 'noTeam'], '[BLUE][[1] and [2]|[2] and [1]] [join forces|decide they have a better chance surviving together|agree to an alliance], creating Team [1]!.',p=>{
+				var team = new G.team({name:'Team '+p[1].name,chars:[]})
 				p[1].join(team);
-				p[2].join(team)
-			});*/
+				p[2].join(team);
+			});
 			new G.act(0.1,['noTeam','inTeam','+ team'], `[BLUE][1] [is accepted into|joins|becomes the latest initiate of] [3]!`,p=>{p[1].join(p[3]);});
 				new G.act(0.1,['noTeam non-sapient','inTeam !sociopath','+ team'], `[BLUE][1] gets adopted by [2], joining [3]!`,p=>{p[1].join(p[3]);});
 				new G.act(0.25,['noTeam annoying','inTeam','+ team'], `[1] tries to join [3], but [gets rejected|is too annoying].`);
