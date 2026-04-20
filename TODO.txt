@@ -1,2 +1,15 @@
 - Rework traits
+	- Dandere
+	- Deredere
+	- Himedere
+	- Kuudere
+	- Tsundere
+	- Yandere
+	- Wingman
+- Does this need items? 1081
 - What happens if multiple people get married in the same round?
+- Third parties can interrupt confessions/proposals
+- Third parties can cause breakups
+- Jealous parties can trap/kill their love rivals?
+	- Probably just yanderes
+- Bring back the magic roulette wheel in some capacity

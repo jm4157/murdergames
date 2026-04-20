@@ -689,25 +689,14 @@ G={
 		}
 		
 		G.glob={type:'trait',def:true};
-		new G.perk({name:`no perk`,desc:`No perk selected.`});
-		new G.perk({name:`non-sapient`,desc:`Incapable of human-level intelligence and emotions.`});
+		new G.perk({name:`wingman`,desc:`Won't go on dates, but will help their friends.`});
 		
-		new G.perk({name:`annoying`,desc:`Horrible to be around. Tends to get killed off first.`});
-		new G.perk({name:`brash`,desc:`Charges headfirst into situations.`});
-		new G.perk({name:`bulky`,desc:`Strong, tough, or just very large.`});
-		new G.perk({name:`composed`,desc:`Keeps a level head in all situations.`});
-		new G.perk({name:`cute`,desc:`Everybody likes them! Others may go out of their way to protect them.`});
-		new G.perk({name:`heroic`,desc:`Tries to protect others, even to their own detriment.`});
-		new G.perk({name:`kind`,desc:`Will act selflessly and generously to help others.`});
-		new G.perk({name:`lunatic`,desc:`Susceptible to gain and lose random traits regularly.`});
-		new G.perk({name:`manipulative`,desc:`Will manipulate and betray others if given the chance.`});
-		new G.perk({name:`mystical`,desc:`Experienced in magical arts.`});
-		new G.perk({name:`naive`,desc:`Gullible and easy to mislead.`});
-		new G.perk({name:`romantic`,desc:`Often more interested in looking for love than making war.`});
-		new G.perk({name:`scavenger`,desc:`Able to loot resources off of dead players.`});
-		new G.perk({name:`sneaky`,desc:`Tries to win from the shadows.`});
-		new G.perk({name:`sociopath`,desc:`Simply doesn't care about others.`});
-		new G.perk({name:`survivalist`,desc:`Has a breadth of survival knowledge, unlikely to make mistakes.`});
+		new G.perk({name:`dandere`,desc:`Shy and easily flustered by romantic advances.`});
+		new G.perk({name:`deredere`,desc:`Optimistic and outgoing, openly showing their feelings.`});
+		new G.perk({name:`himedere`,desc:`Expects their partner to treat them like royalty.`});
+		new G.perk({name:`kuudere`,desc:`Show little emotion except in rare cases.`});
+		new G.perk({name:`tsundere`,desc:`Aggressively hides their feelings but warms up over time.`});
+		new G.perk({name:`yandere`,desc:`Extremely possessive. May kill potential rivals.`});
 
 		G.glob={type:'status'};
 			G.glob.disable=true;//mark the character as disabled; disabled characters cannot do any actions that don't specifically call for this perk
@@ -1088,7 +1077,7 @@ G={
 					if (me.def && me.type=='item') itemsList.push(me);
 				}
 				
-				var minTraits=2;
+				var minTraits=1;
 				var minItems=1;
 				
 				if (!o.perks)
@@ -1692,30 +1681,51 @@ G={
 			//NOTE : the first person or team in an act counts as its main actor; they cannot be the main actor of another act in the same round
 			
 			//trait-related idling
-			new G.act(1,[''],`[1] [hums a song to [1:themself]|twiddles [1:their] thumbs|thinks about what [1:they] did to end up in DiscOrder|wonders about the future|is looking for love|stares into the distance longingly].`);
-				new G.act(0.03,['!nitro !survivalist|non-sapient'],'[1] clicks on a Nitro link! But it leads to [a rickroll|a scam website|nude photographs of Grotle].')
+			new G.act(1,[''],`[1] [hums a song to [1:themself]|twiddles [1:their] thumbs|thinks about what [1:they] did to end up in DiscOrder|wonders about the future|stares into the distance longingly|is big chilling|takes a nap|yawns and stretches|is doing some light exercise].`);
+				new G.act(1,['!wingman'],`[1] [is [out looking|on the prowl|searching|hoping] for love|dreams about finding [a [suitable|loving] partner|someone to [talk to|spend time with|fall in love with|spend the rest of [1:their] life with]]]`)
+				new G.act(0.1,['!nitro'],'[1] clicks on a Nitro link! But it leads to [a rickroll|a scam website|nude photographs of Grotle].')
 			
 			//date-related idling
-			new G.act(1,['','+'],`[1] and [2] go on a date!`);
+			new G.act(1,['','+'],`[1] [and [2] go|takes [2]] on a[| fun| cute| whimsical| romantic| spontaneous|n awesome| radical| tubular| wonderful| magnificent| disappointing] date [to the [museum|zoo|aquarium|movie theater|beach|bowling alley]|to a[ monster truck rally| really nice restaurant|n amusement park| coffee shop|n art gallery| botanical garden| hiking trail| picnic spot|n ice cream shop| concert]][.|!]`);
 				
 			//confession
-			new G.act(1,['noTeam', 'noTeam'], `[BLUE][1] asks [2] out on a date and [2:they] accept[2:s]!`,p=>{
+			new G.act(0.5,['!wingman noTeam', '!wingman noTeam'], `[BLUE][1] [asks [2] [out[| on a date]|to be [1:their] [2:g|boyfriend|girlfriend|partner]]|confesses [[1:their] [love|feelings] for|to] [2]]. [2:They] [accept[2:s]|feel[2:s] the same way|[2:g|was|was|were] just waiting for [1] to say something]!`,p=>{
 				var team = new G.team({name:p[1].name+' and '+p[2].name,chars:[]})
 				p[1].join(team);
 				p[1].score(1);
 				p[2].join(team);
 			});
+				new G.act(0.05,['!wingman noTeam', 'wingman'], `[1] [asks [2] [out[| on a date]|to be [1:their] [2:g|boyfriend|girlfriend|partner]]|confesses [[1:their] [love|feelings] for|to] [2]] but [2:they're] [not interested in romance right now|just here to party|focusing on [2:themself] right now].`)
+				new G.act(0.65,['!wingman noTeam', '!wingman noTeam'], `[RED][1] [asks [2] [out[| on a date]|to be [1:their] [2:g|boyfriend|girlfriend|partner]]|confesses [[1:their] [love|feelings] for|to] [2]] but [[2:they] [graciously|kindly|bluntly] decline[2:s]|[2:they're] [not interested in [1:them] right now|not ready to commit just yet|focusing on someone else right now]].`)
+				new G.act(0.1,['!wingman noTeam', '!wingman inTeam', '+'], `[RED][1] [asks [2] [out[| on a date]|to be [1:their] [2:g|boyfriend|girlfriend|partner]]|confesses [[1:their] [love|feelings] for|to] [2]] but [[2:they] are already [spoken for|taken|in a relationship with [3]]|[3] steps in and puts an end to that nonsense].`)
 
 			//proposal
-			new G.act(1,['!engaged','+'], `[BLUE][1] asks [2] to marry [1:them]. [2] accepts!<br>[1] and [2] are now engaged!`,p=>{
+			new G.act(0.25,['!engaged','+'], `[BLUE][1] asks [2] to marry [1:them]. [2] accepts!<br>[1] and [2] are now engaged!`,p=>{
 				p[1].gain('engaged');
 				p[1].inflict(p[2],'engaged')
 			})
 
 			//marriage
-			new G.act(1,['engaged','+'], `[BLUE][1] and [2] finally get married!<br>[Yippie|Woo hoo|Hooray]!`,p=>{
+			new G.act(0.1,['engaged','+'], `[BLUE][1] and [2] finally get married!<br>[Yippie|Woo hoo|Hooray]!`,p=>{
 				p[1].gain('married');
-				p[2].gain('married')
+				p[2].gain('married');
+			})
+
+			//breakups
+			new G.act(0.4,['!engaged','+'], `[RED][1] and [2] [just don't click like they used to|have been feeling distant lately|are growing apart].<br>They mutually agree it's for the best to break up.`,p=>{
+				p[1].leave();
+				p[2].leave();
+			})
+			new G.act(0.1,['engaged','+'], `[RED][1] and [2] [just don't click like they used to|have been feeling distant lately|are growing apart].<br>They mutually agree it's for the best to break off the engagement.`,p=>{
+				p[1].leave();
+				p[1].lose('engaged');
+				p[2].leave();
+				p[2].lose('engaged');
+			})
+			new G.act(0.1,['yandere noTeam', 'inTeam', '+'], `[RED][1] is jealous of [2]'s affection for [3]. [2:They're] supposed to be with [1:them]! Fortunately [1] knows a way to fix things...<br>[3] turns up dead!`,p=>{
+				p[2].leave();
+				p[2].lose('engaged');
+				p[1].kill(p[3], 'Murdered a love-rival');
 			})
 
 			/*
