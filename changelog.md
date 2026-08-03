@@ -1,6 +1,27 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 8/3/26
+
+### New/Reworked Traits
+- Brash players now rush down characters with ranged weapons. Sometimes this succeeds, other times not
+
+### New/Reworked Items
+- Characters with multi-kill weapons will give up a kill if it might hit their ally
+- Made the flamethrower a multi-kill weapon
+- Added a boomerang
+- Whip can act defensively
+
+## 8/2/26
+
+### New/Reworked Mechanics
+- Added team in-fighting
+- Expanded on the creation of brand new teams
+
+### New/Reworked Statuses
+- Added an attack that kills and puts the attacker into a frenzy
+- Added attacks specifically meant to inflict status conditions
+
 ## 4/19/26
 
 ### New/Reworked Mechanics
