@@ -692,7 +692,7 @@ G={
 		new G.perk({name:`no perk`,desc:`No perk selected.`});
 		new G.perk({name:`non-sapient`,desc:`Incapable of human-level intelligence and emotions.`});
 		
-		new G.perk({name:`annoying`,desc:`Horrible to be around. Tends to get killed off first.`});
+		new G.perk({name:`annoying`,desc:`Horrible to be around. But can sometimes use that for good?`});
 		new G.perk({name:`brash`,desc:`Charges headfirst into situations.`});
 		new G.perk({name:`bulky`,desc:`Strong, tough, or just very large.`});
 		new G.perk({name:`composed`,desc:`Keeps a level head in all situations.`});
@@ -2377,6 +2377,37 @@ G={
 				new G.act(woundRate*niceMult,['kind|naive pet_griffoth','-'],`[RED][1]'s mini-griffoth hacks up a spike ball, which goes hurtling in [2]'s direction. [1] calls out to be careful, but it's too late. [2] is gets gashed, causing [2:them] to bleed out!`,p=>{p[1].inflict(p[2],'bleed');});
 				new G.act(killRate*niceMult,['kind|naive pet_griffoth','-'],`[RED][1]'s mini-griffoth hacks up a spike ball, which goes hurtling in [2]'s direction. [1] calls out to be careful, but it's too late. [2] can't get out of the way in time and is killed!`,p=>{p[1].kill(p[2],`pet griffoth`);});
 
+			//in-fighting
+			const teamPlayer='kind|heroic|naive|composed';
+			const lifecoach="heroic|composed|kind !sociopath|non-sapient"
+
+			new G.act(woundRate*teamKillMult,['!'+teamPlayer,'+'],`[RED][[1] and [2]|[2] and [1]] are [in-fighting|struggling to get along|butting heads]. [Things come to blows|A fight breaks out|Things turn violent] and in the resulting scuffle [2] becomes concussed!`,p=>{p[1].inflict(p[2],'concussed');});
+				new G.act(killRate*teamKillMult,[teamPlayer,'+'],`[RED]Despite [1:their] good nature, [1] and [2] are [in-fighting|struggling to get along|butting heads]. [Things come to blows|A fight breaks out|Things turn violent] and in the resulting scuffle [2] becomes concussed!`,p=>{p[1].inflict(p[2],'concussed');});
+			new G.act(woundRate*rareEventMult,['brash !'+teamPlayer,'+'],`[RED][1]'s temper flares and [1:they] begin[1:s] [in-fighting|clashing|butting heads] with [2]. [Things come to blows|A fight breaks out|Things turn violent] and in the resulting scuffle [2] becomes concussed!`,p=>{p[1].inflict(p[2],'concussed');});
+				new G.act(woundRate,['brash !'+teamPlayer,'+ brash'],`[RED]Tempers flare as [[1] and [2]|[2] and [1]] begin [in-fighting|clashing|butting heads]! [Things come to blows|A fight breaks out|Things turn violent] and in the resulting scuffle [2] becomes concussed!`,p=>{p[1].inflict(p[2],'concussed');});
+				new G.act(woundRate*teamKillMult,['brash !'+teamPlayer,'+'],`[RED][1]'s temper flares and [1:they] begin[1:s] [in-fighting|clashing|butting heads] with [2]. [Things come to blows|A fight breaks out|Things turn violent] and in the resulting scuffle [2] becomes concussed!<br>[1] isn't satisfied stopping there and goes into a frenzy!`,p=>{p[1].inflict(p[2],'concussed');p[1].gain('frenzied')});
+				new G.act(woundRate*rareEventMult,['brash !'+teamPlayer,'+','+ '+ lifecoach],`[1]'s temper flares and [1:they] try causing trouble with [2], but [3] steps in and [smooths things over|calms [1:them] down|calmer heads prevail].`);
+			new G.act(woundRate*teamKillMult,['!'+teamPlayer,'+ annoying'],`[RED][2] keeps [getting on [1]'s nerves|annoying [1]|deliberately provoking [1]] and before you know it [things come to blows|a fight breaks out|things turn violent]! In the resulting scuffle [1] becomes concussed!`,p=>{p[2].inflict(p[1],'concussed');});
+
+			//status attacks
+			new G.act(killRate*rareEventMult,[coldBloodKiller,'-'],`[RED][1] [ambushes [2]|attacks [2] from behind] and [beats|batters|pummels|strikes] [2:them], killing [2:them]!<br>[1] [is encouraged by|takes a strange comfort in|realizes how much [1:they] relish[1:es]] the kill and goes into a frenzy!`,p=>{p[1].kill(p[2],'murder');p[1].gain('frenzied')});
+				new G.act(killRate*rareEventMult,[coldBloodKiller+' brash','-'],`[RED][In a [bold move|fit of passion]|Disregarding [1:their] own safety|Recklessly] [1] [ambushes [2]|attacks [2] from behind] and [beats|batters|pummels|strikes] [2:them], killing [2:them]!<br>[1] [is encouraged by|takes a strange comfort in|realizes how much [1:they] relish[1:es]] the kill and goes into a frenzy!`,p=>{p[1].kill(p[2],'murder');p[1].gain('frenzied')});
+				new G.act(woundRate,["annoying|manipulative",'- !composed|non-sapient '+coldBloodKiller],`[RED][1] [annoys|irritates|infuriates] [2] more than [2:they] can bear. [2] is sent into a frenzy but [1] manages to escape [2:their] wrath for now.`,p=>{p[1].inflict(p[2],'frenzied')});
+				new G.act(woundRate*teamKillMult,["annoying",'- !composed|non-sapient '+coldBloodKiller],`[RED][1] [annoys|irritates|infuriates] [2] more than [2:they] can bear. In a fit of frenzy, [2] kills [1:them]!`,p=>{p[1].inflict(p[2],'frenzied');p[2].kill(p[1])});
+				new G.act(woundRate,["annoying|manipulative",'- !composed|non-sapient '+coldBloodKiller, '+ '+lifecoach],`[1] attempts to [annoy|irritate|ragebait] [2] into a killing frenzy, but [3] [is around|steps in|intervenes] and [3:their] presence keeps [2] [sane|calm].`);
+				new G.act(woundRate*rareEventMult,["mystical !non-sapient",'- !composed'],`[RED][1] [casts a spell that|uses [1:their] magic to|conjures an enchantment to] affect [2]'s mind. [2] is sent into a frenzy!`,p=>{p[1].inflict(p[2],'frenzied')});
+			new G.act(woundRate,[coldBloodKiller+" brash|lunatic",'- !composed'],`[RED][2] sees [1] [[running|coming straight] at|sprinting towards|rapidly approaching] [2:them] while [screaming at the top of [1:their] lungs|flailing [1:their] arms wildly|making wild and bloody threats]. [2] [flees|retreats|runs [off|away]] [terrified|in a panic]!`,p=>{p[1].inflict(p[2],'terrified')});
+				new G.act(woundRate,[coldBloodKiller+" brash|lunatic",'- !composed', '+ '+lifecoach],`[2] sees [1] [[running|coming straight] at|sprinting towards|rapidly approaching] [2:them] while [screaming at the top of [1:their] lungs|flailing [1:their] arms wildly|making wild and bloody threats]. [2:They] nearly flee the fight but [3] [is around|steps in|intervenes] and [3:their] presence keeps [2] [from running|calm].`);
+				new G.act(woundRate,[coldBloodKiller+" sneaky",'- !composed|survivalist'],`[RED][1] [sneaks up on|lies in wait for and ambushes] [2]. [2] is caught off-guard and [flees|retreats|runs [off|away]] [terrified|in a panic]!`,p=>{p[1].inflict(p[2],'terrified')});
+				new G.act(woundRate,[coldBloodKiller+" sneaky",'- !composed|survivalist', '+ '+lifecoach],`[1] [sneaks up on|lies in wait for and ambushes] [2]. [2] is caught off-guard and nearly [flees|retreats|runs [off|away]] [terrified|in a panic], but [3] [is around|steps in|intervenes] and [3:their] presence keeps [2] [from running|calm].`);
+				new G.act(woundRate,[coldBloodKiller+" manipulative !non-sapient",'- !composed|survivalist|non-sapient'],`[RED][1] [convinces|assures] [2] [2:g|he is|she is|they are] going to [die a horrible death|get brutally murdered] if [2:they] stick[2:s] around. [2] [flees|retreats|runs [off|away]] [terrified|in a panic]!`,p=>{p[1].inflict(p[2],'terrified')});
+				new G.act(woundRate,[coldBloodKiller+" manipulative !non-sapient",'- !composed|survivalist|non-sapient', '+ '+lifecoach],`[1] attempts to [convince|assure] [2] [2:g|he is|she is|they are] going to [die a horrible death|get brutally murdered] if [2:they] stick[2:s] around, but [3] [is around|steps in|intervenes] and [3:their] presence keeps [2] [from running|calm].`);
+				new G.act(woundRate*rareEventMult,["mystical !non-sapient",'- !composed'],`[RED][1] [casts a spell that|uses [1:their] magic to|conjures an enchantment to] affect [2]'s mind. [2] [flees|retreats|runs [off|away]] [terrified|in a panic]!`,p=>{p[1].inflict(p[2],'terrified')});
+			new G.act(killRate,["heroic|kind|manipulative !has_killed|non-sapient",'- has_killed !composed|sociopath|non-sapient'],`[RED][[2] goes after [1] but [1] lectures|[1] seeks out [2] to lecture] [2:them] about [the error of [2:their] ways|how [murder|killing] is wrong]. [2] is filled with a deep sadness for [2:their] sins.`,p=>{p[1].inflict(p[2],'shell-shocked')});
+				new G.act(killRate,["heroic|kind|manipulative !has_killed|non-sapient",'- has_killed !composed|sociopath|non-sapient', '+ '+lifecoach],`[1] attempts to lecture [2] [the error of [2:their] ways|how [murder|killing] is wrong], but [3] [is around|steps in|intervenes] and [3:their] presence keeps [2] from being overwhelmed with [grief|guilt|remorse|regret].`);
+				new G.act(killRate,["cute|naive !has_killed",'- has_killed !composed|sociopath|non-sapient'],`[RED][2] tries to kill [1], but the innocence on [1:their] face puts [2:them] to shame. [2] is filled with a deep sadness for [2:their] sins.`,p=>{p[1].inflict(p[2],'shell-shocked')});
+				new G.act(woundRate*rareEventMult,["mystical !non-sapient",'- !composed|sociopath'],`[RED][1] [casts a spell that|uses [1:their] magic to|conjures an enchantment to] affect [2]'s mind. [2] is traumatized!`,p=>{p[1].inflict(p[2],'shell-shocked')});
+				new G.act(killRate*rareEventMult,["mystical !non-sapient",'- sociopath'],`[1] [casts a spell that|uses [1:their] magic to|conjures an enchantment to] affect [2]'s mind. It should fill [2:them] with remorse, but [2] doesn't have enough empathy for the spell to work.`);
 
 			//statuses
 			const statusIdleRate=0.5;
@@ -2471,8 +2502,6 @@ G={
 				new G.act(0.5,['inTeam teamalive:1','team teamalive:>0','every zombie'], `[BLUE]Terrified at the prospect of facing the oncoming zombie threat alone, [1] [[makes an effort to join|joins] [2]|convinces [2] [there's strength in numbers|they should work together]].`,p=>{p[1].join(p[2]);});
 
 			//therapy
-			const lifecoach="heroic|composed|kind !sociopath|non-sapient"
-
 			new G.act(0.5,['annoying','+ '+lifecoach],`[2] is telling [1] that [[1:they] need[1:s] to calm down|[1:they] would have more friends on the team if [1:they] could control [1:themself]|[1:they] don't have to act out for attention].<br>[1] appears to be [ignoring|disagreeing with|not listening to|blocking out] [2]...`);
 				new G.act(0.05,[lifecoach,'+ annoying'],`[BLUE][1] is telling [2] that [[2:they] need[2:s] to calm down|[2:they] would have more friends on the team if [2:they] could control [1:themself]|[2:they] don't have to act out for attention].<br>[2] [understands|is really receptive|agrees]! [2] is no longer annoying!`,p=>{p[1].cure(p[2],'annoying');});
 			new G.act(0.5,['lunatic','+ '+lifecoach],`[2] is telling [1] that [the world is a logic-driven place|the team could use [1:their] talents if [1:they] could stay focused|reason is more rewarding than lunacy].<br>[1] appears to be [ignoring|disagreeing with|not listening to|blocking out] [2]...`);
@@ -2664,7 +2693,7 @@ G={
 				new G.act(woundRate,[coldBloodKiller+' sneaky','- any bleed|concussed|burnt','+ heroic'],`[RED][3] watches over [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover], but [1] manages to sneak past [3:them] and [deliver the coup de gras|make the killing blow|put an end to [2]].`,p=>{p[1].kill(p[2],`coup de gras`);});
 			new G.act(injuryIdle,['!trapped bleed any'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] and may not survive much longer.`);
 				new G.act(injuryTreat,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] but might survive given [2]'s attention.`);
-				new G.act(injuryTreat,['!trapped bleed any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [1:they] [experience[1:s]] blood loss|bleed[1:s] out rapidly|lose[1:s] blood at an alarming rate] with [tears in [2:their] eyes|a lover's gentle touch|kind whispers of a better tomorrow.].`);
+				new G.act(injuryTreat,['!trapped bleed any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [1:they] [experience[1:s] blood loss|bleed[1:s] out rapidly|lose[1:s] blood at an alarming rate] with [tears in [2:their] eyes|a lover's gentle touch|kind whispers of a better tomorrow.].`);
 				new G.act(injuryHeal,['!trapped bleed any'],`[BLUE][1]'s wounds clot and [1:g|he is|she is|they are] no longer suffering from blood loss.`,p=>{p[1].lose(`bleed`);});
 				new G.act(injuryHeal,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
 				new G.act(injuryHeal,['!trapped bleed any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
@@ -2712,7 +2741,7 @@ G={
 			new G.act(0.1,['has_killed brash|sociopath !kind|heroic'],`[RED][1] is so excited by [1:their] kill that [1:they] enter[1:s] a killing frenzy!`,p=>{p[1].gain('frenzied');});
 			new G.act(0.3,['!has_killed kind','+ has_killed'],`[1] still can't believe [2] killed someone...`);
 			new G.act(0.3,['!manipulative|sociopath|survivalist','+ dead'],`[1] [reminisces about|thinks about|remembers|recalls something about|remembers how much [1:they] miss[1:es]] [2] and sobs quietly.`);
-			new G.act(0.3,['!manipulative|sociopath|survivalist alive:1'],`[1] [reminisces about|thinks about|remembers|remembers how much [1:they] miss[1:es] everybody and sobs quietly.`);
+			new G.act(0.3,['!manipulative|sociopath|survivalist alive:1'],`[1] [reminisces about|thinks about|remembers|remembers how much [1:they] miss[1:es]] everybody and sobs quietly.`);
 			new G.act(0.7,['kind|naive','+ team teamalive:1'],`[RED][1] [feels horrible for letting|can't believe [1:they] stood by and watched] everyone on [2] die.<br>[1] [has snapped|goes beserk|is finally prepared to kill]!`,p=>{p[1].lose('kind');p[1].lose('naive');p[1].gain('frenzied');});
 			new G.act(0.3,['romantic','+ romantic dead'],`[RED][1] [feels so empty since losing [2]|can't stand living in a world without [2]|misses [2] too much to keep on going].<br>[1] is now Suicidal.`,p=>{p[1].gain('suicidal');});
 
@@ -2811,7 +2840,32 @@ G={
 			new G.act(FORCE,['revived suicidal !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:they're] alive again.<br>Goddammit.`,p=>{p[1].lose('sheep');p[1].lose('revived');});
 			
 			//dynamic teams
-			new G.act(1,['noTeam', 'noTeam'], '[BLUE][[1] and [2]|[2] and [1]] [join forces|decide they have a better chance surviving together|agree to an alliance], creating Team [1]!.',p=>{
+			new G.act(1,['noTeam', 'noTeam'], `[BLUE][[1] and [2]|[2] and [1]] [join forces|decide they have a better chance surviving together|agree to an alliance], creating Team [1]!.`,p=>{
+				var team = new G.team({name:'Team '+p[1].name,chars:[]})
+				p[1].join(team);
+				p[2].join(team);
+			});
+			new G.act(1,['noTeam heroic', 'noTeam !survivalist|heroic'], `[BLUE][1] decides [1:they] need[1:s] to [protect|defend|watch after] [2], and creates Team [1] to keep [2:them] close!.`,p=>{
+				var team = new G.team({name:'Team '+p[1].name,chars:[]})
+				p[1].join(team);
+				p[2].join(team);
+			});
+			new G.act(1,['noTeam cute', 'noTeam !sociopath'], `[BLUE][2] is overcome by [1]'s [cuteness|adorable charms] and creates Team [1] to [protect|defend|watch after] [1:them]!.`,p=>{
+				var team = new G.team({name:'Team '+p[1].name,chars:[]})
+				p[1].join(team);
+				p[2].join(team);
+			});
+			new G.act(1,['noTeam manipulative', 'noTeam !sociopath|composed'], `[BLUE][1] [manipulates|coerces|tricks] [2] into allying with [1:them], creating Team [1]!.`,p=>{
+				var team = new G.team({name:'Team '+p[1].name,chars:[]})
+				p[1].join(team);
+				p[2].join(team);
+			});
+			new G.act(0.25,['romantic', '- romantic'], `[BLUE][[1] and [2]|[2] and [1]] are lovestruck and decide to [elope|run off together], creating Team [1]!.`,p=>{
+				var team = new G.team({name:'Team '+p[1].name,chars:[]})
+				p[1].join(team);
+				p[2].join(team);
+			});
+			new G.act(0.1,['alive:2 !sociopath', '- !sociopath'], `[BLUE][In the middle of fighting|While preparing for battle|While at each other's throats|During a lull in the fight] [[1] and [2]|[2] and [1]] realize that there's no one else alive.<br>After [some introspection|talking it out|freaking out for a bit|deciding they don't want to die] they form a truce, creating Team [1]!.`,p=>{
 				var team = new G.team({name:'Team '+p[1].name,chars:[]})
 				p[1].join(team);
 				p[2].join(team);
