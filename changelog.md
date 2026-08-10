@@ -9,6 +9,9 @@ Curious how this mod differs from the original? Here's a list of all the changes
 ### New/Reworked Items
 - Added flail, frying pan, pressure washer, vacuum, first aid kit, and umbrella
 
+### New/Reworked Mechanics
+- Added unique revive messages for sheep and trapped characters
+
 ## 8/3/26
 
 ### New/Reworked Traits

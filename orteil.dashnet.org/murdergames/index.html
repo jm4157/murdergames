@@ -1357,6 +1357,15 @@ G={
 						G.deaths++;
 						G.deadThisRound.push(this);
 						this.gain('dead');
+						this.lose('bleed');
+						this.lose('concussed');
+						this.lose('burnt');
+						this.lose('frozen');
+						this.lose('frenzied');
+						this.lose('terrified');
+						this.lose('stunned');
+						this.lose('shell-shocked');
+						this.lose('burnt');
 						if (reason) this.deathReason=reason;
 						//if (this.team) {this.team.chars.splice(this.team.chars.indexOf(this),1);this.team=0;}
 						return true;
@@ -1382,6 +1391,22 @@ G={
 								if (accomplices[i].kills.indexOf(other)==-1) accomplices[i].kills.push(other);
 							}
 						}
+					}
+				}
+				G.char.prototype.revive=function(other){
+					var target;
+					if(typeof other !== 'undefined'){
+						target = other;
+						this.score(2);
+					} else{
+						target = this;
+					}
+					if(target.has('dead')){
+						target.lose('dead');
+						target.lose('ghost');
+						target.lose('zombie');
+						target.gain('revived');
+						
 					}
 				}
 				G.char.prototype.inflict=function(other,affliction,accomplices)
@@ -2568,7 +2593,7 @@ G={
 
 			new G.act(0.1,[`mystical`, `+ dead every !ghost|zombie`],`[BLUE][1] attempts a ritual to [revive [2]|bring [2] back to life].<br>It partially succeeds, as [2]['s spirit returns| comes back as a ghost].`,p=>{p[1].inflict(p[2],'ghost');});
 			new G.act(0.05,[`mystical`, `+ dead every !zombie`],`[RED][1] attempts a ritual to [revive [2]|bring [2] back to life].<br>It fails horribly, with [2]'s corpse springing to life as a zombie!`,p=>{p[1].inflict(p[2],'zombie');});
-			new G.act(0.01,[`mystical`, `+ dead every !zombie`],`[BLUE][1] attempts a ritual to [revive [2]|bring [2] back to life].<br>It succeeds! [2] [stands up and dusts [2:themself] off.|is super confused.|is overjoyed to be alive again!]`,p=>{p[2].lose('dead');p[2].lose('zombie');p[2].lose('ghost');p[2].lose('bleed');p[2].lose('concussed');p[2].lose('burnt');p[2].gain('revived');p[1].score(2);});
+			new G.act(0.01,[`mystical`, `+ dead every !zombie`],`[BLUE][1] attempts a ritual to [revive [2]|bring [2] back to life].<br>It succeeds! [2] [stands up and dusts [2:themself] off.|is super confused.|is overjoyed to be alive again!]`,p=>{p[1].revive(p[2]);});
 
 			//ghosts
 			new G.act(0.01,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
@@ -2582,7 +2607,7 @@ G={
 			new G.act(0.3,['every ghost romantic',`+ every ghost romantic|cute`],`[1] and [2] [share a ghost kiss|hold ethereal hands|take a romantic float under the stars].`);
 			new G.act(0.05,['every ghost',`+ !sociopath|composed any`],`[RED][1] haunts [2] for letting [1:them] down, driving [2:them] to the brink!`,p=>{p[1].inflict(p[2],'suicidal');});
 			new G.act(0.1,['every ghost teamalive:>0','+',`- !sociopath|composed`],`[RED][1] decides to help [2] by haunting [3]. [3] becomes terrified!`,p=>{p[1].inflict(p[3],'terrified');});
-			new G.act(0.01,['every ghost'],`[BLUE][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] to life!`,p=>{p[1].lose('ghost');p[1].lose('dead');p[1].lose('bleed');p[1].lose('concussed');p[1].lose('burnt');p[1].gain('revived');});
+			new G.act(0.01,['every ghost'],`[BLUE][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] to life!`,p=>{p[1].revive();});
 
 			//zombies
 			new G.act(0.01,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
@@ -2671,19 +2696,19 @@ G={
 					p[1].score(2);
 				});
 			new G.act(legendaryWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient alive:1 dead:>0'],`[BLUE][1] wishes [1:g|he wasn't|she wasn't|they weren't] alone anymore... [1:Their] wish ring shimmers for a second, and then -<br>...it's a miracle! Everybody's been brought back to life!`,p=>{
-				for (var i in G.chars){G.chars[i].lose('dead');G.chars[i].lose('zombie');G.chars[i].lose('ghost');G.chars[i].lose('bleed');G.chars[i].lose('concussed');G.chars[i].lose('burnt');G.chars[i].gain('revived');}p[1].score(2);
+				for (var i in G.chars){G.chars[i].revive();p[1].score(2);}
 			});
-				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!`,p=>{p[2].lose('dead');p[2].lose('zombie');p[2].lose('ghost');p[2].lose('bleed');p[2].lose('concussed');p[2].lose('burnt');p[1].inflict(p[2],'revived');});
+				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!`,p=>{p[1].revive(p[2]);});
 				new G.act(legendaryWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient alive:1 dead:>0'],`[RED][1] wishes [1:g|he wasn't|she wasn't|they weren't] alone anymore... [1:Their] wish ring shimmers for a second, and then -<br>...it all went horribly wrong! Everybody's been turned to zombies!`,p=>{
-					for (var i in G.chars){G.chars[i].gain('zombie');}p[1].score(commonWish);
+					for (var i in G.chars){G.chars[i].gain('zombie');}p[1].score(1);
 				});
 				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[RED][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a nightmare! [2] was transformed into a zombie!`,p=>{p[1].inflict(p[2],'zombie');});
-				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!<br>The wish ring goes inert. Looks like that took up all it's power.`,p=>{p[2].lose('dead');p[2].lose('zombie');p[2].lose('ghost');p[2].lose('bleed');p[2].lose('concussed');p[2].lose('burnt');p[1].inflict(p[2],'revived');p[1].lose('wish_ring')});
+				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!<br>The wish ring goes inert. Looks like that took up all it's power.`,p=>{p[1].revive(p[2]);p[1].lose('wish_ring')});
 			new G.act(commonWish,['bleed|concussed|burnt wish_ring !non-sapient any'],`[BLUE][1] makes a feeble wish for healing.<br>Miraculously, [1:g|he is|she is|they are] healed!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 			new G.act(commonWish,['bleed|concussed|burnt !non-sapient any','+ kind|heroic !sociopath wish_ring'],`[BLUE][2] is watching over [1] as [1:g|he struggles|she struggles|they struggle] for survival. [2] fingers [2:their] wish ring and wishes for [1] to be healed.<br>With a start, [1] stands up perfectly healthy!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 			new G.act(rareWish,['bleed|concussed|burnt !non-sapient any','- kind naive !sociopath wish_ring'],`[BLUE][2] finds [1] struggling on [1:their] deathbed. Despite being an enemy, [2] can't stand to see [1:them] suffer and wishes for [1:their] health.<br>[1] gets up, confused to [1:their] quick recovery, as [2] fled before [2:they] could be caught.`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 			new G.act(legendaryWish,['manipulative|survivalist wish_ring !non-sapient', '+ team teamalive:>1', '+ annoying|lunatic|naive|romantic|sociopath'],`[RED][1] wishes that everyone on [2] was a bit [more helpful|less frustrating to deal with].<br>Everyone becomes a better team player! At the cost of some personality...`,p=>{
-				for (var i in p[2].members){p[2].members[i].lose(`annoying`);p[2].members[i].lose(`lunatic`);p[2].members[i].lose(`naive`);p[2].members[i].lose(`romantic`);p[2].members[i].lose(`sociopath`);}p[1].score(commonWish);
+				for (var i in p[2].members){p[2].members[i].lose(`annoying`);p[2].members[i].lose(`lunatic`);p[2].members[i].lose(`naive`);p[2].members[i].lose(`romantic`);p[2].members[i].lose(`sociopath`);}p[1].score(1);
 			});
 			new G.act(commonWish,['manipulative|survivalist wish_ring !non-sapient', '+ terrifed|shell-shocked|suicidal'],`[BLUE][1] notices that [2] is[ freaking out|n't doing so well]. [1:g|He wishes|She wishes|They wish] for [2:them] to snap out of it!`,p=>{
 				p[2].lose(`terrified`);p[2].lose(`shell-shocked`);p[2].lose(`suicidal`);p[1].score(commonWish);
@@ -2957,12 +2982,14 @@ G={
 			//death stuff
 			new G.act(0.05,['dead'],`[The [pile of flesh that used to be|dead husk of] [1]|[1]'s [corpse|lifeless body]] [[rots|festers|desiccates|decays|putrefies|decomposes] [peacefully|silently|loudly]|writhes with maggots].`);
 			new G.act(0.01,['dead alive:0 dead:>1 any'],`[BLUE]A god comes upon this mess and revives everyone out of boredom.<br>How nice! Everybody's back.`,p=>{
-				for (var i in G.chars){G.chars[i].lose('dead');G.chars[i].lose('zombie');G.chars[i].lose('ghost');G.chars[i].lose('bleed');G.chars[i].lose('concussed');G.chars[i].lose('burnt');G.chars[i].gain('revived');}
+				for (var i in G.chars){G.chars[i].revive();}
 			});
-			new G.act(0.03,['dead alive:0 dead:1 any'],`[BLUE]A god comes upon this mess and revives [1] out of boredom.<br>How nice!`,p=>{p[1].lose('dead');p[1].lose('zombie');p[1].lose('ghost');p[1].lose('bleed');p[1].lose('concussed');p[1].lose('burnt');p[1].gain('revived');});
+			new G.act(0.03,['dead alive:0 dead:1 any'],`[BLUE]A god comes upon this mess and revives [1] out of boredom.<br>How nice!`,p=>{p[1].revive();});
 			new G.act(FORCE,['revived dead any'],`[1] was about to live again, but is, sadly, still dead.`,p=>{p[1].lose('revived');});
-			new G.act(FORCE,['revived !suicidal !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:they're] alive again.`,p=>{p[1].lose('sheep');p[1].lose('revived');});
-			new G.act(FORCE,['revived suicidal !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:they're] alive again.<br>Goddammit.`,p=>{p[1].lose('sheep');p[1].lose('revived');});
+			new G.act(FORCE,['revived !suicidal|sheep|trapped !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:they're] alive again.`,p=>{p[1].lose('revived');});
+			new G.act(FORCE,['revived suicidal !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:they're] alive again.<br>Goddammit.`,p=>{p[1].lose('revived');});
+			new G.act(FORCE,['revived sheep !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:they're] alive again.<br>BUT STILL A FREAKING SHEEP!`,p=>{p[1].lose('revived');});
+			new G.act(FORCE,['revived trapped !dead every'],`[1] feels [1:themself], unsure what just happened. Guess [1:they're] alive again, which would be nicer if someone had taken [1:their] corpse out of this trap first.`,p=>{p[1].lose('revived');});
 			
 			//team shuffling
 			const newTeamRate=3;
