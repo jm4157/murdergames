@@ -13,4 +13,15 @@
 	- Less likely to haunt own team
 	- Ghost gambling?
 	- Naive doesn't realize they're dead, comes back as ghost
-	- Ghosts argue about team even not on teams
+	- Ghosts argue about team even not on teams (they shouldn't do that)
+	- Unaffiliated ghosts join teams
+	- Are ghosts secondary characters?
+	- Vacuum kills ghosts
+
+	- Are dead people less likely to do things?
+	- Make sure mental statuses are cleared on death
+	- Kill romantic
+	- Lunatics swap teams at random
+	- Mystical mysfires
+		- Turn ally/self to sheep/frenzied/terrified/shell-shocked
+	- Put Game Knight in the gambling text

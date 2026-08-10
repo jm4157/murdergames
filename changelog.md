@@ -1,6 +1,14 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 8/10/26
+
+### New/Reworked Traits
+- Removed the chance to Naive characters to randomly touch other people's hands and blush
+
+### New/Reworked Items
+- Added flail, frying pan, pressure washer, vacuum, first aid kit, and umbrella
+
 ## 8/3/26
 
 ### New/Reworked Traits
