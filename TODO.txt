@@ -19,7 +19,3 @@
 	- Vacuum kills ghosts
 
 	- Are dead people less likely to do things?
-	- Kill romantic
-	- Lunatics swap teams at random
-	- Mystical mysfires
-		- Turn ally/self to sheep/frenzied/terrified/shell-shocked

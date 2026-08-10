@@ -2746,11 +2746,13 @@ G={
 			new G.act(killRate,[coldBloodKiller,'- naive'],`[1] tries to kill [2], but[ at the last second| by dumb luck| suddenly|, oblivious to the danger,] [2:they] bend[2:s] down to [smell some flowers|pick up a [penny|cool stick|perfectly smooth rock]|tie [2:their] shoe|check out a cool bug|doodle in the dirt] and the attack misses.`);
 
 			//sheep
-			new G.act(0.4,['magic_wand','- !sheep'],`[BLUE]With a flick of [1:their] magic wand, [1] turns [2] into a sheep!`,p=>{p[1].inflict(p[2],'sheep');});
-				new G.act(0.4,['ancient_scepter','- !sheep'],`[BLUE]With a flick of [1:their] ancient scepter, [1] turns [2] into a sheep!`,p=>{p[1].inflict(p[2],'sheep');});
-				new G.act(0.1,['wish_ring !non-sapient sociopath', '- team teamalive:>0'],`[RED][1] wishes to render everyone on [2] harmless.<br>With a puff of smokes, where [2] once was stands a herd of sheep.`,p=>{
+			new G.act(killRate,['magic_wand','- !sheep'],`[BLUE]With a flick of [1:their] magic wand, [1] turns [2] into a sheep!`,p=>{p[1].inflict(p[2],'sheep');});
+				new G.act(killRate,['ancient_scepter','- !sheep'],`[BLUE]With a flick of [1:their] ancient scepter, [1] turns [2] into a sheep!`,p=>{p[1].inflict(p[2],'sheep');});
+				new G.act(legendaryWish,['wish_ring !non-sapient sociopath', '- team teamalive:>0'],`[RED][1] wishes to render everyone on [2] harmless.<br>With a puff of smokes, where [2] once was stands a herd of sheep.`,p=>{
 					for (var i in p[2].members){p[1].inflict(p[2].members[i],'sheep');}
 				});
+				new G.act(killRate*teamKillMult,['mystical','+ !sheep'],`[RED][1] attempts to [[cast a|learn a new] spell|[enact|concentrate on] a magical ritual], but it misfires and accidentally turns [2] into a sheep!`,p=>{p[1].inflict(p[2],'sheep');});
+				new G.act(killRate*teamKillMult,['mystical'],`[RED][1] attempts to [[cast a|learn a new] spell|[enact|concentrate on] a magical ritual], but it misfires and accidentally turns [1"them] into a sheep!`,p=>{p[1].gain('sheep');});
 				new G.act(0.4,['!sociopath magic_wand','+ sheep'],`[BLUE][1] uses [1:their] magic wand to turn [1:their] ally [2] back from being a sheep!`,p=>{p[1].cure(p[2],'sheep');});
 				new G.act(0.2,['!sociopath kind magic_wand','- sheep'],`[BLUE][1] takes pity and uses [1:their] magic wand to turn [2] back from being a sheep!`,p=>{p[1].cure(p[2],'sheep');});
 				new G.act(0.4,['!sociopath ancient_scepter','+ sheep'],`[BLUE][1] uses [1:their] ancient scepter to turn [1:their] ally [2] back from being a sheep!`,p=>{p[1].cure(p[2],'sheep');});
@@ -3045,7 +3047,7 @@ G={
 					p[3].join(p[2]);
 					p[1].score(2);
 				});
-				new G.act(0.025,['lunatic','+ team','- team teamalive:>0'], `[RED][1] [randomly decides|thinks it would be fun|wakes up wanting] to [leave|ditch] [2] and join [3].`,p=>{
+				new G.act(0.05,['lunatic','+ team','- team teamalive:>0'], `[RED][1] [randomly decides|thinks it would be fun|wakes up wanting] to [leave|ditch] [2] and join [3].`,p=>{
 					p[1].leave();
 					p[1].join(p[3]);
 				});
