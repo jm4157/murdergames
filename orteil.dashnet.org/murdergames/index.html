@@ -2796,18 +2796,6 @@ G={
 				new G.act(0.5,['!sociopath','+ trapped any'],`[BLUE][1] finds [2] caught in a trap, and manages to free [2:them].`,p=>{p[1].cure(p[2],'trapped');});
 				new G.act(0.3,['!sociopath|survivalist kind|heroic','- trapped any'],`[BLUE][1] feels sorry for [2] and frees [2:them] from the trap.`,p=>{p[1].cure(p[2],'trapped');});
 				new G.act(0.3,['!sociopath|composed','- trapped any cute'],`[BLUE][2] looks so [cute|adorable] struggling to escape the trap that [1] feels sorry for [2:them] and frees [2:them].`,p=>{p[1].cure(p[2],'trapped');});
-				new G.act(0.3,['manipulative','+ team','- trapped any teamalive:1'],`[BLUE][1] finds [3] stuck in a trap, and promises to free [3:them] if [3:they]'ll join [1].<br>[3] [doesn't have much of a choice...|is forced to comply...|joins the team!|will do anything to get out...]`,p=>{
-					p[1].cure(p[3],'trapped');
-					p[3].leave();
-					p[3].join(p[2]);
-					p[1].score(2);
-				});
-				new G.act(0.1,['manipulative','+ team','- trapped any teamalive:>1'],`[BLUE][1] finds [3] stuck in a trap, and promises to free [3:them] if [3:they]'ll join [1].<br>[3] [doesn't have much of a choice...|is forced to comply...|joins the team!|will do anything to get out...]`,p=>{
-					p[1].cure(p[3],'trapped');
-					p[3].leave();
-					p[3].join(p[2]);
-					p[1].score(2);
-				});
 				new G.act(0.3,[coldBloodKiller,'- trapped any'],`[RED][1] finds [2] stuck in a trap and kills [2:them] while [2:they] struggle to escape.`,p=>{p[1].kill(p[2],'trap coup de gras');});
 				new G.act(0.1,['trapped'],`[BLUE][1] manages to pull [1:themself] out of the trap!`,p=>{p[1].lose('trapped');});
 				new G.act(0.3,['trapped knives any'],`[BLUE][1] manages to reach for [1:their] knives and cut [1:themself] out of the trap!`,p=>{p[1].lose('trapped');});
@@ -3015,26 +3003,18 @@ G={
 				p[2].lose('burnt');
 				p[1].score(1);
 			});
-				new G.act(0.5*injuryTreat,['noTeam first_aid_kit !sociopath', 'inTeam burnt|bleed|concussed !sociopath teamAlive:>1', '+ team'], `[BLUE][1] offers to use [1:their] [first aid kit|medical supplies] to heal [2] if [1:they] can join [3]. [After some deliberation|Worried for [2]'s health] [3] agrees!`,p=>{
-					p[1].join(p[3]);
-					p[2].lose('concussed');
-					p[2].lose('bleed');
-					p[2].lose('burnt');
-					p[1].score(1);
-				});				
-				new G.act(0.5*injuryTreat,['inTeam first_aid_kit !sociopath', '+ team', 'noTeam burnt|bleed|concussed !sociopath'], `[BLUE][1] sees [3] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [3:them]!<br>Once [2:g|he's|she's|they've] healed up they join [2] out of gratitude!`,p=>{
-					p[3].join(p[2]);
-					p[3].lose('concussed');
-					p[3].lose('bleed');
-					p[3].lose('burnt');
-					p[1].score(1);
-				});				
-				new G.act(newTeamRate*injuryTreat*rareEventMult,['first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed sociopath'], `[RED][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>[2] repays the kindness by killing [1] when [1:their] back is turned and stealing [1:their] first aid kit!.`,p=>{p[2].kill(p[1]);p[2].gain("first aid kit");p[1].lose("first aid kit");});			
+			new G.act(newTeamRate*0.3,['!sociopath|survivalist noTeam','- trapped any noTeam'],`[BLUE][1] finds [2] stuck in a trap, and promises to free [2:them] if [2:they]'ll join [1:them].<br>[2] [doesn't have much of a choice|is forced to comply||will do anything to get out] and together they create Team [1]!`,p=>{
+				var team = new G.team({name:'Team '+p[1].name,chars:[]})
+				p[1].join(team);
+				p[2].join(team);	
+				p[1].cure(p[2],'trapped');
+			});
 			new G.act(0.1,['alive:2 !sociopath', '- !sociopath'], `[BLUE][In the middle of fighting|While preparing for battle|While at each other's throats|During a lull in the fight] [[1] and [2]|[2] and [1]] realize that there's no one else alive.<br>After [some introspection|talking it out|freaking out for a bit|deciding they don't want to die] they form a truce, creating Team [1]!.`,p=>{
 				var team = new G.team({name:'Team '+p[1].name,chars:[]})
 				p[1].join(team);
 				p[2].join(team);
 			});
+
 			new G.act(0.1,['noTeam','inTeam','+ team'], `[BLUE][1] [is accepted into|joins|becomes the latest initiate of] [3]!`,p=>{p[1].join(p[3]);});
 				new G.act(0.1,['noTeam non-sapient','inTeam !sociopath','+ team'], `[BLUE][1] gets adopted by [2], joining [3]!`,p=>{p[1].join(p[3]);});
 				new G.act(0.25,['noTeam annoying','inTeam','+ team'], `[1] tries to join [3], but [gets rejected|is too annoying].`);
@@ -3054,24 +3034,53 @@ G={
 				new G.act(0.05,['manipulative','+ !composed annoying|naive|suicidal', '+ team'], `[RED][1] sees [2] as a liability and [tricks [2:them] into leaving [3]|turns [3] against [2:them], forcing [2:them] to leave].`,p=>{p[2].leave();p[1].score(1);});
 			new G.act(0.05,['manipulative','- !composed','+ team'], `[RED][1] [gets into [2]'s head|feeds [2] lies] and [gets [2:them] to [leave|abandon]|tricks [2:them] into [leaving|abandoning]] [3].`,p=>{p[2].leave();p[1].score(1);});
 			new G.act(0.05,['manipulative','+ team','- !composed'], `[RED][1] [gets into [3]'s head|tells [3] [3:they're] underappreciated] and [gets [3:them] to join|tricks [3:them] into joining] [2].`,p=>{
-				p[3].leave();
 				p[3].join(p[2]);
 				p[1].score(2);
 			});
 				new G.act(0.1,['manipulative','+ team','- naive',], `[RED][1] finds [3] easy prey and [gets [3:them] to join|tricks [3:them] into joining] [2].`,p=>{
-					p[3].leave();
 					p[3].join(p[2]);
 					p[1].score(2);
 				});
-				new G.act(0.05,['lunatic','+ team','- team teamalive:>0'], `[RED][1] [randomly decides|thinks it would be fun|wakes up wanting] to [leave|ditch] [2] and join [3].`,p=>{
-					p[1].leave();
-					p[1].join(p[3]);
-				});
+				new G.act(0.05,['lunatic','+ team','- team teamalive:>0'], `[RED][1] [randomly decides|thinks it would be fun|wakes up wanting] to [leave|ditch] [2] and join [3].`,p=>{p[1].join(p[3]);});
 				new G.act(0.05,['kind','+ team','- !composed|sociopath|manipulative','+ sociopath|manipulative'], `[BLUE][1] sees [3] [being bullied by|struggling to deal with|under the thumb of] [4], and invites [3:them] to [2]!<br>[3] graciously accepts.`,p=>{
-					p[3].leave();
 					p[3].join(p[2]);
 					p[1].score(2);
 				});
+			new G.act(0.3,['!sociopath|survivalist','+ team','- trapped any noTeam'],`[BLUE][1] finds [3] stuck in a trap, and promises to free [3:them] if [3:they]'ll join [2].<br>[3] [doesn't have much of a choice...|is forced to comply...|joins the team!|will do anything to get out...]`,p=>{
+				p[3].lose('trapped');
+				p[3].join(p[2]);
+				p[1].score(2);
+			});
+				new G.act(0.3,['!sociopath|survivalist noTeam','- trapped any inTeam','+ team'],`[BLUE][1] finds [2] stuck in a trap, and promises to free [2:them] if [2:they]'ll let [1:them] join [3].<br>[3] [doesn't have much of a choice...|is forced to comply...|lets [1] join the team!|will do anything to get out...]`,p=>{
+					p[2].lose('trapped');
+					p[2].join(p[3]);
+					p[1].score(2);
+				});
+				new G.act(0.3,['manipulative|kind','+ team','- trapped any inTeam teamalive:1'],`[BLUE][1] finds [3] stuck in a trap, and promises to free [3:them] if [3:they]'ll join [2].<br>[3] [doesn't have much of a choice...|is forced to comply...|joins the team!|will do anything to get out...]`,p=>{
+					p[3].lose('trapped');
+					p[3].join(p[2]);
+					p[1].score(2);
+				});
+				new G.act(0.1,['manipulative','+ team','- trapped any inTeam teamalive:>1'],`[BLUE][1] finds [3] stuck in a trap, and promises to free [3:them] if [3:they]'ll join [2].<br>[3] [doesn't have much of a choice...|is forced to comply...|joins the team!|will do anything to get out...]`,p=>{
+					p[3].lose('trapped');
+					p[3].join(p[2]);
+					p[1].score(2);
+				});
+			new G.act(0.5*injuryTreat,['noTeam first_aid_kit !sociopath', 'inTeam burnt|bleed|concussed !sociopath teamAlive:>1', '+ team'], `[BLUE][1] offers to use [1:their] [first aid kit|medical supplies] to heal [2] if [1:they] can join [3]. [After some deliberation|Worried for [2]'s health] [3] agrees!`,p=>{
+				p[1].join(p[3]);
+				p[2].lose('concussed');
+				p[2].lose('bleed');
+				p[2].lose('burnt');
+				p[1].score(1);
+			});				
+				new G.act(0.5*injuryTreat,['inTeam first_aid_kit !sociopath', '+ team', 'noTeam burnt|bleed|concussed !sociopath'], `[BLUE][1] sees [3] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [3:them]!<br>Once [2:g|he's|she's|they've] healed up they join [2] out of gratitude!`,p=>{
+					p[3].join(p[2]);
+					p[3].lose('concussed');
+					p[3].lose('bleed');
+					p[3].lose('burnt');
+					p[1].score(1);
+				});				
+				new G.act(newTeamRate*injuryTreat*rareEventMult,['first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed sociopath'], `[RED][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>[2] repays the kindness by killing [1] when [1:their] back is turned and stealing [1:their] first aid kit!.`,p=>{p[2].kill(p[1]);p[2].gain("first aid kit");p[1].lose("first aid kit");});			
 			new G.act(0.1,['inTeam','+ team teamalive:1'],`[RED][1] [sees no point in|thinks it's silly|is tired of] being the only member in [2] and leaves it.`,p=>{p[1].leave();});
 			/*
 			//just a test

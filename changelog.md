@@ -11,6 +11,10 @@ Curious how this mod differs from the original? Here's a list of all the changes
 ### New/Reworked Items
 - Added flail, frying pan, pressure washer, vacuum, first aid kit, and umbrella
 
+### New/Reworked Statuses
+- Added more interactions between Frenzied and other statuses
+- Gave Trapped characters more opportunities to join teams
+
 ### New/Reworked Mechanics
 - Added unique revive messages for sheep and trapped characters
 - As a special event changed the gambling message to reference Game Knight
