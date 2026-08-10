@@ -19,3 +19,5 @@
 	- Vacuum kills ghosts
 
 	- Are dead people less likely to do things?
+	- Traps 
+		- Manipulative, kind, heroic free from trap and gain teammate
