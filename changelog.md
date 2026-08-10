@@ -11,6 +11,7 @@ Curious how this mod differs from the original? Here's a list of all the changes
 
 ### New/Reworked Mechanics
 - Added unique revive messages for sheep and trapped characters
+- As a special event changed the gambling message to reference Game Knight
 
 ## 8/3/26
 

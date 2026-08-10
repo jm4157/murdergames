@@ -2839,6 +2839,7 @@ G={
 				new G.act(injuryTreat,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] but might survive given [2]'s attention.`);
 				new G.act(injuryTreat,['!trapped bleed any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [1:they] [experience[1:s] blood loss|bleed[1:s] out rapidly|lose[1:s] blood at an alarming rate] with [tears in [2:their] eyes|a lover's gentle touch|kind whispers of a better tomorrow.].`);
 				new G.act(injuryHeal,['!trapped bleed any'],`[BLUE][1]'s wounds clot and [1:g|he is|she is|they are] no longer suffering from blood loss.`,p=>{p[1].lose(`bleed`);});
+				new G.act(injuryHeal,['!trapped bleed first_aid_kit any'],`[BLUE]Despite [1:their] blood loss, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`bleed`);});
 				new G.act(injuryHeal,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
 				new G.act(injuryHeal,['!trapped bleed any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
 				new G.act(injuryHeal,['!trapped bleed bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] blood loss.`,p=>{p[1].lose(`bleed`);});
@@ -2850,6 +2851,7 @@ G={
 				new G.act(injuryTreat,['concussed any','+ kind !sociopath|non-sapient'],`[1] is [sitting around dazed|flickering in and out of consciousness|nauseus and vomiting] but might survive given [2]'s attention.`);
 				new G.act(injuryTreat,['!trapped concussed any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [1:they] [sit[1:s] around dazed|flicker[1:s] in and out of consciousness|[1:g|is|is|are] experiencing nausea and vomiting] with [tears in [2:their] eyes|a lover's gentle touch|kind whispers of a better tomorrow.].`);
 				new G.act(injuryHeal,['concussed any'],`[BLUE][1]'s head clears and [1:g|he is|she is|they are] no longer suffering from a concussion.`,p=>{p[1].lose(`concussed`);});
+				new G.act(injuryHeal,['concussed first_aid_kit any'],`[BLUE]Despite [1:their] aching head, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`concussed`);});
 				new G.act(injuryHeal,['concussed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] concussion.`,p=>{p[2].cure(p[1],'concussed');});
 				new G.act(injuryHeal,['concussed any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting a stop to [1:their] concussion.`,p=>{p[2].cure(p[1],'concussed');});
 				new G.act(injuryHeal,['concussed bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] concussion.`,p=>{p[1].lose(`concussed`);});
@@ -2861,6 +2863,7 @@ G={
 				new G.act(injuryTreat,['burnt any','+ kind !sociopath|non-sapient'],`[1]['s skin is peeling| is trying to cool off [1:their] burn| is trying not to burst [1:their] heat blisters] but might survive given [2]'s attention.`);
 				new G.act(injuryTreat,['!trapped burnt any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [[1:their] skin peels|[1:g|he tries|she tries|they try] to cool [1:their] burn|[1:g|he tries|she tries|they try] not to burst any heat blisters] with [tears in [2:their] eyes| a lover's gentle touch|kind whispers of a better tomorrow.].`);
 				new G.act(injuryHeal,['burnt any'],`[BLUE][1]'s burn wounds fade.`,p=>{p[1].lose(`burnt`);});
+				new G.act(injuryHeal,['burnt first_aid_kit any'],`Despite [1:their] burn wounds, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`burnt`);});
 				new G.act(injuryHeal,['burnt bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] burn wounds.`,p=>{p[1].lose(`burnt`);});
 				new G.act(injuryHeal,['burnt any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts an end to [1:their] burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
 				new G.act(injuryHeal,['burnt any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting an end to [1:their] burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
@@ -2944,7 +2947,8 @@ G={
 				
 			//gambling
 			const gambleRate=0.3;
-			const rouletteLocation=`sitting [out in the middle of [nowhere|a field|a swamp|the desert|[1:their] very own campsite|a forest clearing]|on [the shore|top of a flat rock|the grave of a dead [wizard|king|genius|serial killer]|a high rooftop|top of a mountain peak]|in an abandoned [warehouse|hospital|arcade|houseboat|parking lot|subway station|carnival]|inside [a cave|a hedge maze|a clock tower|a derailed train car, with no train tracks in sight,|a dream [1:g|he is|she is|they are] having]|under [the night sky|a neon billboard|three feet of dirt|a dirty tarp]]`;
+			const rouletteLocation=`that Game Knight [placed there|summoned|constructed]`;
+			//const rouletteLocation=`sitting [out in the middle of [nowhere|a field|a swamp|the desert|[1:their] very own campsite|a forest clearing]|on [the shore|top of a flat rock|the grave of a dead [wizard|king|genius|serial killer]|a high rooftop|top of a mountain peak]|in an abandoned [warehouse|hospital|arcade|houseboat|parking lot|subway station|carnival]|inside [a cave|a hedge maze|a clock tower|a derailed train car, with no train tracks in sight,|a dream [1:g|he is|she is|they are] having]|under [the night sky|a neon billboard|three feet of dirt|a dirty tarp]]`;
 
 			new G.act(gambleRate*0.01,['!survivalist !wish_ring'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] win[1:s] a wish ring! Lucky!`,p=>{p[1].gain("wish ring");});
 			new G.act(gambleRate*0.028,['!survivalist !ornate_plate'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] win[1:s] a suit of ornate plate![ Flashy but useless!|]`,p=>{p[1].gain("ornate plate");});
@@ -3037,7 +3041,7 @@ G={
 					p[3].lose('burnt');
 					p[1].score(1);
 				});				
-				new G.act(newTeamRate*injuryTreat*rareEventMult,['first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed sociopath'], `[RED][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>[2] repays the kindness by killing [1] when [1:their] back is turned!.`,p=>{p[2].kill(p[1]);});			
+				new G.act(newTeamRate*injuryTreat*rareEventMult,['first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed sociopath'], `[RED][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>[2] repays the kindness by killing [1] when [1:their] back is turned and stealing [1:their] first aid kit!.`,p=>{p[2].kill(p[1]);p[2].gain("first aid kit");p[1].lose("first aid kit");});			
 			new G.act(0.25,['romantic', '- romantic'], `[BLUE][[1] and [2]|[2] and [1]] are lovestruck and decide to [elope|run off together], creating Team [1]!.`,p=>{
 				var team = new G.team({name:'Team '+p[1].name,chars:[]})
 				p[1].join(team);

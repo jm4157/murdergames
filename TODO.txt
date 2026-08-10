@@ -23,8 +23,3 @@
 	- Lunatics swap teams at random
 	- Mystical mysfires
 		- Turn ally/self to sheep/frenzied/terrified/shell-shocked
-	- Put Game Knight in the gambling text
-	- First aid kit can heal self
-	- Sociopath steals first aid kit after killing
-
-	- 1360
