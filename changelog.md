@@ -5,6 +5,7 @@ Curious how this mod differs from the original? Here's a list of all the changes
 
 ### New/Reworked Traits
 - Removed the chance to Naive characters to randomly touch other people's hands and blush
+- Removed the Romantic trait
 
 ### New/Reworked Items
 - Added flail, frying pan, pressure washer, vacuum, first aid kit, and umbrella

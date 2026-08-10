@@ -703,7 +703,6 @@ G={
 		new G.perk({name:`manipulative`,desc:`Will manipulate and betray others if given the chance.`});
 		new G.perk({name:`mystical`,desc:`Experienced in magical arts.`});
 		new G.perk({name:`naive`,desc:`Gullible and easy to mislead.`});
-		new G.perk({name:`romantic`,desc:`Often more interested in looking for love than making war.`});
 		new G.perk({name:`scavenger`,desc:`Able to loot resources off of dead players.`});
 		new G.perk({name:`sneaky`,desc:`Tries to win from the shadows.`});
 		new G.perk({name:`sociopath`,desc:`Simply doesn't care about others.`});
@@ -1742,8 +1741,6 @@ G={
 			//NOTE : the first person or team in an act counts as its main actor; they cannot be the main actor of another act in the same round
 			
 			//trait-related idling
-			var crush = 'romantic|kind|naive|cute|bulky|heroic !non-sapient';
-
 			new G.act(1,[''],`[1] [hums a song to [1:themself]|twiddles [1:their] thumbs|thinks about what [1:they] did to end up in DiscOrder|wonders about the future|has a horrible feeling in [1:their] [chest|gut]|stares into the distance].`);
 				new G.act(0.03,['!nitro !survivalist|non-sapient'],'[1] clicks on a Nitro link! But it leads to [a rickroll|a scam website|nude photographs of Grotle].')
 				new G.act(0.03,['!nitro survivalist !non-sapient'],`[1] sees a Nitro link but isn't stupid enough to click it.`)
@@ -1774,9 +1771,8 @@ G={
 			new G.act(1,['lunatic'],`[1] [isn't sure whether to cry, laugh, or tear [1:their] hair out|is looking particularly erratic today|is having a [friendly|heated|passionate|drawn out] conversation with Invisible Knight].`);
 				new G.act(0.5,['lunatic','+ teamalive:>1'],`[1] [laments [2]'s death.|gives a stirring eulogy for [2].|wishes [2] were still around.] [2] [just smiles and nods|stands there confused|tries to convince [1] [2:they're] still alive].`);
 				new G.act(0.5,['lunatic','+ every dead'],`[1] [engages in conversation|plays a game|makes plans] with [2]. [[2]'s corpse rots agreeably.|[2] can't respond, as [2:they're] dead.|The flies buzzing around [2]'s dead body seem to take notice.]`);
-				new G.act(FORCE,['lunatic annoying brash heroic kind manipulative naive romantic sneaky socipath !wish_ring'],"[BLUE]Jackpot! [1] has obtained every mental illness and wins a wish ring!",p=>{p[1].gain('wish ring');});
+				new G.act(FORCE,['lunatic annoying brash heroic kind manipulative naive sneaky socipath !wish_ring'],"[BLUE]Jackpot! [1] has obtained every mental illness and wins a wish ring!",p=>{p[1].gain('wish ring');});
 			new G.act(1,['manipulative alive:1 dead:>0'],`[1] is glad [1:they] made it out alive.`);
-				new G.act(1,['manipulative','romantic'],`[1] is leading [2] on...`);
 				new G.act(1,['manipulative','naive'],`[1] is convincing [2] to trust [1:them]...`);
 				new G.act(1,['manipulative','brash'],`[1] is telling [2] [2:they] need to stop wasting time and get into a fight...`);
 				new G.act(0.5,['manipulative alive:>1'],`[1] [is looking for an easy out|looks for someone dumb enough to believe [1:them]].`);
@@ -1792,14 +1788,6 @@ G={
 				new G.act(0.5,['naive','+ bulky|heroic|composed'],`[1] is glad [1:they] can rely on [2].`);
 				new G.act(0.5,['naive alive:1'],`[1] looks around. Where did everybody go?`);
 				new G.act(0.5,['naive','sneaky'],`[1] [runs into a tunnel that turns out to be painted onto a wall|slips on a banana peel]. [2] is [snickering|laughing|guffawing] from behind a [bush|tree|boulder].`);
-			new G.act(0.5,['romantic alive:>1'],`[1] [doesn't care much for this place|tries to get others to notice [1:them]].`);
-				new G.act(0.5,['romantic alive:1'],`There's nobody left to love [1]...`);
-				new G.act(1,['romantic','+ kind|naive|cute !romantic|non-sapient'],`[1] tries [kissing|chatting up|asking out|holding hands with|hugging] [2].<br>[2] [is a little confused|is into it|is flattered|politely declines|gets upset].`);
-				new G.act(1,['romantic','+ romantic !non-sapient'],`[1] and [2] are [madly in love|having a lover's spat|vigorously making out|holding hands|curled in each other's embrace|trying to hide their feelings].`);
-				new G.act(1,['romantic','+ heroic|bulky !non-sapient'],`[1] is [admiring|smitten by|gushing over] [2]'s [musculature|jawline|strength].`);
-				new G.act(0.5,['romantic','- heroic|bulky !non-sapient'],`[1] is [admiring|smitten by|gushing over] [2]'s [musculature|jawline|strength].<br>If only [2:g|he was|she was|they were] on [1]'s team...`);
-				new G.act(1,['romantic sociopath','+ kind|naive|cute|romantic !non-sapient'],`[1] is [just using|pretending to care about] [2].`);
-				new G.act(1,['romantic','- romantic !non-sapient'],`[1] and [2] are [secretly in love|wishing they could be together|having a Romeo and Juliette affair].`);
 			new G.act(1,['scavenger'],`[1] [looks around for stuff to scrounge|spots something shiny in the distance].`);
 			new G.act(1,['sneaky'],`[1] is [hiding behind a [tree|rock|bush]|nowhere to be found].`);
 				new G.act(1,['sneaky','+ naive'],`[1] [sneaks up on|creeps up behind|tiptoes past] [2], who [doesn't notice|gets startled].`);
@@ -1993,7 +1981,6 @@ G={
 				new G.act(1,['wish_ring composed !non-sapient'],`[1] ponders about how best to use [1:their] wish ring. Have to be careful with it.`);
 				new G.act(1,['wish_ring brash|lunatic !non-sapient'],`[1] uses [1:their] wishing ring to enact any wish that enters [1:their] head.`);
 				new G.act(1,['wish_ring heroic teamalive:>1 !non-sapient','+ team'],`[1] ponders about how best to use [1:their] wish ring. Whatever it is, it has to keep [2] safe.`);
-				new G.act(1,['wish_ring romantic !non-sapient'],`[1] ponders about how best to use [1:their] wish ring. Perhaps true love...`);
 				new G.act(1,['wish_ring mystical !non-sapient'],`[1] is fascinated by how such power was able to be trapped inside a ring.`);
 				new G.act(1,['wish_ring sociopath !non-sapient'],`[1] ponders about how best to use [1:their] wish ring. Once [1:they] figure[1:s] it out, everyone else had better watch out.`);
 				new G.act(1,['wish_ring suicidal !non-sapient'],`[1] ponders about how best to use [1:their] wish ring. Perhaps to have never existed?`);
@@ -2003,9 +1990,7 @@ G={
 			new G.act(0.5,['leather_scraps'],`[1] [wearing leather scraps is a sight to behold.|is [proud|bold|smug]ly wearing leather scraps. [Just why?|Go off, [1:g|king|queen|monarch]!|]|is unashamed to be seen in [1:their] leather scraps.]`);
 				new G.act(0.25,['survivalist|scavenger !kind', '+ leather_scraps'],`[1] [is embarrassed by [2]'s leather scraps|wishes [2] would find some real armor instead of just leather scraps|begs [2] to ditch the leather scraps. [2] [refuses|doesn't see why]].`);
 			new G.act(0.5,['bikini'],`[1] [is very proud of|flaunts|looks really good in] [1:their] bikini.`);
-				new G.act(0.5,['romantic','+ bikini'],`[1] looks at [2] in [2:their] bikini and [blushes|gets a nosebleed|[1:their] eyes pop out of [1:their] head].`);
 			new G.act(0.5,['dapper_suit'],`[1] [is very proud of|acts cool in|looks amazing in] [1:their] dapper suit.`);
-				new G.act(0.5,['romantic','+ dapper_suit'],`[1] is [impressed|enthralled|entranced] by how [fancy|suave|sophisticated] [2] looks in [2:their] dapper suit.`);
 			new G.act(0.5,['knight_armor'],`[1] [looks glorious in|stands proudly in|is ready to cleave some invaders in] [1:their] knight armor.`);
 			new G.act(0.5,['combat_gear'],`[1] [looks menacing in|is looking downright tactical in|practices some strategic moves in] [1:their] combat gear.`);
 			new G.act(0.5,['wizard_robe'],`[1] [shakes [1:their] wizard sleeves, and [a handful of|a dozen|a hundred|a thousand|an endless stream of] tiny animals fall out|sneezes from all the sparkles coming out of [1:their] wizard robe, making [1:them] levitate for a few seconds|is looking magical today].`);
@@ -2226,14 +2211,12 @@ G={
 				new G.act(lunaticLoseRate,['lunatic manipulative'],`[BLUE][1] seems to assume a slightly less cynical worldview.<br>[1] is no longer Manipulative.`,p=>{p[1].lose('manipulative');});
 			new G.act(lunaticGainRate,['lunatic !naive'],`[RED][1]'s bad brain [whispers to|tells|convinces] [1:them] that [[1:they] need to be more trusting|everyone is [1:their] friend|no one is really here to hurt anyone else].<br>[1] is now Naive!`,p=>{p[1].gain('naive');});
 				new G.act(lunaticLoseRate,['lunatic naive'],`[BLUE][1] realizes that everyone is out to get [1:them]. Trust no one.<br>[1] is no longer Naive.`,p=>{p[1].lose('naive');});
-			new G.act(lunaticGainRate,['lunatic !romantic'],`[RED][1]'s bad brain yearns for [love|intimacy|connection].<br>[1] is now Romantic!`,p=>{p[1].gain('romantic');});
-				new G.act(lunaticLoseRate,['lunatic romantic'],`[BLUE]Scorned! [1] will never love again.<br>[1] is no longer Romantic.`,p=>{p[1].lose('romantic');});
 			new G.act(lunaticGainRate,['lunatic !sneaky'],`[BLUE][1]'s bad brain [reveals that [1:g|he has|she has|they have] had the power to turn invisible all this time|[whispers to|tells|convinces] [1:them] it's time to disappear|[whispers to|tells|convinces] [1:them] to play the rest of the game from the shadows].<br>[1] is now Sneaky!`,p=>{p[1].gain('sneaky');});
 				new G.act(lunaticLoseRate,['lunatic sneaky'],`[RED][1] is tired of not being noticed.<br>[1] is no longer Sneaky.`,p=>{p[1].lose('sneaky');});
 			new G.act(lunaticGainRate,['lunatic !sociopath'],`[RED][1]'s bad brain [[whispers to|tells|convinces] [1:them] that [1:g|he is|she is|they are] the main character|turns [1:them] into a horrible person..|[whispers to|tells|convinces] [1:them] that no one else's lives are important].<br>[1] is now a Sociopath!`,p=>{p[1].gain('sociopath');});
 				new G.act(lunaticLoseRate,['lunatic sociopath'],`[BLUE][1] appears to have developed some empathy.[That's [unexpected|surprising].|]<br>[1] is no longer a Sociopath.`,p=>{p[1].lose('sociopath');});
 			new G.act(0.1,['lunatic'],`[BLUE][1] calms down for good, no longer subject to the whims of a changing brain.<br>[1] is no longer a Lunatic.`,p=>{p[1].lose('lunatic');});
-			new G.act(lunaticGainRate,['!annoying|brash|bulky|composed|cute|heroic|kind|lunatic|manipulative|mystical|naive|romantic|scavenger|sneaky|sociopath|survivalist'],`[RED]Completely lacking any personality traits, [1] gets so bored [1:they] become[1:s] a lunatic!`,p=>{p[1].gain('lunatic')})
+			new G.act(lunaticGainRate,['!annoying|brash|bulky|composed|cute|heroic|kind|lunatic|manipulative|mystical|naive|scavenger|sneaky|sociopath|survivalist'],`[RED]Completely lacking any personality traits, [1] gets so bored [1:they] become[1:s] a lunatic!`,p=>{p[1].gain('lunatic')})
 			
 			//kills
 			const coldBloodKiller='!kind|naive';
@@ -2264,8 +2247,8 @@ G={
 			new G.act(killRate*niceMult,['!survivalist|manipulative|sociopath|lunatic deaths:>0','- any !bulky'],`[RED][1] really doesn't want to, but [1:g|he finds himself|she finds herself|they find themself] having to [get rid of|kill|eliminate] [2].`,p=>{p[1].kill(p[2],`murder`);});
 
 			//trait-based kills
-			new G.act(woundRate,[coldBloodKiller+' manipulative','- any naive|romantic'],`[RED][1] convinces [2] [[1:they're] [2:their] friend|[1:they] can be trusted|[1:g|he has|she has|they have] a way to help [2:them]] and then [beats|batters|pummels|strikes] [2:them]! [2] becomes concussed!`,p=>{p[1].inflict(p[2],'concussed');});
-				new G.act(killRate,[coldBloodKiller+' manipulative','- any naive|romantic'],`[RED][1] convinces [2] [[1:they're] [2:their] friend|[1:they] can be trusted|[1:g|he has|she has|they have] a way to help [2:them]] and then [murders|kills|slaughters|strangles|eviscerates|gets rid of] [2:them]!`,p=>{p[1].kill(p[2],`manipulation`);});
+			new G.act(woundRate,[coldBloodKiller+' manipulative','- any naive'],`[RED][1] convinces [2] [[1:they're] [2:their] friend|[1:they] can be trusted|[1:g|he has|she has|they have] a way to help [2:them]] and then [beats|batters|pummels|strikes] [2:them]! [2] becomes concussed!`,p=>{p[1].inflict(p[2],'concussed');});
+				new G.act(killRate,[coldBloodKiller+' manipulative','- any naive'],`[RED][1] convinces [2] [[1:they're] [2:their] friend|[1:they] can be trusted|[1:g|he has|she has|they have] a way to help [2:them]] and then [murders|kills|slaughters|strangles|eviscerates|gets rid of] [2:them]!`,p=>{p[1].kill(p[2],`manipulation`);});
 				new G.act(woundRate,[coldBloodKiller+' manipulative','- brash'],`[RED][1] [lures|tricks|baits] [2] into [a fight|a duel|a standoff] and then springs a trap!<br>[2] gets a concussion in the aftermath!`,p=>{p[1].inflict(p[2],'concussed');});
 				new G.act(killRate,[coldBloodKiller+' manipulative','- brash'],`[RED][1] [lures|tricks|baits] [2] into [a fight|a duel|a standoff] and then springs a trap!<br>[2] never stood a chance...`,p=>{p[1].kill(p[2],`manipulation`);});
 				new G.act(killRate,[coldBloodKiller+' manipulative','- any suicidal'],`[RED][1] convinces [2] to kill [1:themself].`,p=>{p[1].kill(p[2],`manipulation`);});
@@ -2284,8 +2267,6 @@ G={
 				new G.act(killRate*rareEventMult,[coldBloodKiller+' sneaky','- !naive !survivalist any'],`[RED][1] [sneaks up to|lies in wait for|hides next to] [2] and [strangles|stabs|gets rid of] [2:them]!`,p=>{p[1].kill(p[2],`sneak attack`);});
 				new G.act(killRate*counterKillMult,[coldBloodKiller+' sneaky','- survivalist'],`[RED][1] [sneaks up to|lies in wait for|hides next to] [2], but [2]'s survival instincts kick in and [2:they] kill[2:s] [1]!`,p=>{p[2].kill(p[1],`failed sneak attack`);});
 			new G.act(killRate*teamKillMult,['manipulative|sociopath|lunatic|survivalist !composed','+ annoying'],`[RED][1] can't take it anymore and snaps [2]'s neck.`,p=>{p[1].kill(p[2],`too annoying to live`);});
-			new G.act(killRate*rareEventMult,['romantic','+ romantic','- romantic|cute'], `[RED][1] catches [2] [having an affair|sharing a tender moment|in a passionate embrace] with [3] and [becomes [furious|enraged]|gets [angry|upset|mad]]! In a fit of rage, [1:they] kill[1:s] [3]!<br>[2] is traumatized by the experience.`,p=>{p[1].kill(p[3],'jealous rage');p[1].inflict(p[2],'shell-shocked')})
-				new G.act(killRate*teamKillMult,['romantic','+ romantic','- romantic|cute'], `[RED][1] catches [2] [having an affair|sharing a tender moment|in a passionate embrace] with [3] and [becomes [furious|enraged]|gets [angry|upset|mad]]! In a fit of rage, [1:they] kill[1:s] them both!<br>[1]'s [fury|rage|anger] isn't sated yet...`,p=>{p[1].kill(p[2],'jealous rage');p[1].kill(p[3],'jealous rage');p[1].gain('frenzied')})
 			new G.act(killRate*rareEventMult,[coldBloodKiller+' bulky','+ frozen','-'],`[RED][1] sees [3] nearby and starts looking for a weapon. Lacking anything better on-hand, [1:they] pick up the block of ice [2] is frozen inside of and hurls it at [3]!<br>[3] is killed by the blow, but [2] somehow survives the encounter!`,p=>{p[1].kill(p[3],`flying ice block`);});
 			new G.act(woundRate,[coldBloodKiller,'+ annoying','-'],`[1] is trying to sneak up and [kill|attack] [3] when [all of the sudden|out of the blue] [2] [makes a loud noise|greets [1]|runs out after [3:them] first], letting [3] get away.[<br>[1] is getting pretty [fed up|annoyed|irritated] with [2].|]`);
 
@@ -2604,7 +2585,6 @@ G={
 			new G.act(0.3,['every ghost !kind|naive',`- every ghost !kind|naive`],`Despite both being ghosts, [1] and [2] [argue over whose team is better|still try to duel|can't reconcile their differences].`);
 			new G.act(0.3,['every ghost heroic',`+ team teamalive:>0`],`[1]'s spirit is watching over [2].`);
 			new G.act(0.3,['every ghost manipulative',`+`],`[1]'s ghost is trying to tell [2] how to win, but [2] doesn't seem to hear [1:them].`);
-			new G.act(0.3,['every ghost romantic',`+ every ghost romantic|cute`],`[1] and [2] [share a ghost kiss|hold ethereal hands|take a romantic float under the stars].`);
 			new G.act(0.05,['every ghost',`+ !sociopath|composed any`],`[RED][1] haunts [2] for letting [1:them] down, driving [2:them] to the brink!`,p=>{p[1].inflict(p[2],'suicidal');});
 			new G.act(0.1,['every ghost teamalive:>0','+',`- !sociopath|composed`],`[RED][1] decides to help [2] by haunting [3]. [3] becomes terrified!`,p=>{p[1].inflict(p[3],'terrified');});
 			new G.act(0.01,['every ghost'],`[BLUE][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] to life!`,p=>{p[1].revive();});
@@ -2680,9 +2660,6 @@ G={
 			new G.act(commonWish,['lunatic wish_ring !non-sapient alive:>1'],`[RED][1] wishes for maximum chaos! The wishing ring starts duplicating itself until there's enough for everyone to have their own!`,p=>{
 				for (var i in G.chars){G.chars[i].gain('wish ring');}
 			});
-			new G.act(uncommonWish,['romantic wish_ring !non-sapient alive:>1'],`[BLUE][1] wishes that it were easier to find love.<br>Everyone suddenly finds themselves a hopeless romantic!`,p=>{
-				for (var i in G.chars){G.chars[i].gain('romantic');}
-			});
 			new G.act(legendaryWish,['sociopath wish_ring !non-sapient', '- team teamalive:>0'],`[RED][1] wishes that everyone on [2] would [die|have a heart attack|kill themselves].<br>[2] never stood a chance...`,p=>{
 				for (var i in p[2].members){p[1].kill(G.chars[i],'cruel wish');}
 			});
@@ -2707,8 +2684,8 @@ G={
 			new G.act(commonWish,['bleed|concussed|burnt wish_ring !non-sapient any'],`[BLUE][1] makes a feeble wish for healing.<br>Miraculously, [1:g|he is|she is|they are] healed!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 			new G.act(commonWish,['bleed|concussed|burnt !non-sapient any','+ kind|heroic !sociopath wish_ring'],`[BLUE][2] is watching over [1] as [1:g|he struggles|she struggles|they struggle] for survival. [2] fingers [2:their] wish ring and wishes for [1] to be healed.<br>With a start, [1] stands up perfectly healthy!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 			new G.act(rareWish,['bleed|concussed|burnt !non-sapient any','- kind naive !sociopath wish_ring'],`[BLUE][2] finds [1] struggling on [1:their] deathbed. Despite being an enemy, [2] can't stand to see [1:them] suffer and wishes for [1:their] health.<br>[1] gets up, confused to [1:their] quick recovery, as [2] fled before [2:they] could be caught.`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
-			new G.act(legendaryWish,['manipulative|survivalist wish_ring !non-sapient', '+ team teamalive:>1', '+ annoying|lunatic|naive|romantic|sociopath'],`[RED][1] wishes that everyone on [2] was a bit [more helpful|less frustrating to deal with].<br>Everyone becomes a better team player! At the cost of some personality...`,p=>{
-				for (var i in p[2].members){p[2].members[i].lose(`annoying`);p[2].members[i].lose(`lunatic`);p[2].members[i].lose(`naive`);p[2].members[i].lose(`romantic`);p[2].members[i].lose(`sociopath`);}p[1].score(1);
+			new G.act(legendaryWish,['manipulative|survivalist wish_ring !non-sapient', '+ team teamalive:>1', '+ annoying|lunatic|naive|sociopath'],`[RED][1] wishes that everyone on [2] was a bit [more helpful|less frustrating to deal with].<br>Everyone becomes a better team player! At the cost of some personality...`,p=>{
+				for (var i in p[2].members){p[2].members[i].lose(`annoying`);p[2].members[i].lose(`lunatic`);p[2].members[i].lose(`naive`);p[2].members[i].lose(`sociopath`);}p[1].score(1);
 			});
 			new G.act(commonWish,['manipulative|survivalist wish_ring !non-sapient', '+ terrifed|shell-shocked|suicidal'],`[BLUE][1] notices that [2] is[ freaking out|n't doing so well]. [1:g|He wishes|She wishes|They wish] for [2:them] to snap out of it!`,p=>{
 				p[2].lose(`terrified`);p[2].lose(`shell-shocked`);p[2].lose(`suicidal`);p[1].score(commonWish);
@@ -2837,7 +2814,6 @@ G={
 				new G.act(woundRate,[coldBloodKiller+' sneaky','- any bleed|concussed|burnt','+ heroic'],`[RED][3] watches over [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover], but [1] manages to sneak past [3:them] and [deliver the coup de gras|make the killing blow|put an end to [2]].`,p=>{p[1].kill(p[2],`coup de gras`);});
 			new G.act(injuryIdle,['!trapped bleed any'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] and may not survive much longer.`);
 				new G.act(injuryTreat,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] but might survive given [2]'s attention.`);
-				new G.act(injuryTreat,['!trapped bleed any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [1:they] [experience[1:s] blood loss|bleed[1:s] out rapidly|lose[1:s] blood at an alarming rate] with [tears in [2:their] eyes|a lover's gentle touch|kind whispers of a better tomorrow.].`);
 				new G.act(injuryHeal,['!trapped bleed any'],`[BLUE][1]'s wounds clot and [1:g|he is|she is|they are] no longer suffering from blood loss.`,p=>{p[1].lose(`bleed`);});
 				new G.act(injuryHeal,['!trapped bleed first_aid_kit any'],`[BLUE]Despite [1:their] blood loss, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`bleed`);});
 				new G.act(injuryHeal,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
@@ -2849,7 +2825,6 @@ G={
 				new G.act(injuryDie,['!trapped bleed any'],`[RED][1] dies from blood loss.`,p=>{p[1].die(`blood loss`);});
 			new G.act(injuryIdle,['concussed any'],`[1] is [sitting around dazed|flickering in and out of consciousness|nauseus and vomiting] and may not survive much longer.`);
 				new G.act(injuryTreat,['concussed any','+ kind !sociopath|non-sapient'],`[1] is [sitting around dazed|flickering in and out of consciousness|nauseus and vomiting] but might survive given [2]'s attention.`);
-				new G.act(injuryTreat,['!trapped concussed any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [1:they] [sit[1:s] around dazed|flicker[1:s] in and out of consciousness|[1:g|is|is|are] experiencing nausea and vomiting] with [tears in [2:their] eyes|a lover's gentle touch|kind whispers of a better tomorrow.].`);
 				new G.act(injuryHeal,['concussed any'],`[BLUE][1]'s head clears and [1:g|he is|she is|they are] no longer suffering from a concussion.`,p=>{p[1].lose(`concussed`);});
 				new G.act(injuryHeal,['concussed first_aid_kit any'],`[BLUE]Despite [1:their] aching head, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`concussed`);});
 				new G.act(injuryHeal,['concussed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] concussion.`,p=>{p[2].cure(p[1],'concussed');});
@@ -2861,7 +2836,6 @@ G={
 				new G.act(injuryDie,['concussed any'],`[RED][1] slips into a coma from [1:their] concussion and doesn't wake up.`,p=>{p[1].die(`concussion`);});
 			new G.act(injuryIdle,['burnt any'],`[1]['s skin is peeling| is trying to cool off [1:their] burn| is trying not to burst [1:their] heat blisters] and [1:they] may not survive much longer.`);
 				new G.act(injuryTreat,['burnt any','+ kind !sociopath|non-sapient'],`[1]['s skin is peeling| is trying to cool off [1:their] burn| is trying not to burst [1:their] heat blisters] but might survive given [2]'s attention.`);
-				new G.act(injuryTreat,['!trapped burnt any '+crush,'+ romantic !sociopath'],`[2] watches over [1] as [[1:their] skin peels|[1:g|he tries|she tries|they try] to cool [1:their] burn|[1:g|he tries|she tries|they try] not to burst any heat blisters] with [tears in [2:their] eyes| a lover's gentle touch|kind whispers of a better tomorrow.].`);
 				new G.act(injuryHeal,['burnt any'],`[BLUE][1]'s burn wounds fade.`,p=>{p[1].lose(`burnt`);});
 				new G.act(injuryHeal,['burnt first_aid_kit any'],`Despite [1:their] burn wounds, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`burnt`);});
 				new G.act(injuryHeal,['burnt bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] burn wounds.`,p=>{p[1].lose(`burnt`);});
@@ -2873,7 +2847,6 @@ G={
 				new G.act(injuryDie,['burnt any'],`[RED][1]'s burn wounds overcome [1:them] and [1:they] wither[1:s] away.`,p=>{p[1].die(`burn`);});
 				new G.act(injuryDie,['burnt any','+ naive|brash freeze_ray !non-sapient'],`[RED][2] tries to cure [1]'s burn wounds with [2:their] freeze ray. That isn't how it works at all!<br>[1] [perishes|dies] in the attempt.`,p=>{p[2].kill(p[1],`good intentions`);});
 			new G.act(injuryIdle,['frozen any'],`[1] [is trapped in a[n icy prison| block of ice]|is frozen solid|learned what happens when [1:their] opponent uses a spell they don't know] and may not survive to escape.`);
-				new G.act(injuryTreat,['!trapped frozen any '+crush,'+ romantic !sociopath'],`[2] [watches|swoons] over [1] frozen in [1:their] icy prison.`);
 				new G.act(injuryHeal,['frozen any'],`[BLUE]After enough time, [1] has thawed out.`,p=>{p[1].lose(`frozen`);});
 				new G.act(injuryHeal,['frozen any','+ survivalist !sociopath'],`[BLUE][2] manages to build a fire and thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
 				new G.act(injuryHeal,['frozen any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a [flame|warmth] spell to thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
@@ -2881,7 +2854,6 @@ G={
 				new G.act(injuryHeal,['frozen any','+ !sociopath flamethrower'],`[BLUE][2] uses [2:their] flamethrower to provide a steady flame and thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
 				new G.act(injuryDie,['frozen any','+ naive|brash flamethrower'],`[RED][2] tries to thaw out [1] with [1:their] flamethrower, but puts it on full blast.[1] experiences a rapid change in body temperature and [perishes|dies].`,p=>{p[2].kill(p[1],`good intentions`);});
 				new G.act(injuryDie,['frozen any'],`[RED]Frozen for so long, [1]'s organs fail and [1:they] die[1:s] of hypothermia.`,p=>{p[1].die(`hypothermia`);});
-			new G.act(injuryHeal*rareEventMult,['bleed|concussed|burnt romantic !non-sapient any','+ romantic !sociopath|non-sapient'],`[BLUE][2] [sheds a single tear onto [1]'s face|plants a desperate kiss on [1]'s forehead].<br>Miraculously, this act of love cures [1]!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);p[2].score(1);});
 			
 			//betrayal
 			new G.act(0.5,['sociopath|manipulative !non-sapient','+ sociopath|survivalist|manipulative !non-sapient','+'],`[1] and [2] conspire against [3]...`);
@@ -2896,7 +2868,6 @@ G={
 			new G.act(0.3,['!manipulative|sociopath|survivalist','+ dead'],`[1] [reminisces about|thinks about|remembers|recalls something about|remembers how much [1:they] miss[1:es]] [2] and sobs quietly.`);
 			new G.act(0.3,['!manipulative|sociopath|survivalist alive:1'],`[1] [reminisces about|thinks about|remembers|remembers how much [1:they] miss[1:es]] everybody and sobs quietly.`);
 			new G.act(0.7,['kind|naive','+ team teamalive:1'],`[RED][1] [feels horrible for letting|can't believe [1:they] stood by and watched] everyone on [2] die.<br>[1] [has snapped|goes beserk|is finally prepared to kill]!`,p=>{p[1].lose('kind');p[1].lose('naive');p[1].gain('frenzied');});
-			new G.act(0.3,['romantic','+ romantic dead'],`[RED][1] [feels so empty since losing [2]|can't stand living in a world without [2]|misses [2] too much to keep on going].<br>[1] is now Suicidal.`,p=>{p[1].gain('suicidal');});
 
 			//trauma
 			new G.act(0.1,['has_killed kind'],`[1] [feels horrible for what [1:they] did...|wishes [1:they] didn't have to kill anyone...|never wants to kill anyone ever again.]`,p=>{p[1].gain('shell-shocked')});
@@ -2909,7 +2880,6 @@ G={
 				new G.act(0.25,[coldBloodKiller+' rocket_launcher','- !composed'],`[RED][1] [fires|shoots|aims] [1:their] rocket launcher at [2], but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] runs off terrified!`,p=>{p[1].inflict(p[2],'terrified')});
 				new G.act(0.25,[coldBloodKiller+' grenade','- !composed','+ !composed'],`[RED][1] [tosses|hurls|lobs] a live grenade at a group of enemies, but [misses[ horribly|]|aims a bit [high|low|to the [left|right]]|can't seem to aim today].<br>Despite being unhurt, [2] and [3] run off terrified!`,p=>{;p[1].lose('grenade');},p=>{p[1].inflict(p[2],'terrified'),p[1].inflict(p[3],'terrified')});
 			new G.act(0.05,[coldBloodKiller+' !composed','-'],`[RED][1] tries to attack [2], but [2] retaliates and gains the upper hand.<br>[1] is forced to flee in terror!`,p=>{p[1].gain('terrified');});
-				new G.act(0.05,[coldBloodKiller+' manipulative','- naive|romantic  !composed'],`[RED][1] convinces [2] [[1:they're] [2:their] friend|[1:they] can be trusted|[1:g|he has|she has|they have] a way to help [2:them]] and then [attacks|betrays|assaults] [2:them].<br>[2] is forced to flee in terror!`,p=>{p[1].inflict(p[2],'terrified');});
 				new G.act(0.05,[coldBloodKiller+' brash','- naive !heroic|composed'],`[RED][1] [[runs|comes] [at|after]|[runs|charges] towards] [2] [so [erratically|rashly]|in such a [volatile|unstable] [manner|way]] that [2] is forced to flee in terror!`,p=>{p[1].inflict(p[2],'terrified');});
 				new G.act(0.05,[coldBloodKiller+' sneaky','- naive !survivalist|composed'],`[RED][1] [sneaks up to|lies in wait for|hides next to] [2] and [attacks|assaults|jumps out at] [2:them]!<br>[2] is forced to flee in terror!`,p=>{p[1].inflict(p[2],'terrified');});
 			new G.act(killRate*rareEventMult*areaMult,[coldBloodKiller,'- any','+ !sociopath|composed'],`[RED][1] [kills|murders|attacks and kills] [2] [in front of [3]|before [3] can react]!<br>[There is nothing [3] can do...|[3] rushes to help, but [[2] dies in [3:their] arms|it's already too late]...]`,p=>{p[1].kill(p[2],`ambush`);p[1].inflict(p[3],'shell-shocked');});
@@ -3042,11 +3012,6 @@ G={
 					p[1].score(1);
 				});				
 				new G.act(newTeamRate*injuryTreat*rareEventMult,['first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed sociopath'], `[RED][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>[2] repays the kindness by killing [1] when [1:their] back is turned and stealing [1:their] first aid kit!.`,p=>{p[2].kill(p[1]);p[2].gain("first aid kit");p[1].lose("first aid kit");});			
-			new G.act(0.25,['romantic', '- romantic'], `[BLUE][[1] and [2]|[2] and [1]] are lovestruck and decide to [elope|run off together], creating Team [1]!.`,p=>{
-				var team = new G.team({name:'Team '+p[1].name,chars:[]})
-				p[1].join(team);
-				p[2].join(team);
-			});
 			new G.act(0.1,['alive:2 !sociopath', '- !sociopath'], `[BLUE][In the middle of fighting|While preparing for battle|While at each other's throats|During a lull in the fight] [[1] and [2]|[2] and [1]] realize that there's no one else alive.<br>After [some introspection|talking it out|freaking out for a bit|deciding they don't want to die] they form a truce, creating Team [1]!.`,p=>{
 				var team = new G.team({name:'Team '+p[1].name,chars:[]})
 				p[1].join(team);
@@ -3060,7 +3025,6 @@ G={
 				new G.act(1,['noTeam manipulative','inTeam','+ team'], `[BLUE][1] [manipulates [2] into letting [1:them] join|connives [1:their] way onto] [3].`,p=>{p[1].join(p[3]);p[1].score(1);});
 				new G.act(0.5,['noTeam','inTeam brash|naive|lunatic','+ team'], `[BLUE][2] invites [1] to [3] [without thinking it through.|ignoring the consequences.|because what could go wrong?]`,p=>{p[1].join(p[3]);p[2].score(1);});
 				new G.act(0.5,['noTeam bleed|concussed|burnt','inTeam heroic|kind !sociopath','+ team'], `[BLUE][2] [takes pity on [1]|wants to give [1] a hand|sees [1] struggling on [1:their] own] and invites [1:them] to [3].`,p=>{p[1].join(p[3]);p[2].score(1);});
-				new G.act(0.5,['noTeam romantic','inTeam romantic','+ team'], `[BLUE][1] and [2] [fall in love|are smitten with each other|have a romantic meeting on the battlefield] and [2] invites [1:them] to [3]!`,p=>{p[1].join(p[3]);p[2].score(1);});
 				new G.act(0.5,['noTeam survivalist','inTeam','+ team'], `[2] tries inviting [1] onto [3], but [1] [prefers being on [1:their] own|politely declines|would rather stay solo].`);
 			new G.act(0.01,['inTeam','+ team teamalive:>1'], `[RED][1] [is sick of [1:their] teammates|is looking for a change of pace|just can't keep up] and leaves [2]!`,p=>{p[1].leave();});
 				new G.act(0.05,['inTeam annoying','+ team teamalive:>1'], `[RED][2] [can't handle any more pranks|is out of patience] and forces [1] to leave!`,p=>{p[1].leave();});
@@ -3069,7 +3033,7 @@ G={
 				new G.act(0.05,['inTeam suicidal','+ team teamalive:>1', '+ heroic|kind'], `[1] contemplates leaving [2] but [[3] convinces [1:them] otherwise|is stopped by [3]].`);
 				new G.act(0.025,['inTeam survivalist','+ team teamalive:>1'], `[RED][1] [believes [1:they] will be better off alone|doesn't see the point in teammates] and leaves [2]`,p=>{p[1].leave();});
 			new G.act(0.025,['annoying','+ !composed','+ team'], `[RED][[2] is sick of [1] and leaves|[1] just won't stop bothering [2] so [2] leaves] [3]!`,p=>{p[2].leave();});
-				new G.act(0.05,['manipulative','+ !composed annoying|naive|romantic|suicidal', '+ team'], `[RED][1] sees [2] as a liability and [tricks [2:them] into leaving [3]|turns [3] against [2:them], forcing [2:them] to leave].`,p=>{p[2].leave();p[1].score(1);});
+				new G.act(0.05,['manipulative','+ !composed annoying|naive|suicidal', '+ team'], `[RED][1] sees [2] as a liability and [tricks [2:them] into leaving [3]|turns [3] against [2:them], forcing [2:them] to leave].`,p=>{p[2].leave();p[1].score(1);});
 			new G.act(0.05,['manipulative','- !composed','+ team'], `[RED][1] [gets into [2]'s head|feeds [2] lies] and [gets [2:them] to [leave|abandon]|tricks [2:them] into [leaving|abandoning]] [3].`,p=>{p[2].leave();p[1].score(1);});
 			new G.act(0.05,['manipulative','+ team','- !composed'], `[RED][1] [gets into [3]'s head|tells [3] [3:they're] underappreciated] and [gets [3:them] to join|tricks [3:them] into joining] [2].`,p=>{
 				p[3].leave();
@@ -3084,11 +3048,6 @@ G={
 				new G.act(0.025,['lunatic','+ team','- team teamalive:>0'], `[RED][1] [randomly decides|thinks it would be fun|wakes up wanting] to [leave|ditch] [2] and join [3].`,p=>{
 					p[1].leave();
 					p[1].join(p[3]);
-				});
-				new G.act(0.05,['romantic','+ team','- cute|romantic','+ team'], `[RED][1] [is obsessed with|yearns for|just wants to be with] [3], leading [1:them] to leave [2] and join [4].`,p=>{
-					p[1].leave();
-					p[1].join(p[4]);
-					p[3].score(2);
 				});
 				new G.act(0.05,['kind','+ team','- !composed|sociopath|manipulative','+ sociopath|manipulative'], `[BLUE][1] sees [3] [being bullied by|struggling to deal with|under the thumb of] [4], and invites [3:them] to [2]!<br>[3] graciously accepts.`,p=>{
 					p[3].leave();
