@@ -1792,7 +1792,7 @@ G={
 			new G.act(1,['scavenger'],`[1] [looks around for stuff to scrounge|spots something shiny in the distance].`);
 			new G.act(1,['sneaky'],`[1] is [hiding behind a [tree|rock|bush]|nowhere to be found].`);
 				new G.act(1,['sneaky','+ naive'],`[1] [sneaks up on|creeps up behind|tiptoes past] [2], who [doesn't notice|gets startled].`);
-				new G.act(1,['sneaky','+ survivalist|heroic'],`[1] [sneaks up on|creeps up behind|tiptoes past] [2], who [gets irritated|starts chewing [1] out|wishes [1] would put [1:their] skills to better use].`);
+				new G.act(1,['sneaky','+ survivalist|heroic'],`[1] [sneaks up on|creeps up behind|tiptoes past] [2], who [gets irritated|starts chewing [1:them] out|wishes [1] would put [1:their] skills to better use].`);
 			new G.act(1,['sociopath deaths:>0'],`[1] [seems unshaken by any of this|is only looking out for [1:themself]].`);
 				new G.act(0.5,['manipulative|sociopath','+ team teamalive:>1'],`[1] sees [2] as a bunch of chumps to be milked.`);
 			new G.act(1,['suicidal'],`[1] [wishes [1:g|he was|she was|they were] dead|longs for death].`);
@@ -1806,7 +1806,7 @@ G={
 			//item-related idling
 			const annoyingIdle=1;
 
-			new G.act(1,['big_stick !naive|kind alive:>1'],`[1] [waves [1:their] big stick around menacingly|wishes [1:their] big stick was a more intimidating weapon|lifts [1:their] big stick over their head and shakes it].`);
+			new G.act(1,['big_stick !naive|kind alive:>1'],`[1] [waves [1:their] big stick around menacingly|wishes [1:their] big stick was a more intimidating weapon|lifts [1:their] big stick over their head and shakes it|speaks softly and carries a big stick].`);
 				new G.act(1,['big_stick naive|kind'],`[1] uses [1:their] big stick [to hit rocks like baseballs|as a walking staff|to scratch out a message in the dirt].`);
 				new G.act(annoyingIdle,['big_stick annoying teamalive:>1','+ team'],`[1] keeps on [poking|bonking] [1:their] teammates with [1:their] big stick.<br>[2] is [starting to get fed up|getting annoyed|questioning why [1:they] keep[1:s] [1] around]...`);
 			new G.act(1,['boomerang'],`[1] practices throwing and catching [1:their] boomerang.`);
@@ -1943,7 +1943,7 @@ G={
 				new G.act(0.7,['pet_blorb','+ pet_blorb'],`[1]'s blorb and [2]'s blorb merge into a jumbolorb. They [have a hard time|spend the rest of the day] getting them back apart.`);
 				new G.act(0.7,['pet_blorb','+ pet_griffoth'],`[2]'s mini-griffoth is soaring in circles as [1]'s pet blorb hops along after it.`);
 				new G.act(0.7,['pet_blorb','+ pet_troupple'],`[2]'s winged troupple flies in to give [1]'s pet blorb a smooch.`);
-			new G.act(1,['pet_fairy'],`[1]'s fairy [ruffles its feathers|nips at [1:their] fingers|devours a dead rat [1:they] found].`);
+			new G.act(1,['pet_fairy'],`[1]'s fairy [ruffles its feathers|nips at [1:their] fingers|devours a dead rat they found].`);
 				new G.act(0.05,['dead pet_fairy every'],`[1]'s fairy is vigorously consuming its owner's remains.`);
 				new G.act(0.2,['pet_fairy alive:1'],`[1] is all alone in the world with [1:their] fairy. Is that a good thing?`);
 				new G.act(0.5,['pet_fairy egg'],`[1] has to hide [1:their] egg to keep [1:their] fairy from eating it.`);
@@ -2063,7 +2063,7 @@ G={
 				new G.act(rareItem,['!magic_wand|non-sapient mystical'],`[BLUE][1] follows some sparkles and discovers a magic wand!<br>[1] knows just how to use this!`,p=>{p[1].gain('magic wand');});
 			new G.act(legendaryItem,['!ancient_scepter|non-sapient|mystical'],`[BLUE][1] catches a strange glow in the corner of [1:their] eye and discovers an ancient scepter!<br>Arcane magic courses through [1:their] body as [1:their] fingers touch the carved wood.`,p=>{p[1].gain('ancient scepter');});
 				new G.act(rareItem,['!ancient_scepter|non-sapient mystical'],`[BLUE][1] catches a strange glow in the corner of [1:their] eye and discovers an ancient scepter!<br>Arcane magic courses through [1:their] body as [1:their] fingers touch the carved wood. This is what [1] has been waiting for...`,p=>{p[1].gain('ancient scepter');});
-			new G.act(legendaryItem,['!wish_ring|non-sapient'],`[BLUE][1] was lost in [1:their] thoughts... The next thing [1:they] knows[1:s], [1:they've] found a wish ring.<br>Hopefully [1:they]'ll be responsible with it.`,p=>{p[1].gain('wish ring');});
+			new G.act(legendaryItem,['!wish_ring|non-sapient'],`[BLUE][1] was lost in [1:their] thoughts... The next thing [1:they] know[1:s], [1:g|he's|she's|they've] found a wish ring.<br>Hopefully [1:they]'ll be responsible with it.`,p=>{p[1].gain('wish ring');});
 			new G.act(legendaryItem,[picky+' !nitro|non-sapient'],`[BLUE][1] clicks on a free Nitro gift, which turns out to be real!`,p=>{p[1].gain('nitro');});
 			new G.act(uncommonItem,['!slingshot|trowel|non-sapient survivalist|scavenger'],`[1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a [slingshot|a trowel] in [1:their] search for items.<br>Unfortunately it's just useless junk, so [1:they] toss[1:es] it.`);
 			
@@ -2339,7 +2339,7 @@ G={
 				new G.act(killRate,[coldBloodKiller+' knives','-'],`[RED][1] sticks a knife into [2]'s [back|throat|ribcage], killing [2:them]!`,p=>{p[1].kill(p[2],`knife`);});
 				new G.act(killRate*niceMult,[reluctantKiller+' knives','-'],`[RED]`+reluctantText+` [1:They] stick[1:s] a knife into [2]'s [back|throat|ribcage], killing [2:them]!`,p=>{p[1].kill(p[2],`knives`);});
 				new G.act(missRate,[coldBloodKiller+' knives','- !bulky'],`[1] [throws|hurls|tosses] a knife at [2], but [misses[ horribly|]|aims a bit [high|low|too far [left|right]]|can't seem to aim today].<br>[2] manages to escape before [1] has time to draw another knife.`);
-				new G.act(missRate*niceMult,[reluctantKiller+' knives','- !bulky'],``+reluctantText+` [They] [throw[1:s]|hurl[1:s]|toss[1:es]] a knife at [2], but [misses[ horribly|]|aims a bit [high|low|too far [left|right]]|can't seem to aim today].<br>[2] escapes before [1] has time to draw another knife.`);
+				new G.act(missRate*niceMult,[reluctantKiller+' knives','- !bulky'],``+reluctantText+` [1:They] [throw[1:s]|hurl[1:s]|toss[1:es]] a knife at [2], but [misses[ horribly|]|aims a bit [high|low|too far [left|right]]|can't seem to aim today].<br>[2] escapes before [1] has time to draw another knife.`);
 			new G.act(woundRate,[coldBloodKiller+' whip','-'],`[RED][1] [lashes at [2] with [1:their] whip|whips [2]], who starts bleeding out!`,p=>{p[1].inflict(p[2],'bleed');});
 				new G.act(woundRate*niceMult,[reluctantKiller+' whip','-'],`[RED]`+reluctantText+` [1:They] [lash[1:es] at [2] with [1:their] whip|whip[1:s] [2]], who starts bleeding out!`,p=>{p[1].inflict(p[2],'bleed');});
 				new G.act(killRate,[coldBloodKiller+' whip','-'],`[RED][1] hits [2]'s weak spot with [1:their] whip, killing [2:them]!`,p=>{p[1].kill(p[2],`whip`);});
@@ -2594,19 +2594,31 @@ G={
 
 			//ghosts
 			new G.act(0.01,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
+				new G.act(0.01,[`dead every !ghost|zombie naive`],`[BLUE][1] forgets that [1:g|he is|she is|they are] dead and comes back as a ghost.`,p=>{p[1].gain('ghost');});
+			
 			new G.act(0.3,['every ghost'],`[[1] floats around as a ghost trying to spook people.|[1] tries to figure out how to move on into the afterlife.|[1] watches the carnage going on around [1:them] as a ghost.]`);
 			new G.act(0.3,['every ghost suicidal'],`[1] laments that even dying wasn't enough to put [1:them] out of [1:their] misery.`);
 			new G.act(0.3,['every ghost',`+ every ghost`],`[1] and [2] [chat about how it is to be ghosts|reminisce on their life before becoming ghosts|wish that ghosts could still eat food|play some ghost games|debate how them being ghosts is even possible].`);
 			new G.act(0.3,['every ghost kind|naive',`- every ghost kind|naive`],`[1] and [2] [chat about how it is to be ghosts|reminisce on their life before becoming ghosts|wish that ghosts could still eat food|play some ghost games|debate how them being ghosts is even possible].`);
-			new G.act(0.3,['every ghost !kind|naive',`- every ghost !kind|naive`],`Despite both being ghosts, [1] and [2] [argue over whose team is better|still try to duel|can't reconcile their differences].`);
+			new G.act(0.3,['every ghost !kind|naive inTeam',`- every ghost !kind|naive inTeam`],`Despite both being ghosts, [1] and [2] [argue over whose team is better|still try to duel|can't reconcile their differences].`);
 			new G.act(0.3,['every ghost heroic',`+ team teamalive:>0`],`[1]'s spirit is watching over [2].`);
 			new G.act(0.3,['every ghost manipulative',`+`],`[1]'s ghost is trying to tell [2] how to win, but [2] doesn't seem to hear [1:them].`);
-			new G.act(0.05,['every ghost',`+ !sociopath|composed any`],`[RED][1] haunts [2] for letting [1:them] down, driving [2:them] to the brink!`,p=>{p[1].inflict(p[2],'suicidal');});
-			new G.act(0.1,['every ghost teamalive:>0','+',`- !sociopath|composed`],`[RED][1] decides to help [2] by haunting [3]. [3] becomes terrified!`,p=>{p[1].inflict(p[3],'terrified');});
-			new G.act(0.01,['every ghost'],`[BLUE][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] to life!`,p=>{p[1].revive();});
+			new G.act(0.2,['every ghost','every set_trap'],`[1] gets caught in [2]'s trap! [1:They] freak[1:s] out for a little bit before realizing [1:they're] a ghost and can just go through it.`);
+			
+			new G.act(0.01,['every ghost !kind|heroic|naive',`+ !sociopath|composed any`],`[RED][1] haunts [2] for letting [1:them] down, driving [2:them] to the brink!`,p=>{p[1].inflict(p[2],'suicidal');});
+				new G.act(0.05,['every ghost !kind|heroic|naive',`+ sociopath|composed any`],`[RED][1] haunts [2] for letting [1:them] down! [2] doesn't care.`);
+			new G.act(missRate,[coldBloodKiller,'-','+ every ghost !sociopath'],`[1] tries to attack [2], but [3] briefly possesses [1:their] weapon and causes [1:them] to miss, giving [2] a chance to escape.`);
+			new G.act(0.1,['every ghost survivalist !set_trap'],`[BLUE]Despite being a ghost, [1] still has enough control over objects to set a trap.`,p=>{p[1].gain('set trap');});
+				new G.act(0.1,['every ghost','- every set_trap'],`[BLUE][1] notices that [2] has set a trap. Wanting to be useful even in death, [1:they] set[1:s] about dismantling it.`,p=>{p[1].cure(p[2],'set trap');});
+			new G.act(0.1,['every ghost teamalive:>0',`- !sociopath|composed`],`[RED][1] decides to help [1:their] team by haunting [2]. [2] becomes terrified!`,p=>{p[1].inflict(p[2],'terrified');});
+				new G.act(0.1,['every ghost teamalive:>0',`- !sociopath|composed`],`[RED][1] decides to help [1:their] team by haunting [2]. [2] becomes traumatized!`,p=>{p[1].inflict(p[2],'shell-shocked');});
+				new G.act(0.05,['every ghost teamalive:>0',`- !sociopath|composed`],`[RED][1] decides to help [1:their] team by haunting [2]. [2] dies of a heart attack!`,p=>{p[1].kill(p[2],'heart attack');});
+				new G.act(0.01,['every ghost teamalive:>0',`- !sociopath|composed`],`[RED][1] decides to help [1:their] team by haunting [2]. [2] dies of a heart attack!<br>[1] is feeling pretty pleased with [1:themself] until [2] rises as a ghost. This is awkward.`,p=>{p[1].kill(p[2],'heart attack');p[2].gain('ghost');});
+			new G.act(0.005,['every ghost'],`[BLUE][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] to life!`,p=>{p[1].revive();});
 
 			//zombies
 			new G.act(0.01,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
+			
 			new G.act(0.2,['every zombie'],`Zombie [1] [shambles about aimlessly|cries out for brains|stands still, slack-jawed and drooling].`);
 				new G.act(0.2,['every zombie alive:>0','every zombie','every zombie'],`The zombified [1], [2], and [3] are beginning to become a bit of a horde. Things are looking bad for the survivors.`);
 				new G.act(0.2,['every zombie alive:0','every zombie','every zombie'],`The zombified [1], [2], and [3] are shambling around in a horde.`);
@@ -2654,7 +2666,7 @@ G={
 				new G.act(statusEndRate,[lifecoach,'+ terrified'],`[BLUE][1] is telling [2] that [[2:g|he is|she is|they are] safe with [1:them]|[2:they] are going to be okay|the team will help keep [1:them] safe].<br>[2] [snaps out of it|is feeling better now|calms down] and is no longer terrified.`,p=>{p[1].cure(p[2],'terrified');});
 			
 			//wishes
-			const wishRate=1;
+			const wishRate=2;
 			const commonWish=wishRate*1;
 			const uncommonWish=wishRate*0.75;
 			const rareWish=wishRate*0.5;
@@ -2721,7 +2733,7 @@ G={
 			new G.act(woundRate,[coldBloodKiller+' crossbow|handgun|lasergun|shotgun','- black_belt'], `[1] tries shooting at [2], but [2:their] martial arts prowess allows [2:them] to dodge the shot!<br>[1] [thinks that's a stupid rule|doesn't understand what just happened|is actually pretty [upset|impressed] by this turn of events].`)
 				new G.act(woundRate,[coldBloodKiller+' black_belt sword','- handgun|shotgun'], `[RED][2] tries shooting at [1], but [1:their] martial arts prowess allows [1:them] to reflect the bullet with [1:their] sword!<br>[2] [starts|starts|starts|[grumbles|complains|argues] that reflecting bullets with a sword is dumb before [2:they] start] bleeding out!`,p=>{p[1].inflict(p[2],'bleed');})
 			new G.act(killRate,[coldBloodKiller,'- whip'],`[1] tries to attack [2], but [2] uses [2:their] whip to keep [1:them] at bay!`);
-			new G.act(woundRate,[coldBloodKiller,'- pressure_washer'],`[1] tries to attack [2], but [2] [shoots a stream of highly pressurized water and washes [1:them] away|activates [2:their] pressure washer and the water stream lifts them up and out of harm's way]!`);
+			new G.act(woundRate,[coldBloodKiller,'- pressure_washer'],`[1] tries to attack [2], but [2] [shoots a stream of highly pressurized water and washes [1:them] away|activates [2:their] pressure washer and the water stream lifts [1:them] up and out of harm's way]!`);
 			new G.act(woundRate,[coldBloodKiller,'- vacuum'],`[1] tries to attack [2], but [2] uses [2:their] vacuum cleaner to [blow [1:them] away|create a giant dust cloud to hide in]!`);
 
 			//trait protections
@@ -2923,6 +2935,7 @@ G={
 				
 			//gambling
 			const gambleRate=0.3;
+			const ghostGambleRate=gambleRate*0.3;
 			const rouletteLocation=`that Game Knight [placed there|summoned|constructed]`;
 			//const rouletteLocation=`sitting [out in the middle of [nowhere|a field|a swamp|the desert|[1:their] very own campsite|a forest clearing]|on [the shore|top of a flat rock|the grave of a dead [wizard|king|genius|serial killer]|a high rooftop|top of a mountain peak]|in an abandoned [warehouse|hospital|arcade|houseboat|parking lot|subway station|carnival]|inside [a cave|a hedge maze|a clock tower|a derailed train car, with no train tracks in sight,|a dream [1:g|he is|she is|they are] having]|under [the night sky|a neon billboard|three feet of dirt|a dirty tarp]]`;
 
@@ -2957,7 +2970,16 @@ G={
 			new G.act(gambleRate*0.025,['!survivalist brash'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] lose[1:s] 2 points! Double or nothing!<br>[1] wins big and ends up scoring 2 points instead!`,p=>{p[1].score(2);});
 				new G.act(gambleRate*0.025,['!survivalist brash'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] lose[1:s] 2 points! Double or nothing!<br>[1] stakes [1:their] life on this bet, but it doesn't pay off...`,p=>{p[1].die("unlucky gambling");});
 
+			new G.act(ghostGambleRate*0.3,['ghost every !survivalist'],`[BLUE]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] win[1:s] [a lifetime supply of [cereal|hamburgers|toilet paper|dog treats|bubble gum]|a plush [blorb|fairy|mini-griffoth|winged troupple]|[two|five|ten|a hundred|a thousand|ten thousand|one hundred thousand|one million|one billion] [gold pieces|gems|U.S. dollars|Canadian dollars|pesos|bees]]! Not that that's all that useful for a ghost.`)				
+			new G.act(ghostGambleRate*0.05,['ghost every !survivalist'],`[BLUE]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] gain[1:s] 2 points!`,p=>{p[1].score(2);});
+				new G.act(ghostGambleRate*0.2,['ghost every !survivalist'],`[BLUE]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] gain[1:s] 1 point!`,p=>{p[1].score(1);});
+				new G.act(ghostGambleRate*0.2,['ghost every !survivalist'],`[RED]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] 1 point!`,p=>{p[1].score(-1);});
+				new G.act(ghostGambleRate*0.05,['ghost every !survivalist'],`[RED]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] 2 points!`,p=>{p[1].score(-2);});
+			new G.act(ghostGambleRate*0.1,['ghost every !survivalist'],`[BLUE]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] win[1:s] [1:their] life back!`,p=>{p[1].revive();});
+			//new G.act(ghostGambleRate*0.1,['ghost every !survivalist'],`[RED]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] [1:their] second chance and are dragged off to the underworld!`,p=>{p[1].peace();});
+
 			new G.act(gambleRate*0.5,['survivalist'],`[1] finds a mysterious roulette wheel `+rouletteLocation+`. What a waste of time.`);
+				new G.act(ghostGambleRate*0.5,['survivalist ghost every'],`[1] finds a mysterious roulette wheel `+rouletteLocation+`. Even as an immortal ghost that's a waste of time.`);
 
 			//death stuff
 			new G.act(0.05,['dead'],`[The [pile of flesh that used to be|dead husk of] [1]|[1]'s [corpse|lifeless body]] [[rots|festers|desiccates|decays|putrefies|decomposes] [peacefully|silently|loudly]|writhes with maggots].`);

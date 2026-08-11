@@ -1,20 +1,9 @@
 - Give ghosts more interactions
-	- Steal stuff
-	- Break traps
-	- Set traps
-	- Death by heart attack
-	- Death by heart attack into new ghost
-	- Drive people insane
-	- Posess certain tools and make them misfire
 	- Move on (afterlife trait: can't become a ghost again)
 	- Therapists help ghosts move on
-	- Magic items/taser can kill ghosts
+	- Magic items/taser/vacuum can kill ghosts
 	- Mystical forces ghosts into the afterlife
-	- Less likely to haunt own team
-	- Ghost gambling?
-	- Naive doesn't realize they're dead, comes back as ghost
-	- Ghosts argue about team even not on teams (they shouldn't do that)
-	- Vacuum kills ghosts
+	- Can move on by gambling
 
 	- Are dead people less likely to do things?
 	- Are ghosts secondary characters?

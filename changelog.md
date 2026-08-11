@@ -14,6 +14,7 @@ Curious how this mod differs from the original? Here's a list of all the changes
 ### New/Reworked Statuses
 - Added more interactions between Frenzied and other statuses
 - Gave Trapped characters more opportunities to join teams
+- Ghosts have more interactions
 
 ### New/Reworked Mechanics
 - Added unique revive messages for sheep and trapped characters
