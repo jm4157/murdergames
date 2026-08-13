@@ -1,0 +1,57 @@
+> Mystical Positive Interactions
+- Better odds of finding a wizard robe
+- Better odds of finding a magic wand
+- Better odds of finding an ancient scepter
+- Can summon a blorb familiar
+- Can summon a mini-griffoth familiar
+- Can summon a winged troupple familiar
+- Can summon a fairy familiar
+- Magic wands never run out of power
+- Can make foes terrified
+- Can make foes shell-shocked
+- Can revive ally
+- Can turn dead ally into a ghost
+- Can heal allies of bleeding
+- Can heal allies of concussions
+- Can heal allies of burn wounds
+- Can unfreeze allies
+
+> Mystical Neutral Interactions
+- Can summon a fairy for a foe (if a sociopath)
+- Can make foes frenzied
+
+> Mystical Negative Interactions
+- Can turn dead ally into a zombie
+- Can turn ally into sheep
+- Can turn self into sheep
+
+
+Weapons
+10
+
+Frenzy
+11
+
+Default/Traits
+21
+
+Ornate Plate
+1
+
+Terrified
+1
+
+> Bulky Positive Interactions
+- Can't lose duels
+- Can't be teamed up on
+- Can't be normal attacked by non-killers
+- Immune to the brash special attack
+- Less likely to get sneak attacked by stealthy characters
+- Can PICK UP AND THROW FROZEN ALLIES AS A WEAPON???
+- Recover from paraylsis, bleeding, concussion, burn wounds
+- More likely to be invited to a team
+
+> Bulky Negative Interactions
+- Can't get retaliation attacks
+- Can get one-tapped by a slingshot
+- Cannot be missed by any ranged weapon

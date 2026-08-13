@@ -1,6 +1,11 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 8/12/26
+
+### New/Reworked Traits
+- Removed Annoying's ability to get people to drop their weapons
+
 ## 8/10/26
 
 ### New/Reworked Traits

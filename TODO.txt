@@ -5,5 +5,31 @@
 	- Mystical forces ghosts into the afterlife
 	- Can move on by gambling
 
-	- Are dead people less likely to do things?
-	- Are ghosts secondary characters?
+- Are dead people less likely to do things?
+- Are ghosts secondary characters?
+
+- Pickaxe
+	- Mine for gold
+	- Picked them apart
+
+- Dead wish ring revive?
+- Make weapon attacks more likely
+- Give the people their multi-kills
+- Less likely to enter frenzy
+
+- Mystical Rework
+	- All: Sheep spell, sheep miscast, magic wands always stay on
+	- Annoying: Minor nuisances that cause attacks to miss (DEF)
+	- Brash: FIREBALL (ATK)
+	- Bulky: Self-buff (ATK)
+	- Composed: Counterspell, including magic items (DEF)
+	- Cute: Charm foes (DEF, UTIL)
+	- Heroic: Shield allies (DEF)
+	- Kind: Healing spells (UTIL)
+	- Lunatic: Spells to gain more traits (UTIL)
+	- Manipulative: Spells to inflict mental conditions (UTIL)
+	- Naive: Random spells, sometimes good sometimes junk (SPCL)
+	- Scavenger: Find magic items (UTIL)
+	- Sneaky: Turn invisible and avoid attacks (DEF)
+	- Sociopath: Direct damage spells (evil and fucked-up) (ATK)
+	- Survivalist: Summon a familiar, magically boosted pets (UTIL)
