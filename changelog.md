@@ -1,6 +1,16 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 8/27/26
+
+### New/Reworked Items
+- Wish rings are now guaranteed to revive their wearer if they die, but break in the process
+
+## 8/17/26
+
+### New/Reworked Traits
+- Naive and Kind characters are now only half as likely to attack others, rather than a quarter
+
 ## 8/12/26
 
 ### New/Reworked Traits

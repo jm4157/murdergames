@@ -1838,7 +1838,7 @@ G={
 				new G.act(annoyingIdle,['pressure_washer annoying teamalive:>1','+ team'],`[1] keeps on spraying [1:their] teammates with pressurized water.<br>[2] is [starting to get fed up|getting annoyed|questioning why they keep [1] around]...`);
 			new G.act(1,['vacuum'],`[1] is using [1:their] vacuum to keep [[1:their] camp|the battlefield] clean.`);
 				new G.act(annoyingIdle,['vacuum annoying teamalive:>1','+ team'],`[1] keeps on turning on [1:their] vacuum [in the middle of the night|whenever [1:their] teammates are trying to have a conversation].<br>[2] is [starting to get fed up|getting annoyed|questioning why they keep [1] around]...`);
-			new G.act(1,['first_aid_kit !naive'],`[1] checks [1:their] first aid kit, taking stock of how many medical supplies [1:they] have left.`);
+			new G.act(1,['first_aid_kit !naive'],`[1] checks [1:their] first aid kit, taking stock of how many medical supplies [1:they] [1:g|has|has|have] left.`);
 				new G.act(annoyingIdle,['first_aid_kit annoying|naive teamalive:>1','+ team'],`[1] keeps wasting medical supplies to wrap [1:themself] in bandages.<br>[2] is [starting to get fed up|getting annoyed|questioning why they keep [1] around]...`);
 			new G.act(1,['umbrella'],`[1] hides from the [rain|harsh sun] under [1:their] umbrella.`);
 				new G.act(annoyingIdle,['umbrella annoying teamalive:>1','+ team'],`[1] opens [1:their] umbrella indoors and then jokes that the team was just cursed with bad luck.<br>[2] is [starting to get fed up|getting annoyed|questioning why they keep [1] around]...`);
@@ -2225,7 +2225,7 @@ G={
 			const woundRate=0.6;
 			const killRate=0.4;
 			const missRate=0.4;
-			const niceMult=0.25;
+			const niceMult=0.5;
 			const areaMult=0.15;
 			const rareEventMult=0.33;
 			const counterKillMult=0.25;
@@ -2553,7 +2553,7 @@ G={
 				new G.act(0.5,['frenzied trapped'],`[RED]With a mighty burst of adrenaline [1] manages to break free of the trap!`,p=>{p[1].lose('trapped')});
 				new G.act(0.25,['frenzied trapped'],`[RED]As [1:they] try to escape the trap, [1]'s frenzy grows so overpowering that [1:their] heart gives out...`,p=>{p[1].die(`frenzy heart attack`);});
 				new G.act(killRate,['!kind|naive','- frenzied trapped'],`[RED][1] finds [2] caught in a trap, overcome with rage. Knowing this is [1:their] best chance to eliminate this threat, [1:they] kill [2:them].`,p=>{p[1].kill(p[2],`threat elimination`);});
-				new G.act(killRate*teamKillMult,['sociopath|survialist !heroic|composed|kind','+ frenzied trapped'],`[RED][1] finds [2] caught in a trap, overcome with rage. Knowing that [1:their] ally would turn on [1:them] in this frenzied state, [1:they] kill [2:them].`,p=>{p[1].kill(p[2],`threat elimination`);});
+				new G.act(killRate*teamKillMult,['sociopath|survivalist !heroic|composed|kind','+ frenzied trapped'],`[RED][1] finds [2] caught in a trap, overcome with rage. Knowing that [1:their] ally would turn on [1:them] in this frenzied state, [1:they] kill [2:them].`,p=>{p[1].kill(p[2],`threat elimination`);});
 				new G.act(killRate*rareEventMult,['naive','frenzied trapped'],`[RED][1] finds [2] caught in a trap, overcome with rage. [1:They] let [2:them] down, hoping [2:they] will be grateful.<br>[2] [snaps [2:their] neck|kills [2:them] dead|slaughters [2:them]|turns [2:them] inside out] and continues on [1:their] frenzy!`,p=>{p[1].cure(p[2],'trapped');p[2].kill(p[1],`frenzy kill`);});
 				new G.act(0.3,[lifecoach,'+ frenzied trapped'],`[1] finds [2] caught in a trap, overcome with rage. [1:They] take this opportunity to try and calm [2:them] down.<br>It doesn't work, so [1] leaves to give [2:them] some more time to cool off.`);
 				new G.act(0.3,[lifecoach,'+ frenzied trapped'],`[BLUE][1] finds [2] caught in a trap, overcome with rage. [1:They] take this opportunity to try and calm [2:them] down.<br>It works! [1] helps a pacified [2] out of the trap and they go on their way.`,p=>{p[2].lose('frenzied');p[1].cure(p[2],'trapped');});
@@ -2722,6 +2722,7 @@ G={
 			new G.act(commonWish,['trapped wish_ring !non-sapient'],`[BLUE][1] wishes [1:g|he was|she was|they were] free of the trap. With a puff of smoke, the trap dissolves around [1:them], leaving [1:them] safely on the ground.`,p=>{p[1].lose('trapped');});
 			new G.act(0.01,['wish_ring !non-sapient'],`[1] tries to make a wish... [1:Their] wish ring starts emitting a rancid smoke!<br>[1:They] throw[1:s] it to the ground, where it fizzles and burns away in a crackling of angry sparkles.`,p=>{p[1].lose('wish ring');});
 			new G.act(0.003,['naive !wish_ring !non-sapient'],`[1] wishes [1:they] had a wish ring...<br>A mysterious glow wraps around [1:their] finger. Could it really be?`,p=>{p[1].gain('wish ring');});			
+			new G.act(FORCE,['dead wish_ring'],`[BLUE]As [1]'s corpse [rots|decomposes] [1:their] wish ring glows brightly. After a moment it [dissipates|shatters|is absorbed into [1:their] body] and [1] is [revived|brought back to life|alive again]!`,p=>{p[1].lose('wish ring');p[1].revive();});
 
 			//item protections
 			new G.act(woundRate,[coldBloodKiller,'- knight_armor any'],`[1] tries to kill [2], but [2]'s knight armor diverts the blow!`);
@@ -2738,7 +2739,7 @@ G={
 
 			//trait protections
 			new G.act(woundRate,[coldBloodKiller+' !sociopath|composed','- cute'],`[1] tries to [kill|murder|attack] [2], but [2]['s puppy dog eyes convince [1:them] otherwise.| is just too cute to touch!]`);
-				new G.act(killRate*rareEventMult,[coldBloodKiller+' sociopath','- cute any'],`[RED][2] tries to use [2:their] cuteness to convince [1] not to kill [1:them], but [1] [doesn't care.|isn't bothered.|just relishes the kill more!]`,p=>{p[1].kill(p[2],`not cute enough`);});
+				new G.act(killRate*rareEventMult,[coldBloodKiller+' sociopath','- cute any'],`[RED][2] tries to use [2:their] cuteness to convince [1] not to kill [2:them], but [1] [doesn't care.|isn't bothered.|just relishes the kill more!]`,p=>{p[1].kill(p[2],`not cute enough`);});
 				new G.act(woundRate,[coldBloodKiller+' !sociopath|composed','- any cute bleed|concussed|burnt'],`[1] tries to deliver the coup de gras to a wounded [2], but [2]['s puppy dog eyes convince [1:them] otherwise.| is just too cute to touch!]`);
 			new G.act(killRate,[coldBloodKiller+' !composed','- any','+ annoying'],`[1] tries to kill [2], but [3] [wanders in|appears out of nowhere|shows up] and [starts loudly singing|does a weird little dance|tries counting to a million|blurts out a bunch of wildly incorrect trivia], distracting [1:them] before [1:they] can make the killing blow.`);
 			new G.act(killRate,[coldBloodKiller,'- naive'],`[1] tries to kill [2], but[ at the last second| by dumb luck| suddenly|, oblivious to the danger,] [2:they] bend[2:s] down to [smell some flowers|pick up a [penny|cool stick|perfectly smooth rock]|tie [2:their] shoe|check out a cool bug|doodle in the dirt] and the attack misses.`);
@@ -2917,9 +2918,9 @@ G={
 			new G.act(gambleRate*0.028,['!survivalist !pet_fairy'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] win[1:s] a plush fairy!<br>Or at least [1:g|he thinks he does|she thinks she does|they think they do], until it bites [1:their] hand! Looks like it's real...`,p=>{p[1].gain("pet fairy");});
 			
 			new G.act(gambleRate*0.075,['!survivalist'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] gain[1:s] 2 points!`,p=>{p[1].score(2);});
-				new G.act(gambleRate*0.025,['!survivalist !brash|composed'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] gain[1:s] 2 points!<br>[1] is now hooked on the thrill of gambling, and becomes generally less risk-averse!`,p=>{p[1].score(2);p[1].gain("brash");});
+				new G.act(gambleRate*0.025,['!survivalist !brash|composed'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] gain[1:s] 2 points!<br>[1] is now hooked on the thrill of gambling, and becomes generally less risk-averse!`,p=>{p[1].score(2);p[1].gain("brash");});
 			new G.act(gambleRate*0.1875,['!survivalist'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] gain[1:s] 1 point!`,p=>{p[1].score(1);});
-				new G.act(gambleRate*0.0625,['!survivalist !brash|composed'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] gain[1:s] 1 point!<br>[1] is now hooked on the thrill of gambling, and becomes generally less risk-averse!`,p=>{p[1].score(1);p[1].gain("brash");});
+				new G.act(gambleRate*0.0625,['!survivalist !brash|composed'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] gain[1:s] 1 point!<br>[1] is now hooked on the thrill of gambling, and becomes generally less risk-averse!`,p=>{p[1].score(1);p[1].gain("brash");});
 			new G.act(gambleRate*0.25,['!survivalist'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] 1 point!`,p=>{p[1].score(-1);});
 			new G.act(gambleRate*0.1,['!survivalist'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] 2 points!`,p=>{p[1].score(-2);});
 
@@ -2953,6 +2954,7 @@ G={
 
 			//death stuff
 			new G.act(0.05,['dead'],`[The [pile of flesh that used to be|dead husk of] [1]|[1]'s [corpse|lifeless body]] [[rots|festers|desiccates|decays|putrefies|decomposes] [peacefully|silently|loudly]|writhes with maggots].`);
+			new G.act(0.05,['dead composed'],`[1] is now... decomposed.`);
 			new G.act(0.01,['dead alive:0 dead:>1 any'],`[BLUE]A god comes upon this mess and revives everyone out of boredom.<br>How nice! Everybody's back.`,p=>{
 				for (var i in G.chars){G.chars[i].revive();}
 			});
