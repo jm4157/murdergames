@@ -723,6 +723,7 @@ G={
 		new G.perk({name:`zombie`,desc:`Brought back from the dead in a smelly, mindless form.`,out:true});
 		new G.perk({name:`sheep`,desc:`Has been turned into a sheep through some magical mean.`,out:true});
 		new G.perk({name:`revived`,desc:`Was just resurrected through some miracle or other.`,out:true});
+		new G.perk({name:`afterlife`,desc:`Where ghosts go when they're done being ghosts.`,out:true})
 		//wound statuses
 		new G.perk({name:`bleed`,desc:`Losing blood at an alarming rate. Needs immediate treatment.`});
 		new G.perk({name:`concussed`,desc:`Been pounded badly.`});
@@ -2593,8 +2594,8 @@ G={
 			new G.act(0.01,[`mystical`, `+ dead every !zombie`],`[BLUE][1] attempts a ritual to [revive [2]|bring [2] back to life].<br>It succeeds! [2] [stands up and dusts [2:themself] off.|is super confused.|is overjoyed to be alive again!]`,p=>{p[1].revive(p[2]);});
 
 			//ghosts
-			new G.act(0.01,[`dead every !ghost|zombie`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
-				new G.act(0.01,[`dead every !ghost|zombie naive`],`[BLUE][1] forgets that [1:g|he is|she is|they are] dead and comes back as a ghost.`,p=>{p[1].gain('ghost');});
+			new G.act(0.01,[`dead every !ghost|zombie|afterlife`],`[BLUE][Via some dark magic [1]|[1] decides being dead is boring and] comes back as a ghost.`,p=>{p[1].gain('ghost');});
+				new G.act(0.01,[`dead every !ghost|zombie|afterlife naive`],`[BLUE][1] forgets that [1:g|he is|she is|they are] dead and comes back as a ghost.`,p=>{p[1].gain('ghost');});
 			
 			new G.act(0.3,['every ghost'],`[[1] floats around as a ghost trying to spook people.|[1] tries to figure out how to move on into the afterlife.|[1] watches the carnage going on around [1:them] as a ghost.]`);
 			new G.act(0.3,['every ghost suicidal'],`[1] laments that even dying wasn't enough to put [1:them] out of [1:their] misery.`);
@@ -2615,6 +2616,16 @@ G={
 				new G.act(0.05,['every ghost teamalive:>0',`- !sociopath|composed`],`[RED][1] decides to help [1:their] team by haunting [2]. [2] dies of a heart attack!`,p=>{p[1].kill(p[2],'heart attack');});
 				new G.act(0.01,['every ghost teamalive:>0',`- !sociopath|composed`],`[RED][1] decides to help [1:their] team by haunting [2]. [2] dies of a heart attack!<br>[1] is feeling pretty pleased with [1:themself] until [2] rises as a ghost. This is awkward.`,p=>{p[1].kill(p[2],'heart attack');p[2].gain('ghost');});
 			new G.act(0.005,['every ghost'],`[BLUE][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] to life!`,p=>{p[1].revive();});
+
+			new G.act(0.01,[`every ghost`],`[1] [tries to figure out how to move on into the afterlife.<br>Oh wait, [1:they] just figured it out|goes towards the light|has done enough ghostly deeds to enter the afterlife|moves on from being a ghost|winds up in [heaven|hell] for [1:their] deeds].`,p=>{p[1].gain('afterlife');p[1].lose('ghost');})
+			new G.act(0.05,[`every ghost`,`+ composed`],`[2] helps [1] [settle [1:their] unfinished business|overcome the trauma that binds [1:them] to this mortal p].<br>[1] is able to move on into the afterlife!`,p=>{p[1].gain('afterlife');p[1].lose('ghost');p[2].score(1);})
+				new G.act(0.05,[`every ghost`,`kind`],`[2] helps [1] [settle [1:their] unfinished business|overcome the trauma that binds [1:them] to this mortal p].<br>[1] is able to move on into the afterlife!`,p=>{p[1].gain('afterlife');p[1].lose('ghost');p[2].score(1);})
+			new G.act(0.1,[`every ghost`,`- vacuum`],`[2] [sucks the ghost of [1] up into [2:their] vacuum|uses [2:their] vacuum to [dispose of|capture] the ghost of [1]].<br>Goodbye forever, [1]!`,p=>{p[1].gain('afterlife');p[1].lose('ghost');p[2].score(1);})
+				new G.act(0.1,[`every ghost`,`- taser`],`[2]'s taser turns out to be an effective ghost-hunting weapon as [2:they] destroy[2:s] the ghost of [1] with a sustained electrical shock.`,p=>{p[1].gain('afterlife');p[1].lose('ghost');p[2].score(1);})
+				new G.act(0.1,[`every ghost`,`- magic_wand`],`[2] [uses [2:their] wand to banish|casts a spell that banishes] the ghost of [1].`,p=>{p[1].gain('afterlife');p[1].lose('ghost');p[2].score(1);})
+				new G.act(0.1,[`every ghost`,`- ancient_scepter`],`[2]'s ancient scepter crackles with power as [2:they] [banish[2:es]|obliterate] the ghost of [1].`,p=>{p[1].gain('afterlife');p[1].lose('ghost');p[2].score(1);})
+			new G.act(0.1,[`every ghost`,`- every ghost`],`[The ghosts of |][[2] and [1]|[1] and [2]] are [fighting|having a ghostly duel].<br>[2] wins and [1] is banished forever!`,p=>{p[1].gain('afterlife');p[1].lose('ghost');p[2].score(1);})
+
 
 			//zombies
 			new G.act(0.01,['every ghost'],`[RED][1] finds [1:their] old body and tries to possess it. [1:They] return[1:s] as a zombie.`,p=>{p[1].lose('ghost');p[1].gain('zombie');});
@@ -2969,7 +2980,7 @@ G={
 				new G.act(ghostGambleRate*0.2,['ghost every !survivalist'],`[RED]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] 1 point!`,p=>{p[1].score(-1);});
 				new G.act(ghostGambleRate*0.05,['ghost every !survivalist'],`[RED]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] 2 points!`,p=>{p[1].score(-2);});
 			new G.act(ghostGambleRate*0.1,['ghost every !survivalist'],`[BLUE]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] win[1:s] [1:their] life back!`,p=>{p[1].revive();});
-			//new G.act(ghostGambleRate*0.1,['ghost every !survivalist'],`[RED]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] [1:their] second chance and are dragged off to the underworld!`,p=>{p[1].peace();});
+			new G.act(ghostGambleRate*0.1,['ghost every !survivalist'],`[RED]The ghost of [1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] [1:their] second chance and are dragged off to the underworld!`,p=>{p[1].gain('afterlife');p[1].lose('ghost');});
 
 			new G.act(gambleRate*0.5,['survivalist'],`[1] finds a mysterious roulette wheel `+rouletteLocation+`. What a waste of time.`);
 				new G.act(ghostGambleRate*0.5,['survivalist ghost every'],`[1] finds a mysterious roulette wheel `+rouletteLocation+`. Even as an immortal ghost that's a waste of time.`);

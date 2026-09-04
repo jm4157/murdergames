@@ -1,6 +1,11 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 9/4/29
+
+## New/Reworked Mechanics
+- Ghosts can now be banished to the afterlife
+
 ## 8/29/29
 
 ### New/Reworked Traits
