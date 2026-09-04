@@ -2041,7 +2041,7 @@ G={
 			new G.act(uncommonItem,['!brass_knuckles|non-sapient'],`[BLUE][1] smiles wryly. [1:They] just found a set of brass knuckles- or did [1:they] have them all along?`,p=>{p[1].gain('brass knuckles');});
 			new G.act(uncommonItem,['!shield|non-sapient'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a[ discarded| lost|n old|] shield[ lying around| left unattended| on the ground|].<br>This will protect [1:them] against [1:their] foes!`,p=>{p[1].gain('shield');});
 			new G.act(uncommonItem,['!mallet|non-sapient'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a giant mallet[ lying around| left unattended| on the ground|].<br>Now to find a giant game of whack-a-mole.`,p=>{p[1].gain('mallet');});
-			new G.act(uncommonItem,['!flail|non-sapient'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a[ discarded| lost|n old|] flail[ lying around| left unattended| on the ground|].<br>[1:They] spin it around a bit before [hitting [!themself] in the face and embarrassedly putting it away|adding it to [1:their] arsenal].`,p=>{p[1].gain('flail');});
+			new G.act(uncommonItem,['!flail|non-sapient'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a[ discarded| lost|n old|] flail[ lying around| left unattended| on the ground|].<br>[1:They] spin[1:s] it around a bit before [hitting [1:themself] in the face and embarrassedly putting it away|adding it to [1:their] arsenal].`,p=>{p[1].gain('flail');});
 			new G.act(uncommonItem,['!frying_pan|non-sapient'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters|runs across|trips over] a[ discarded| lost|n old|] frying pan[ lying around| left unattended| on the ground|]. [1:They] could make a delicious meal, or hit someone over the head!`,p=>{p[1].gain('frying pan');});
 			new G.act(rareItem,['!vacuum|non-sapient'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters] a supply closet. Rummaging through it, [1:they] find[1:s] a working vacuum!`,p=>{p[1].gain('vacuum');});
 			new G.act(rareItem,['!pressure_washer|non-sapient'],`[BLUE][1] [finds|discovers|[stumbles|happens|chances] upon|notices|encounters] a supply closet. Rummaging through it, [1:they] find[1:s] a working pressure washer!.`,p=>{p[1].gain('pressure washer');});
@@ -2092,7 +2092,7 @@ G={
 			new G.act(scavengerFindRate,['!axe|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth axe'],`[BLUE][1] spots that [2] has an axe on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('axe');p[2].lose('axe');});
 			new G.act(scavengerFindRate,['!flail|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth flail'],`[BLUE][1] spots that [2] has an flail on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('flail');p[2].lose('flail');});
 			new G.act(scavengerFindRate,['!frying_pan|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth frying_pan'],`[BLUE][1] spots that [2] has an frying pan on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('frying pan');p[2].lose('frying pan');});
-			new G.act(scavengerFindRate,['!pressure_washer|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth pressure_washer'],`[BLUE][1] spots that [2] has an pressure washer on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('pressure washer');p[2].lose('pressure washer');});
+			new G.act(scavengerFindRate,['!pressure_washer|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth pressure_washer'],`[BLUE][1] spots that [2] has a pressure washer on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('pressure washer');p[2].lose('pressure washer');});
 			new G.act(scavengerFindRate,['!vacuum|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth vacuum'],`[BLUE][1] spots that [2] has an vacuum on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('vacuum');p[2].lose('vacuum');});
 			new G.act(scavengerFindRate,['!first_aid_kit|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth first_aid_kit'],`[BLUE][1] spots that [2] has an first aid kit on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('first aid kit');p[2].lose('first aid kit');});
 			new G.act(scavengerFindRate,['!handgun|non-sapient scavenger','every dead !zombie|pet_fairy|pet_blorb|pet_griffoth handgun'],`[BLUE][1] spots that [2] has a handgun on [2:their] corpse...<br>That'll come in handy!`,p=>{p[1].gain('handgun');p[2].lose('handgun');});
@@ -2233,7 +2233,7 @@ G={
 			const reluctantText=`[1] [doesn't want to|wishes it hadn't come to this|would prefer a peaceful solution], but [has been forced to [this point|pitch in|take a stand]|[needs to avenge|is doing this for] [1:their] team|no longer has a choice|can't stand [idly by|on the sidelines anymore]].`;
 			
 			new G.act(woundRate,[coldBloodKiller,'-'],`[RED][1] [ambushes [2]|attacks [2] from behind] and [beats|batters|pummels|strikes] [2:them]. [2] ends up with a concussion!`,p=>{p[1].inflict(p[2],'concussed');});
-				new G.act(woundRate*niceMult,[reluctantKiller,'-'],`[RED]`+reluctantText+` [1:They] [ambush[1:es] [2]|attack[1:s] [2] from behind] and [beats|batters|pummels|strikes] [2:them]. [2] ends up with a concussion!`,p=>{p[1].inflict(p[2],'concussed');});
+				new G.act(woundRate*niceMult,[reluctantKiller,'-'],`[RED]`+reluctantText+` [1:They] [ambush[1:es] [2]|attack[1:s] [2] from behind] and [beat|batter|pummel|strike][1:s] [2:them]. [2] ends up with a concussion!`,p=>{p[1].inflict(p[2],'concussed');});
 				new G.act(killRate,[coldBloodKiller,'- !bulky '+coldBloodKiller],`[RED][[1] duels it out with [2]|[1] challenges [2] to a duel|[2] challenges [1] to a duel|[1] wants to end things once and for all with [2]|[2] wants to end things once and for all with [1]].<br>[2] bites the dust!`,p=>{p[1].kill(p[2],`duel`);});
 				new G.act(killRate*niceMult,[reluctantKiller,'- !bulky '+coldBloodKiller],`[RED]`+reluctantText+` [[1] duels it out with [2]|[1] challenges [2] to a duel].<br>[2] bites the dust!`,p=>{p[1].kill(p[2],`duel`);});
 				new G.act(killRate,[coldBloodKiller,'- kind|naive'],`[[1] challenges [2] to a duel|[1] wants to end things once and for all with [2]].<br>[2] runs and hides!`);
@@ -2708,7 +2708,7 @@ G={
 					for (var i in G.chars){G.chars[i].gain('zombie');}p[1].score(1);
 				});
 				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[RED][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a nightmare! [2] was transformed into a zombie!`,p=>{p[1].inflict(p[2],'zombie');});
-				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!<br>The wish ring goes inert. Looks like that took up all it's power.`,p=>{p[1].revive(p[2]);p[1].lose('wish_ring')});
+				new G.act(rareWish,['!manipulative|sociopath|survivalist wish_ring !non-sapient','+ dead'],`[BLUE][1] wishes [1:they] could see [2] one last time... [1:Their] wish ring shimmers for a second, and then -<br>...it's a miracle! [2] came back to life!<br>The wish ring goes inert. Looks like that took up all it's power.`,p=>{p[1].revive(p[2]);p[1].lose('wish ring')});
 			new G.act(commonWish,['bleed|concussed|burnt wish_ring !non-sapient any'],`[BLUE][1] makes a feeble wish for healing.<br>Miraculously, [1:g|he is|she is|they are] healed!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 			new G.act(commonWish,['bleed|concussed|burnt !non-sapient any','+ kind|heroic !sociopath wish_ring'],`[BLUE][2] is watching over [1] as [1:g|he struggles|she struggles|they struggle] for survival. [2] fingers [2:their] wish ring and wishes for [1] to be healed.<br>With a start, [1] stands up perfectly healthy!`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 			new G.act(rareWish,['bleed|concussed|burnt !non-sapient any','- kind naive !sociopath wish_ring'],`[BLUE][2] finds [1] struggling on [1:their] deathbed. Despite being an enemy, [2] can't stand to see [1:them] suffer and wishes for [1:their] health.<br>[1] gets up, confused to [1:their] quick recovery, as [2] fled before [2:they] could be caught.`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
@@ -2788,12 +2788,12 @@ G={
 
 
 			//wounds
-			const injuryIdle = 0.5;
-			const injuryTreat = 0.5;
-			const injuryHeal = 0.15;
-			const injuryDie = 0.25
+			const injuryCommon=1;
+			const injuryUncommon=0.5;
+			const injuryRare=0.25;
 
-			new G.act(woundRate,[coldBloodKiller,'- any bleed|concussed|burnt'],`[RED][1] finds [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and [delivers the coup de gras|makes the killing blow|puts an end to [2:them]].`,p=>{p[1].kill(p[2],`coup de gras`);});
+			new G.act(woundRate,[coldBloodKiller,'- any !sneaky bleed|concussed|burnt'],`[RED][1] finds [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and [delivers the coup de gras|makes the killing blow|puts an end to [2:them]].`,p=>{p[1].kill(p[2],`coup de gras`);});
+				new G.act(0.35,[coldBloodKiller,'- any sneaky bleed|concussed|burnt'],`[1] tries to seek out kill [2] while [2:they] [2:g|he is|she is|they are] [recovering from [2:their] wounds|trying to recover], but [2:g|he's|she's|they're] hidden too well.`);
 				new G.act(0.35,[coldBloodKiller+' sociopath','- any bleed|concussed|burnt'],`[1] finds [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and sits down to watch [2:them] suffer for a while.`);
 				new G.act(0.35,[coldBloodKiller+' sociopath','- any bleed !concussed'],`[RED][1] finds [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and decides [2:g|he isn't|she isn't|they aren't] suffering enough! [1] hits [2:them] in the head, causing a concussion!`,p=>{p[1].inflict(p[2],`concussed`)});
 				new G.act(0.35,[coldBloodKiller+' sociopath','- any concussed !bleed'],`[RED][1] finds [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and decides [2:g|he isn't|she isn't|they aren't] suffering enough! [1] cuts [2:them], causing [2:them] to bleed out!`,p=>{p[1].inflict(p[2],`bleed`)});
@@ -2801,49 +2801,71 @@ G={
 				new G.act(0.01,['!kind !sociopath','+ any bleed|concussed|burnt'],`[RED][1] watches [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and decides [[2:g|he is|she is|they are] suffering too much|[2:g|he is|she is|they are] better off in the afterlife|[2:they] would want [1:them] to move on].`,p=>{p[1].kill(p[2],`coup de gras`);});
 				new G.act(woundRate,[coldBloodKiller+' !sneaky','- any bleed|concussed|burnt','+ heroic'],`[1] finds [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and tries to [put [2:them] out of their misery|deliver the coup de gras|end [2:their] suffering|make the killing blow] but [3] is [watching over [2:them]|standing guard].`);
 				new G.act(woundRate,[coldBloodKiller+' sneaky','- any bleed|concussed|burnt','+ heroic'],`[RED][3] watches over [2] [hiding in recovery|recovering from [2:their] wounds|trying to recover], but [1] manages to sneak past [3:them] and [deliver the coup de gras|make the killing blow|put an end to [2]].`,p=>{p[1].kill(p[2],`coup de gras`);});
-			new G.act(injuryIdle,['!trapped bleed any'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] and may not survive much longer.`);
-				new G.act(injuryTreat,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] but might survive given [2]'s attention.`);
-				new G.act(injuryHeal,['!trapped bleed any'],`[BLUE][1]'s wounds clot and [1:g|he is|she is|they are] no longer suffering from blood loss.`,p=>{p[1].lose(`bleed`);});
-				new G.act(injuryHeal,['!trapped bleed first_aid_kit any'],`[BLUE]Despite [1:their] blood loss, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`bleed`);});
-				new G.act(injuryHeal,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
-				new G.act(injuryHeal,['!trapped bleed any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
-				new G.act(injuryHeal,['!trapped bleed bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] blood loss.`,p=>{p[1].lose(`bleed`);});
-				new G.act(injuryTreat,['!trapped bleed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] have enough bandages to cure [2]'s bleeding.`,p=>{p[2].cure(p[1],'bleed');});
-				new G.act(injuryHeal,['!trapped bleed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] have enough bandages to cure [2]'s bleeding.<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[2].cure(p[1],'bleed');p[2].lose('first aid kit')});
-				new G.act(injuryHeal,['!trapped bleed any','+ shears !sociopath|non-sapient'],`[BLUE][2] uses [2:their] shears to gather herbs that put a stop to [1]'s blood loss.`,p=>{p[2].cure(p[1],'bleed');});
-				new G.act(injuryDie,['!trapped bleed any'],`[RED][1] dies from blood loss.`,p=>{p[1].die(`blood loss`);});
-			new G.act(injuryIdle,['concussed any'],`[1] is [sitting around dazed|flickering in and out of consciousness|nauseus and vomiting] and may not survive much longer.`);
-				new G.act(injuryTreat,['concussed any','+ kind !sociopath|non-sapient'],`[1] is [sitting around dazed|flickering in and out of consciousness|nauseus and vomiting] but might survive given [2]'s attention.`);
-				new G.act(injuryHeal,['concussed any'],`[BLUE][1]'s head clears and [1:g|he is|she is|they are] no longer suffering from a concussion.`,p=>{p[1].lose(`concussed`);});
-				new G.act(injuryHeal,['concussed first_aid_kit any'],`[BLUE]Despite [1:their] aching head, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`concussed`);});
-				new G.act(injuryHeal,['concussed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] concussion.`,p=>{p[2].cure(p[1],'concussed');});
-				new G.act(injuryHeal,['concussed any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting a stop to [1:their] concussion.`,p=>{p[2].cure(p[1],'concussed');});
-				new G.act(injuryHeal,['concussed bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] concussion.`,p=>{p[1].lose(`concussed`);});
-				new G.act(injuryHeal,['concussed any','+ shears !sociopath|non-sapient'],`[BLUE][2] uses [2:their] shears to gather herbs that put remedy [1]'s concussion.`,p=>{p[2].cure(p[1],'concussed');});
-				new G.act(injuryTreat,['concussed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to treat [1]'s concussion.`,p=>{p[2].cure(p[1],'concussed');});
-				new G.act(injuryHeal,['concussed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to treat [1]'s concussion.<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[2].cure(p[1],'concussed');p[2].lose('first aid kit')});
-				new G.act(injuryDie,['concussed any'],`[RED][1] slips into a coma from [1:their] concussion and doesn't wake up.`,p=>{p[1].die(`concussion`);});
-			new G.act(injuryIdle,['burnt any'],`[1]['s skin is peeling| is trying to cool off [1:their] burn| is trying not to burst [1:their] heat blisters] and [1:they] may not survive much longer.`);
-				new G.act(injuryTreat,['burnt any','+ kind !sociopath|non-sapient'],`[1]['s skin is peeling| is trying to cool off [1:their] burn| is trying not to burst [1:their] heat blisters] but might survive given [2]'s attention.`);
-				new G.act(injuryHeal,['burnt any'],`[BLUE][1]'s burn wounds fade.`,p=>{p[1].lose(`burnt`);});
-				new G.act(injuryHeal,['burnt first_aid_kit any'],`Despite [1:their] burn wounds, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`burnt`);});
-				new G.act(injuryHeal,['burnt bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] burn wounds.`,p=>{p[1].lose(`burnt`);});
-				new G.act(injuryHeal,['burnt any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts an end to [1:their] burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
-				new G.act(injuryHeal,['burnt any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting an end to [1:their] burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
-				new G.act(injuryHeal,['burnt any','+ shears !sociopath|non-sapient'],`[BLUE][2] uses [2:their] shears to gather herbs that soothe [1]'s burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
-				new G.act(injuryTreat,['burnt any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to heal [1]'s burns.`,p=>{p[2].cure(p[1],'burnt');});
-				new G.act(injuryHeal,['burnt any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to heal [1]'s burns.<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[2].cure(p[1],'burnt');p[2].lose('first aid kit')});
-				new G.act(injuryDie,['burnt any'],`[RED][1]'s burn wounds overcome [1:them] and [1:they] wither[1:s] away.`,p=>{p[1].die(`burn`);});
-				new G.act(injuryDie,['burnt any','+ naive|brash freeze_ray !non-sapient'],`[RED][2] tries to cure [1]'s burn wounds with [2:their] freeze ray. That isn't how it works at all!<br>[1] [perishes|dies] in the attempt.`,p=>{p[2].kill(p[1],`good intentions`);});
-			new G.act(injuryIdle,['frozen any'],`[1] [is trapped in a[n icy prison| block of ice]|is frozen solid|learned what happens when [1:their] opponent uses a spell they don't know] and may not survive to escape.`);
-				new G.act(injuryHeal,['frozen any'],`[BLUE]After enough time, [1] has thawed out.`,p=>{p[1].lose(`frozen`);});
-				new G.act(injuryHeal,['frozen any','+ survivalist !sociopath'],`[BLUE][2] manages to build a fire and thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
-				new G.act(injuryHeal,['frozen any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a [flame|warmth] spell to thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
-				new G.act(injuryHeal,['frozen any pet_griffoth'],`[BLUE][1]'s mini-griffoth's fiery breath thaws [1] out!`,p=>{p[1].lose(`frozen`);});
-				new G.act(injuryHeal,['frozen any','+ !sociopath flamethrower'],`[BLUE][2] uses [2:their] flamethrower to provide a steady flame and thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
-				new G.act(injuryDie,['frozen any','+ naive|brash flamethrower'],`[RED][2] tries to thaw out [1] with [1:their] flamethrower, but puts it on full blast.[1] experiences a rapid change in body temperature and [perishes|dies].`,p=>{p[2].kill(p[1],`good intentions`);});
-				new G.act(injuryDie,['frozen any'],`[RED]Frozen for so long, [1]'s organs fail and [1:they] die[1:s] of hypothermia.`,p=>{p[1].die(`hypothermia`);});
+				new G.act(injuryCommon,['concussed|bleed|burnt suicidal'],`[RED][1] can't take it anymore...<br>[1:They] decide[1:s] to put [1:themself] out of [1:their] misery.`,p=>{p[1].die('suicide');})
+
+			new G.act(injuryCommon,['!trapped bleed any'],`[RED][1] dies from blood loss.`,p=>{p[1].die(`blood loss`);});
+				new G.act(injuryCommon,['!trapped bleed any'],`[RED][1] dies from blood loss.`,p=>{p[1].die(`blood loss`);});
+				new G.act(injuryRare,['!trapped bleed any'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] and may not survive much longer.`);
+				new G.act(injuryCommon,['!trapped bleed any','+ kind|shears !sociopath|non-sapient'],`[1] is [experiencing blood loss|bleeding out rapidly|losing blood at an alarming rate] but might survive given [2]'s attention.`);
+				new G.act(injuryRare,['!trapped bleed any'],`[BLUE][1]'s wounds clot and [1:g|he is|she is|they are] no longer suffering from blood loss.`,p=>{p[1].lose(`bleed`);});
+				new G.act(injuryUncommon,['!trapped bleed first_aid_kit any'],`[BLUE]Despite [1:their] blood loss, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`bleed`);});
+				new G.act(injuryRare,['!trapped bleed first_aid_kit any'],`[BLUE]Despite [1:their] blood loss, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[1].lose(`bleed`);p[2].lose('first aid kit');});
+				new G.act(injuryUncommon,['!trapped bleed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
+				new G.act(injuryUncommon,['!trapped bleed any','+ shears !sociopath|non-sapient'],`[BLUE][2] uses [2:their] shears to gather herbs that put a stop to [1]'s blood loss.`,p=>{p[2].cure(p[1],'bleed');});
+				new G.act(injuryCommon,['!trapped bleed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] have enough bandages to cure [2]'s bleeding.`,p=>{p[2].cure(p[1],'bleed');});
+				new G.act(injuryUncommon,['!trapped bleed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] have enough bandages to cure [2]'s bleeding.<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[2].cure(p[1],'bleed');p[2].lose('first aid kit');});
+			new G.act(injuryCommon,['concussed any'],`[RED][1] slips into a coma from [1:their] concussion and doesn't wake up.`,p=>{p[1].die(`concussion`);});
+				new G.act(injuryRare,['concussed any'],`[1] is [sitting around dazed|flickering in and out of consciousness|nauseus and vomiting] and may not survive much longer.`);
+				new G.act(injuryCommon,['concussed any','+ kind|shears !sociopath|non-sapient'],`[1] is [sitting around dazed|flickering in and out of consciousness|nauseus and vomiting] but might survive given [2]'s attention.`);
+				new G.act(injuryRare,['concussed any'],`[BLUE][1]'s head clears and [1:g|he is|she is|they are] no longer suffering from a concussion.`,p=>{p[1].lose(`concussed`);});
+				new G.act(injuryUncommon,['concussed first_aid_kit any'],`[BLUE]Despite [1:their] aching head, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`concussed`);});
+				new G.act(injuryRare,['concussed first_aid_kit any'],`[BLUE]Despite [1:their] aching head, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[1].lose(`concussed`);p[2].lose('first aid kit');});
+				new G.act(injuryUncommon,['concussed any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts a stop to [1:their] concussion.`,p=>{p[2].cure(p[1],'concussed');});
+				new G.act(injuryUncommon,['concussed any','+ shears !sociopath|non-sapient'],`[BLUE][2] uses [2:their] shears to gather herbs that put remedy [1]'s concussion.`,p=>{p[2].cure(p[1],'concussed');});
+				new G.act(injuryCommon,['concussed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to treat [1]'s concussion.`,p=>{p[2].cure(p[1],'concussed');});
+				new G.act(injuryRare,['concussed any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to treat [1]'s concussion.<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[2].cure(p[1],'concussed');p[2].lose('first aid kit');});
+			new G.act(injuryCommon,['burnt any'],`[RED][1]'s burn wounds overcome [1:them] and [1:they] wither[1:s] away.`,p=>{p[1].die(`burn`);});
+				new G.act(injuryRare,['burnt any','+ naive|brash freeze_ray !non-sapient'],`[RED][2] tries to cure [1]'s burn wounds with [2:their] freeze ray. That isn't how it works at all!<br>[1] [perishes|dies] in the attempt.`,p=>{p[2].kill(p[1],`good intentions`);});
+				new G.act(injuryRare,['burnt any'],`[1]['s skin is peeling| is trying to cool off [1:their] burn| is trying not to burst [1:their] heat blisters] and [1:they] may not survive much longer.`);
+				new G.act(injuryCommon,['burnt any','+ kind|shears !sociopath|non-sapient'],`[1]['s skin is peeling| is trying to cool off [1:their] burn| is trying not to burst [1:their] heat blisters] but might survive given [2]'s attention.`);
+				new G.act(injuryRare,['burnt any'],`[BLUE][1]'s burn wounds fade.`,p=>{p[1].lose(`burnt`);});
+				new G.act(injuryUncommon,['burnt first_aid_kit any'],`Despite [1:their] burn wounds, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].`,p=>{p[1].lose(`burnt`);});
+				new G.act(injuryRare,['burnt first_aid_kit any'],`Despite [1:their] burn wounds, [1] manages to treat [1:themself] using [1:their] [medical supplies|first aid kit].<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[1].lose(`burnt`);p[2].lose('first aid kit');});
+				new G.act(injuryUncommon,['burnt any','+ kind !sociopath|non-sapient'],`[BLUE][2] gives [1] medical attention which puts an end to [1:their] burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
+				new G.act(injuryUncommon,['burnt any','+ shears !sociopath|non-sapient'],`[BLUE][2] uses [2:their] shears to gather herbs that soothe [1]'s burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
+				new G.act(injuryCommon,['burnt any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to heal [1]'s burns.`,p=>{p[2].cure(p[1],'burnt');});
+				new G.act(injuryRare,['burnt any','+ first_aid_kit !sociopath|non-sapient'],`[BLUE][2]'s [medical supplies come|first aid kit comes] in handy as [2:they] happen to have medicine to heal [1]'s burns.<br>Unfortunately, that uses up the last of [2:their] supplies.`,p=>{p[2].cure(p[1],'burnt');p[2].lose('first aid kit')});
+			new G.act(injuryCommon,['frozen any'],`[RED]Frozen for so long, [1]'s organs fail and [1:they] die[1:s] of hypothermia.`,p=>{p[1].die(`hypothermia`);});
+				new G.act(injuryRare,['frozen any','+ naive|brash flamethrower'],`[RED][2] tries to thaw out [1] with [1:their] flamethrower, but puts it on full blast.[1] experiences a rapid change in body temperature and [perishes|dies].`,p=>{p[2].kill(p[1],`good intentions`);});
+				new G.act(injuryRare,['frozen any'],`[1] [is trapped in a[n icy prison| block of ice]|is frozen solid|learned what happens when [1:their] opponent uses a spell they don't know] and may not survive to escape.`);
+				new G.act(injuryRare,['frozen any'],`[BLUE]After enough time, [1] has thawed out.`,p=>{p[1].lose(`frozen`);});
+				new G.act(injuryUncommon,['frozen any','+ survivalist !sociopath'],`[BLUE][2] manages to build a fire and thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
+				new G.act(injuryUncommon,['frozen any pet_griffoth'],`[BLUE][1]'s mini-griffoth's fiery breath thaws [1] out!`,p=>{p[1].lose(`frozen`);});
+				new G.act(injuryRare,['frozen any','+ !sociopath flamethrower'],`[BLUE][2] uses [2:their] flamethrower to provide a steady flame and thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
+
+			new G.act(injuryCommon,['bleed|concussed|burnt annoying any','+','- !composed '+coldBloodKiller],`[RED]As [3] goes to [attack|kill|murder] [2] [3:they] pass[3:es] by [1]. [1] gathers [enough|[1:their] last] strength to [annoy|shout insults at] [3], [whose attention is turned|who redirects [3:their] murderous intent|who changes targets].<br>[1] is [killed|slaughtered|executed] but [2] manages to escape!`,p=>{p[3].kill(p[1],"annoying last breath");})
+			new G.act(injuryCommon,['bleed|concussed|burnt brash any','-'],`[RED][1] isn't about to let a little thing like being injured stop [1:them]! Gathering [enough|[1:their] last] strength [1:they] seek out and attack [2]!<br>[1] manages to [kill|slaughter|eviscerate] [2:them], but [dies|is fatally wounded] in the process.`,p=>{p[1].kill(p[2],'brash last breath');p[1].die('brash last breath');})
+			new G.act(injuryCommon,['bleed|concussed|burnt bulky any'],`[BLUE][1]'s [sheer bulk|strong constitution|healthy body] helps [1:them] overcome [1:their] wounds.`,p=>{p[1].lose('bleed');p[1].lose('concussed');p[1].lose('burnt');})
+			new G.act(injuryCommon,['bleed|concussed|burnt composed any','- !composed suicidal|shell-shocked|terrified'],`[RED][1] uses [1:their] final breath to tell [2] to be strong for [1:them]. [2]'s resolve is hardened, and [2:they] overcome [2:their] trauma.`,p=>{p[1].inflict(p[2],'composed');p[1].die('composed last breath');p[2].lose('suicidal');p[2].lose('shell-shocked');p[2].lose('terrified');})
+			new G.act(injuryCommon,['bleed|concussed|burnt cute any','- !composed|sociopath'],`[RED][2] stumbles across [1] dying of [1:their] wounds. [1:They] die[1:s] in such a cute manner that it traumatizes [2]!`,p=>{p[1].inflict(p[2],'shell-shocked');p[1].die('cute last breath');})
+			new G.act(injuryCommon,['bleed|concussed|burnt heroic any','+','- '+coldBloodKiller],`[RED][1] sees [3] [attempting|going in] to kill [2]. [1:They] use[1:s] the last of [1:their] strength to [get in the way|jump in front of [2]] and take the blow that was meant for [2:them].`,p=>{p[3].kill(p[1],'heroic last breath');})
+			new G.act(injuryCommon,['bleed|concussed|burnt kind any','+ bleed|concussed|burnt'],`[BLUE][1] has been secretly giving [1:their] [rations|food|medicine] to [2]. Thanks to the extra help [2] manages to recover from [1:their] wounds, but [1] is too weak to go on...`,p=>{p[1].die('kind last breath');p[1].score(1);p[2].lose('bleed');p[2].lose('concussed');p[2].lose('burnt');})
+			new G.act(injuryCommon,['bleed|concussed|burnt lunatic any','-'],`[RED][2] finds [1] [hiding in recovery|recovering from [2:their] wounds|trying to recover] and attempts to deliver a killing blow. [1] just smiles, knowing it is [2] who is about to die.<br>Standing over [2]'s corpse, [1] lets out one final [laugh|chuckle] before succumbing to [1:their] [wounds|injuries].`,p=>{p[1].kill(p[2],'lunatic last breath');p[1].die('lunatic last breath');})
+			new G.act(injuryCommon,['bleed|concussed|burnt manipulative any','+ !composed'],`[RED][1] uses [1:their] dying breath to tell [2] [2:they] need[2:s] to win this for [1:them]. [2] goes into a killing frenzy!`,p=>{p[1].inflict(p[2],'frenzied');p[1].die('manipulative dying breath')})
+			new G.act(injuryCommon,['bleed|concussed|burnt mystical any','-','-'],`[RED][1] gathers the last of [1:their] strength to cast a final spell. With a [clap of thunder|flash of light|booming voice from the heavens] [2] and [3] suddenly find themselves on all fours and covered in wool while [1] collapses from exertion, never to rise again.`,p=>{p[1].inflict(p[2],'sheep');p[1].inflict(p[3],'sheep');p[1].die('mystical final breath')})
+			new G.act(injuryCommon,['bleed|concussed|burnt naive any','- !composed|sociopath'],`[RED][1] seeks out someone to help [1:them] recover from [1:their] wounds, not realizing that [2] isn't even on [1:their] team! While [2] struggles to figure out how to tell [1:them] this important fact [1] dies right in front of [2:their] face!<br>[2] is traumatized by the experience...`,p=>{p[1].inflict(p[2],'shell-shocked');p[1].die('cute last breath');})
+			new G.act(injuryCommon,['bleed|concussed|burnt scavenger any'],`[BLUE][1] scrounges around and finds some [medicinal herbs|healing supplies] [1:they] can use to heal [1:themself].`,p=>{p[1].lose('bleed');p[1].lose('concussed');p[1].lose('burnt');})
+			new G.act(injuryCommon,['bleed|concussed|burnt sneaky any'],`[BLUE]Wounded, [1] sneaks off to a hidden location to recover. When [1:they] return[1:s] [1:g|he is|she is|they are] fully healed!`,p=>{p[1].lose('bleed');p[1].lose('concussed');p[1].lose('burnt');})
+			new G.act(injuryCommon,['bleed|concussed|burnt sociopath any','-'],`[RED]Even at death's door [1] isn't about to go out without inflicting [pain|misery] on someone else. Gathering [enough|[1:their] last] strength [1:they] seek out and attack [2]!<br>[1] manages to [kill|slaughter|eviscerate] [2:them], but [dies|is fatally wounded] in the process.`,p=>{p[1].kill(p[2],'sociopath last breath');p[1].die('sociopath last breath');})
+			new G.act(injuryCommon,['bleed|concussed|burnt survivalist any'],`[BLUE][1] isn't about to [[die|go out] like this|give up so easily]. [1:They] search[1:es] for medicinal [herbs|plants|mushrooms] that heal [1:their] wounds!`,p=>{p[1].lose('bleed');p[1].lose('concussed');p[1].lose('burnt');})
+
 			
+				// new G.act(injuryHeal,['frozen any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a [flame|warmth] spell to thaw [1] out!`,p=>{p[2].cure(p[1],`frozen`);});
+				// new G.act(injuryHeal,['concussed any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting a stop to [1:their] concussion.`,p=>{p[2].cure(p[1],'concussed');});
+				// new G.act(injuryHeal,['!trapped bleed any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting a stop to [1:their] blood loss.`,p=>{p[2].cure(p[1],'bleed');});
+				// new G.act(injuryHeal,['burnt any','+ mystical !sociopath'],`[BLUE][2] [uses|casts] a healing [spell|ritual|charm] on [1], putting an end to [1:their] burn wounds.`,p=>{p[2].cure(p[1],'burnt');});
+
+
 			//betrayal
 			new G.act(0.5,['sociopath|manipulative !non-sapient','+ sociopath|survivalist|manipulative !non-sapient','+'],`[1] and [2] conspire against [3]...`);
 				new G.act(0.05,['sociopath|manipulative !non-sapient','+ sociopath|survivalist|manipulative !non-sapient','+'],`[RED]In an act of betrayal, [1] and [2] team up and [murder|eliminate|get rid of] [3]!`,p=>{p[1].kill(p[3],`betrayal`,p[2]);});
@@ -2885,8 +2907,8 @@ G={
 
 			//pet misc.
 			new G.act(woundRate*teamKillMult,['pet_fairy'],`[RED][1]'s fairy bites [1:their] hand as [1:they] feed it! [1] is bleeding out!`,p=>{p[1].gain(`bleed`);});
-				new G.act(injuryIdle,['bleed any pet_fairy'],`[RED][1]'s fairy smells [1:their] blood and goes into a feeding frenzy! [1] is ripped to shreds by [1:their] own pet!`,p=>{p[1].die('blood-crazed fairy');});
-				new G.act(injuryDie,['bleed any','+ pet_fairy'],`[RED][2]'s fairy smells [1]'s' blood and goes into a feeding frenzy! [1] is ripped to shreds while [2] tries fruitlessly to regain control of [2:their] pet!`,p=>{p[1].die('blood-crazed fairy');});
+				new G.act(injuryUncommon,['bleed any pet_fairy'],`[RED][1]'s fairy smells [1:their] blood and goes into a feeding frenzy! [1] is ripped to shreds by [1:their] own pet!`,p=>{p[1].die('blood-crazed fairy');});
+				new G.act(injuryRare,['bleed any','+ pet_fairy'],`[RED][2]'s fairy smells [1]'s' blood and goes into a feeding frenzy! [1] is ripped to shreds while [2] tries fruitlessly to regain control of [2:their] pet!`,p=>{p[1].die('blood-crazed fairy');});
 			new G.act(0.4,['bleed|concussed|burnt any pet_troupple'],`[BLUE]The winged troupple kisses [1]'s booboos, making it all better.`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);});
 				new G.act(0.1,['bleed|concussed|burnt any pet_troupple'],`[BLUE]The winged troupple kisses [1]'s booboos, making it all better.<br>[Exhausted|Drained] of its healing energy, the winged troupple flies off to return to the swamp.`,p=>{p[1].lose(`bleed`);p[1].lose(`concussed`);p[1].lose(`burnt`);p[1].lose(`pet troupple`);});
 			
@@ -2929,7 +2951,7 @@ G={
 			new G.act(gambleRate*0.035,['!survivalist !trapped'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] [1:their] freedom! [1] is now trapped!`,p=>{p[1].gain("trapped");});
 			new G.act(gambleRate*0.035,['!survivalist inTeam teamalive:>1'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] [1:their] entire team!`,p=>{p[1].leave();});
 			new G.act(gambleRate*0.035,['!survivalist !suicidal'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] lose[1:s] [1:their] will to live!`,p=>{p[1].gain("suicidal");});
-			new G.act(gambleRate*0.035,['!survivalist !lunatic'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] lose[1:s] [1:their] sanity!1`,p=>{p[1].gain("lunatic");});
+			new G.act(gambleRate*0.035,['!survivalist !lunatic'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] lose[1:s] [1:their] sanity!`,p=>{p[1].gain("lunatic");});
 			new G.act(gambleRate*0.01,['!survivalist'],`[RED][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin!<br>[1:They] win[1:s] a [heart attack|brain aneurysm|spontaneous combustion|stroke|sudden and fatal blood clot]!`,p=>{p[1].die("unucky gambling");});
 			
 			new G.act(gambleRate*0.025,['!survivalist brash'],`[BLUE][1] finds a mysterious roulette wheel `+rouletteLocation+` and gives it a spin! [1:They] gain[1:s] 2 points! Double or nothing!<br>[1] wins big, scoring a whopping 4 points!`,p=>{p[1].score(4);});
@@ -2988,7 +3010,7 @@ G={
 				p[1].join(team);
 				p[2].join(team);
 			});
-			new G.act(newTeamRate*injuryTreat,['noTeam first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed !sociopath'], `[BLUE][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>Once [2:g|he's|she's|they've] healed up they join [1] out of gratitude, creating Team [1]!.`,p=>{
+			new G.act(newTeamRate*injuryCommon,['noTeam first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed !sociopath'], `[BLUE][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>Once [2:g|he's|she's|they've] healed up they join [1] out of gratitude, creating Team [1]!.`,p=>{
 				var team = new G.team({name:'Team '+p[1].name,chars:[]})
 				p[1].join(team);
 				p[2].join(team);
@@ -3060,21 +3082,21 @@ G={
 					p[3].join(p[2]);
 					p[1].score(2);
 				});
-			new G.act(0.5*injuryTreat,['noTeam first_aid_kit !sociopath', 'inTeam burnt|bleed|concussed !sociopath teamAlive:>1', '+ team'], `[BLUE][1] offers to use [1:their] [first aid kit|medical supplies] to heal [2] if [1:they] can join [3]. [After some deliberation|Worried for [2]'s health] [3] agrees!`,p=>{
+			new G.act(0.5*injuryCommon,['noTeam first_aid_kit !sociopath', 'inTeam burnt|bleed|concussed !sociopath teamAlive:>1', '+ team'], `[BLUE][1] offers to use [1:their] [first aid kit|medical supplies] to heal [2] if [1:they] can join [3]. [After some deliberation|Worried for [2]'s health] [3] agrees!`,p=>{
 				p[1].join(p[3]);
 				p[2].lose('concussed');
 				p[2].lose('bleed');
 				p[2].lose('burnt');
 				p[1].score(1);
 			});				
-				new G.act(0.5*injuryTreat,['inTeam first_aid_kit !sociopath', '+ team', 'noTeam burnt|bleed|concussed !sociopath'], `[BLUE][1] sees [3] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [3:them]!<br>Once [2:g|he's|she's|they've] healed up they join [2] out of gratitude!`,p=>{
+				new G.act(0.5*injuryCommon,['inTeam first_aid_kit !sociopath', '+ team', 'noTeam burnt|bleed|concussed !sociopath'], `[BLUE][1] sees [3] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [3:them]!<br>Once [2:g|he's|she's|they've] healed up they join [2] out of gratitude!`,p=>{
 					p[3].join(p[2]);
 					p[3].lose('concussed');
 					p[3].lose('bleed');
 					p[3].lose('burnt');
 					p[1].score(1);
 				});				
-				new G.act(newTeamRate*injuryTreat*rareEventMult,['first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed sociopath'], `[RED][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>[2] repays the kindness by killing [1] when [1:their] back is turned and stealing [1:their] first aid kit!.`,p=>{p[2].kill(p[1]);p[2].gain("first aid kit");p[1].lose("first aid kit");});			
+				new G.act(newTeamRate*injuryCommon*rareEventMult,['first_aid_kit !sociopath', 'noTeam burnt|bleed|concussed sociopath'], `[RED][1] sees [2] heavily wounded and uses [1:their] [first aid kit|medical supplies] to heal [2:them]!<br>[2] repays the kindness by killing [1] when [1:their] back is turned and stealing [1:their] first aid kit!.`,p=>{p[2].kill(p[1]);p[2].gain("first aid kit");p[1].lose("first aid kit");});			
 			new G.act(0.1,['inTeam','+ team teamalive:1'],`[RED][1] [sees no point in|thinks it's silly|is tired of] being the only member in [2] and leaves it.`,p=>{p[1].leave();});
 			/*
 			//just a test

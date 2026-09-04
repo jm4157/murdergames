@@ -1,10 +1,20 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 8/29/29
+
+### New/Reworked Traits
+- Each trait has a "last breath" mechanic for a special action they can take while wounded
+- Sneaky players cannot be coup-de-grased
+
 ## 8/27/26
 
 ### New/Reworked Items
 - Wish rings are now guaranteed to revive their wearer if they die, but break in the process
+
+### New/Reworked Mechanics
+- Adjusted the weights for wound events to reduce lingering
+- Added a Last Breath mechanic where wounded characters can act based on their traits
 
 ## 8/17/26
 
