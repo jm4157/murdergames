@@ -1,6 +1,12 @@
 # Changelog
 Curious how this mod differs from the original? Here's a list of all the changes made
 
+## 9/5/29
+
+### New/Reworked Traits
+- Made Heroic and Annoying last breaths more powerful
+- Scavengers now hunt players with good items to steal their loot
+
 ## 9/4/29
 
 ## New/Reworked Mechanics

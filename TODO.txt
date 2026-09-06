@@ -1,11 +1,7 @@
-- Pickaxe
-	- Mine for gold
-	- Picked them apart
-
-- Make weapon attacks more likely
 - More team shenanigans with Kind
-- Scavengers steal item on kill
-- Less decomposed joke
+- Ghosts can calm down teammates
+- Dead whole team dead showcase
+- Frenzied and zombies can kill each other
 
 - Mystical Rework
 	- All: Sheep spell, sheep miscast, magic wands always stay on
@@ -24,7 +20,4 @@
 	- Sociopath: Direct damage spells (evil and fucked-up) (ATK)
 	- Survivalist: Summon a familiar, magically boosted pets (UTIL)
 
-Last breath 9
-Afterlife 4
 Mystical 1
-Pickaxe 1
